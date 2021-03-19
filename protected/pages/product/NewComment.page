@@ -1,0 +1,106 @@
+<%@ MasterClass="Application.layouts.HeaderFooterLayout"نظر جدید" %>
+<com:TContent id="content">
+
+
+	<style>
+		.font {
+			font-family: 'BYekan';
+		}
+
+		.font1 {
+			font-family: 'DiodrumArabicBold';
+		}
+
+		.nav-direction {
+			font-family: 'BYekan';
+			direction: rtl;
+		}
+
+		.persian {
+			font-family: 'BYekan';
+			direction: rtl;
+			/* text-align:right; */
+		}
+
+		.text:hover {
+			padding-top: 2em;
+		}
+
+		.background {
+			background: url(image/home/search-box.jpg) no-repeat;
+			width: 30px;
+			height: 30px;
+			background-size: contain;
+			margin-left: -0.4em;
+			border-bottom-right-radius: 8px;
+			border-top-right-radius: 8px;
+		}
+
+		@media screen and (min-width: 200px) and (max-width: 1250px) {
+			.awesome-icon {
+				font-size: 2em;
+			}
+		}
+
+		#hekl2 {
+			font-size: 14.5px;
+		}
+
+		a {
+			color: black;
+		}
+	</style>
+
+	<br>
+	<br>
+	<div style="background-color:#FFF;padding-top:2em;padding-bottom:1em;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);border-radius:10px" class="container">
+		<com:TActivePanel id="pnlAfterAdd" Visible="false" >
+			<p class="bg-success"
+				style="text-align: center;padding: 10px; border-radius: 5px; font-family:yekan; font-size: 15px;color:white">
+				.ارسال نظر جدید با موفقیت انجام شد
+			</p>
+		</com:TActivePanel>
+		<com:TActivePanel id="pnlFalse" Visible="false" >
+			<p class="bg-danger"
+				style="text-align: center;padding: 10px; border-radius: 5px; font-family:yekan; font-size: 15px;color:white">
+				.لطفا نظر خود را بنویسید
+			</p>
+		</com:TActivePanel>
+		<div class="row justify-content-center mb-5">
+			<div class="col-md-7 text-center" style="font-family:yekan;">
+                <h2 class="font-weight-light text-black" style="font-family:DiodrumArabicBold;">
+                    <span class="fa fa-comment"></span>
+                    افزودن نظر
+                </h2>
+				<p class="color-black-opacity-5" style="font-family:yekan;">نظرتان را با ما درباره محصول به اشتراک بذارید</p>
+			</div>
+		</div>
+		<div class="row mb-3 align-items-stretch" align="right">
+
+			<div class="form-group col-md-12 col-sm-12 col-xs-12" style="float:right;" align="right">
+				<p style="direction: rtl;font-family:yekan; font-size:15px; margin-right: 12px; "><span
+						class="glyphicon glyphicon-edit"></span> نظر :
+					<div class="table-responsive">
+						<com:THtmlArea EnableVisualEdit="false" id="htmlAreaDesc" Cssclass="form-group col-md-12 col-sm-12 col-xs-12" 
+							width="1100px" Height="300px">
+							<prop:Options>
+								theme : "advanced",
+								theme_advanced_resize_horizontal : false,
+								theme_advanced_resizing : true
+							</prop:Options>
+						</com:THtmlArea>
+					</div>
+			</div>
+			<br>
+		</div>
+		<div class="row">
+			<div class="col-12 text-center">
+				<com:TButton Cssclass="btn btn-warning border-2 py-3 px-5" OnClick="send"
+					style="font-family:DiodrumArabicBold;margin-bottom: 50px;" Text="ارسال نظر" />
+			</div>
+		</div>
+    </div>
+    <br>
+    <br>
+
+</com:TContent>

@@ -1,0 +1,325 @@
+<%@ MasterClass="Application.layouts.MainLayout" Title="کتاب جدید" %>
+<com:TContent id="content">
+	<div class="x_panel">
+		<div class="x_title" style="border-bottom:1px solid #415567;">
+			<ul class="nav navbar-right panel_toolbox">
+				<li>
+					<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+				</li>
+				<li>
+					<a class="close-link"><i class="fa fa-close"></i></a>
+				</li>
+			</ul>
+			<p style="font-size:17px;font-family:yekan;float:right;">: اطلاعات مربوط به ایجاد محصول جدید
+				<span class="glyphicon glyphicon-edit" style="color: #73879c;" aria-hidden="true"></span>
+			</p>
+			<div class="clearfix"></div>
+		</div>
+		<div class="x_content">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<com:TActivePanel id="pnlAfterAddTop" Visible="false">
+					<p class="bg-success"
+						style="text-align: center;padding: 10px; border-radius: 5px; font-family:yekan; font-size: 15px;">
+						ثبت محصول جدید با موفقیت انجام شد.
+					</p>
+				</com:TActivePanel>
+				<com:TActivePanel id="pnlAdd">
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> نام
+							:</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+							<com:TActiveTextBox id="txtName" Cssclass="form-control"
+								style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+								Attributes.placeholder="نام  " Attributes.data-validate-length-range="1"
+								Attributes.required="required" />
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">هزینه
+							(تومان) :</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
+							<com:TActiveTextBox id="txtPrice" Cssclass="form-control"
+								style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+								Attributes.placeholder="هزینه" Attributes.data-validate-length-range="1"
+								Attributes.required="required" />
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">
+							نمره goodreads
+							:</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:right;">
+							<span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+							<com:TActiveTextBox id="goodreads_rating" Cssclass="form-control"
+								style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+								Attributes.placeholder="نمره goodreads" Attributes.data-validate-length-range="1"
+								/>
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> دسته
+							بندی سطح اول :</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<com:TDropDownList id="dropCat" Cssclass="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> دسته بندی سطح دوم :</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<com:TDropDownList id="dropSubCat" Cssclass="form-control"/>
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> 
+							انتشاراتی :</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<com:TDropDownList id="dataPublisher" Cssclass="form-control" />
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> 
+							نویسنده :</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:right;direction:rtl">
+							<com:TActiveListBox id="dataAuthor" Cssclass="form-control" SelectionMode="Multiple"/>
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> 
+							مترجم :</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;direction:rtl">
+							<com:TActiveListBox id="dataTranslator" Cssclass="form-control" SelectionMode="Multiple"/>
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">سال انتشار:</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
+							<com:TActiveTextBox id="publisher_year" Cssclass="form-control"
+								style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+								Attributes.placeholder="سال انتشار" Attributes.data-validate-length-range="1"
+								Attributes.required="required" />
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">شابک:</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
+							<com:TActiveTextBox id="shabak" Cssclass="form-control"
+								style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+								Attributes.placeholder="شابک" Attributes.data-validate-length-range="1"
+								Attributes.required="required" />
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">زبان:</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
+							<com:TActiveTextBox id="language" Cssclass="form-control"
+								style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+								Attributes.placeholder="زبان" Attributes.data-validate-length-range="1"
+								Attributes.required="required" />
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">صفحات:</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<span class="fa fa-money form-control-feedback left" aria-hidden="true"></span>
+							<com:TActiveTextBox id="page" Cssclass="form-control"
+								style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+								Attributes.placeholder="صفحات" Attributes.data-validate-length-range="1"
+								Attributes.required="required" />
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> وضعیت
+							:</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<com:TDropDownList Cssclass="form-control" id="dropStatus" style="font-family:yekan;">
+								<com:TListItem Value="0" Text="تعيين نشده" />
+								<com:TListItem Value="1" Text="فعال" />
+								<com:TListItem Value="2" Text="غیرفعال" />
+							</com:TDropDownList>
+						</div>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<com:TFileUpload OnFileUpload="fileUploaded"/>
+							<com:THiddenField ID="Path1" />
+						</div>
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> آپلود عکس اول
+							:</label>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<com:TImage ID="image" style="width:105px;height:110px;" />
+							</div>
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<com:TLabel ID="Result" />
+							</div>
+						</div>
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> عکس محصول اول
+							:</label>
+					</div>
+
+					<div class=" form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<com:TFileUpload OnFileUpload="fileUploaded1" />
+							<com:THiddenField ID="Path2" />
+						</div>
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> آپلود عکس دوم
+							:</label>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<com:TImage ID="image2" style="width:105px;height:110px;" />
+							</div>
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<com:TLabel ID="Result2" />
+							</div>
+						</div>
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> عکس محصول دوم
+							:</label>
+					</div>
+
+
+					<div class=" form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<com:TFileUpload OnFileUpload="fileUploaded2" />
+							<com:THiddenField ID="Path3" />
+						</div>
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> آپلود عکس سوم
+							:</label>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<com:TImage ID="image3" style="width:105px;height:110px;" />
+							</div>
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<com:TLabel ID="Result3" />
+							</div>
+						</div>
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> عکس محصول سوم
+							:</label>
+					</div>
+
+
+
+					<div class=" form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<com:TFileUpload OnFileUpload="fileUploaded3" />
+							<com:THiddenField ID="Path4" />
+						</div>
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> آپلود عکس چهارم
+							:</label>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<com:TImage ID="image4" style="width:105px;height:110px;" />
+							</div>
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<com:TLabel ID="Result4" />
+							</div>
+						</div>
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> عکس محصول چهارم
+							:</label>
+					</div>
+
+
+					<div class=" form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<com:TFileUpload OnFileUpload="fileUploaded4" />
+							<com:THiddenField ID="Path5" />
+						</div>
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> آپلود عکس پنجم
+							:</label>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<com:TImage ID="image5" style="width:105px;height:110px;" />
+							</div>
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<com:TLabel ID="Result5" />
+							</div>
+						</div>
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> عکس محصول پنجم
+							:</label>
+					</div>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<com:TButton Cssclass="btn btn-round btn-default"
+							style="float:left;background-color: #415567;font-family:yekan;color:#ecf0f1;margin: 0 auto; display: block;"
+									Text=" ثبت تصاویر" />
+					</div>
+
+
+					<div class=" form-group col-md-12 col-sm-12 col-xs-12"
+						style="float:right;background-color:#f8f8f8;">
+						<p
+							style="direction: rtl;font-family:yekan; font-size:15px; margin-right: 12px;font-weight: bold;">
+							<span class="glyphicon glyphicon-edit"></span> توضیحات محصول :
+							<div class="table-responsive">
+								<com:THtmlArea EnableVisualEdit="false" id="htmlAreaDesc" Cssclass="form-group col-md-12 col-sm-12 col-xs-12" 
+									width="1100px" Height="300px">
+									<prop:Options>
+										theme : "advanced",
+										theme_advanced_resize_horizontal : false,
+										theme_advanced_resizing : true
+									</prop:Options>
+								</com:THtmlArea>
+							</div>
+						</p>
+					</div>
+					<div class="form-group col-md-12 col-sm-12 col-xs-12" style="float:right;">
+						<com:TButton Cssclass="btn btn-round btn-default" OnClick="AddProduct"
+							style="background-color: #415567;font-family:yekan;color:#ecf0f1;margin: 0 auto; display: block;"
+							Text="ثبت کتاب" />
+					</div>
+				</com:TActivePanel>
+				<div class="form-group col-md-12 col-sm-12 col-xs-12" style="margin-top: 15px;">
+					<com:TActivePanel id="pnlAfterAdd" Visible="false">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<p class="bg-success"
+								style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 15px;">
+								ثبت محصول جدید با موفقیت انجام شد.
+							</p>
+							<div style="display: flex;align-items: center;justify-content: center;">
+								<com:TButton Cssclass="btn btn-round btn-default" OnClick="ShowList"
+									style="background-color: #415567;font-family:yekan;color:#ecf0f1;margin: 0 auto; display: block;"
+									Text="مشاهده لیست محصولات" />
+							</div>
+						</div>
+					</com:TActivePanel>
+				</div>
+			</div>
+		</div>
+	</div>
+</com:TContent>

@@ -1,0 +1,168 @@
+<%@ MasterClass="Application.layouts.MainLayout"لیست سفارشات"%>
+<com:TContent id="content">
+	<div class="x_panel">
+    	<div class="x_title" style="border-bottom:1px solid #415567;">
+       		<ul class="nav navbar-right panel_toolbox" >
+            	<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+           	</ul>
+            <h2 style="font-family:yekan;float:right;">
+                جزئیات لیست سفارش
+              	<span class="glyphicon glyphicon-user" style="color: #73879c;" aria-hidden="true"></span>
+          	</h2>  
+          	 
+		</div>
+        <div class="x_content">
+   			<div class="table-responsive">
+                <table class="table table-striped jambo_table bulk_action" style="font-size:13px;font-family:yekan;direction: rtl;">
+                    <thead>
+                        <tr class="headings">
+                            <th class="column-title" style="text-align: center;">اسم کاربر</th>
+                            <th class="column-title" style="text-align: center;">نحوه ارسال</th>
+                            <th class="column-title" style="text-align: center;">نحوه پرداخت</th>
+                            <th class="column-title" style="text-align: center;">تلفن همراه</th>
+                            <th class="column-title" style="text-align: center;">قیمت کل</th> 
+                            <th class="column-title" style="text-align: center;">شهر</th>
+                            <th class="column-title" style="text-align: center;">کدپستی </th>
+                            <th class="column-title" style="text-align: center;">فاکتور ارسال </th>
+                            <th class="column-title" style="text-align: center;">وضعیت سفارش</th>
+                            <th class="column-title" style="text-align: center;">چاپ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="even pointer" style="color:#415567;">                            
+                            <td style="border-top: 1px solid #415567;">
+                                <p style="text-align: center;"> 
+                                    <com:TLiteral id="name"/> 
+                                </p>
+                            </td>	
+                            <td style="border-top: 1px solid #415567;">
+                                <p style="text-align: center;"> 
+                                    <com:TLiteral id="transportation"/> 
+                                </p>
+                            </td>
+                        
+                            <td style="border-top: 1px solid #415567;">
+                                <p style="text-align: center;"> 
+                                    <com:TLiteral id="payment"/> 
+                                </p>
+                            </td>
+                        
+                            <td style="border-top: 1px solid #415567;">
+                                <p style="text-align: center;">
+                                    <com:TLiteral id="mobile_phone"/> 
+                                </p>
+                            </td>
+                            
+                            <td style="border-top: 1px solid #415567;">
+                                <p style="text-align: center; font-family: none ;">
+                                    <com:TLiteral id="total_price"/> 
+                                </p>
+                            </td>
+                        
+                            <td style="border-top: 1px solid #415567;">
+                                <p style="text-align: center; font-family:none;">
+                                    <com:TLiteral id="city"/> 
+                                </p>
+                            </td>	
+                        
+                            <td style="border-top: 1px solid #415567;">
+                                <p style="text-align: center; font-family:none;">
+                                    <com:TLiteral id="zip_code"/> 
+                                </p>
+                            </td>	
+                        
+                            <td style="border-top: 1px solid #415567;">
+                                <p style="text-align: center;">
+                                    <com:TLiteral id="factor"/> 
+                                </p>
+                            </td>
+                            <td style="border-top: 1px solid #415567;">
+                                <p style="text-align: center;">
+                                    <com:TDropDownList ID="DropDownList">
+                                        <com:TListItem Value="0" Text="در صف بررسی" />
+                                        <com:TListItem Value="1" Text="تایید سفارش"/>
+                                        <com:TListItem Value="2" Text="آماده سازی سفارش" />
+                                        <com:TListItem Value="3" Text="خروج از مراکز پردازش" />
+                                        <com:TListItem Value="4" Text="دریافت در مراکز توضیع" />
+                                        <com:TListItem Value="5" Text="تحویل به مامور ارسال" />
+                                        <com:TListItem Value="6" Text="تحویل شده به مشتری" />
+                                    </com:TDropDownList>
+                                </p>
+                            </td>
+                            <td style="border-top: 1px solid #415567;">
+                                <p style="text-align: center;">
+                                    <com:TButton Cssclass="btn"
+                                        style="font-family:yekan;color:;margin: 0 auto; display: block;font-size:14px;" Text="Print"
+                                        OnClick="print" />
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <com:TButton Cssclass="btn"
+                    style="font-family:yekan;color:;margin: 0 auto; display: block;font-size:14px;" Text="ثبت وضعیت سفارش"
+                    OnClick="status" />
+            </div>  
+        </div>
+        <br>
+        <div style="background-color:black" class="container">
+            <div style="background-color: white;text-align:right" class="container">
+                <br>
+                <h1 style="text-align:right;font-family:yekan;margin-right:0.5em;font-size:2em">
+                    آدرس
+                </h1>
+                <hr>
+                <p style="text-align: right;margin-right:0.5em">
+                    <com:TLiteral id="address"/> 
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <h3 class="heading" style="text-align:right;font-family:yekan">لیست محصولات</h3>
+        <div class="x_content">
+            <div class="table-responsive">
+                <com:TActivePanel id="TActivePanel" ActiveControl.EnableUpdate="true">
+                <com:TRepeater ID="Repeater"
+                    EnableViewState="true" 
+                    AllowPaging="true" 
+                    AllowCustomPaging="true"
+                    PageSize="5" 
+                    ItemRenderer="Application.pages.order.repeater.RowCartsOrder">
+                    <prop:HeaderTemplate>
+                        <table class="table table-striped jambo_table bulk_action" style="font-size:13px;font-family:yekan;direction: rtl;">
+                            <thead>
+                                <tr class="headings">
+                                    <th class="column-title" style="text-align: center;">قیمت</th>
+                                    <th class="column-title" style="text-align: center;">تعداد</th>
+                                    <th class="column-title" style="text-align: center;">نام کتاب</th>
+                                    <th class="column-title" style="text-align: center;">نویسنده</th>
+                                    <th class="column-title" style="text-align: center;">ناشر</th>
+                                    <th class="column-title" style="text-align: center;">دسته بندی ۱</th>
+                                    <th class="column-title" style="text-align: center;">&nbsp;تصویر محصول</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    </prop:HeaderTemplate>
+                    <prop:FooterTemplate>
+                            </tbody>
+                        </table>
+                    </prop:FooterTemplate>
+                </com:TRepeater>
+                </com:TActivePanel>
+            </div>  
+        </div>
+    </div>
+    
+</com:TContent>         
+
+
+
+
+
+
+
+

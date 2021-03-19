@@ -1,0 +1,538 @@
+<html>
+
+<head>
+	<title>فروش کتاب</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="description" content="فروش کتاب، خرید کتاب، کتاب ارزان، متمایز">
+    <meta name="keywords" content="کتاب، نویسنده، فروش کتاب">
+    <meta name="author" content="تیم جزیره کتاب">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/shop/css/animate.css">
+	<link rel="stylesheet" href="assets/shop/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="assets/shop/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="assets/shop/css/magnific-popup.css">
+	<link rel="stylesheet" href="assets/shop/css/flaticon.css">
+	<link rel="stylesheet" href="assets/shop/css/style.css">
+	<link href="assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/shop/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="assets/shop/css/homeStyle.css">
+	<link rel="stylesheet" type="text/css" href="assets/shop/slick/fullscreen.css">
+</head>
+
+<style>
+	@font-face {
+		font-family: "DiodrumArabicBold";
+		src: url("assets/shop/fonts/dambeldor.ttf") format('truetype');
+	}
+
+	@font-face {
+		font-family: "BYekan";
+		src: url("assets/shop/fonts/BYekan.ttf");
+	}
+
+</style>
+
+<script>
+	function myFunction1() {
+		var x = document.getElementById("myTopnav");
+		if (x.className === "topnav") {
+			x.className += " responsive";
+
+		} else {
+			x.className = "topnav";
+		}
+	}
+</script>
+
+
+<body style="background-color: #f5f5f5;margin-right:0">
+	<com:TForm>
+		<div style="background-color:#FFD700;height:35px" style="overflow: hidden;float: right;
+			display: block;
+			color: black;
+			font-family: 'BYekan';
+			text-align: center;
+			padding: 20px 20px;
+			text-decoration: none;
+			font-size: 19px;">
+
+			<com:TLiteral id="register" />
+			&nbsp;
+
+			<com:TLiteral id="login_theme" />
+
+			&nbsp;
+			<com:TLiteral id="profile_theme" />
+
+			<a href="<%=$this->Service->constructUrl("package.Cart")%>" class="nav_style active">
+				<i style="font-size:15px;margin-top:0.19em" class="fa fa-shopping-cart"></i>
+			</a>
+			<a id="icon_style" href="https://www.instagram.com/jazire__ketab/" class="active">
+				<span style="font-size:15px;margin-top:0.2em" class="fa fa-instagram"></span>
+			</a>
+			<a href="https://www.twitter.com/bookisland6" class="icon_style active">
+				<span style="font-size:15px;margin-top:0.2em" class="fa fa-twitter"></span>
+			</a>
+			<a href="" class="icon_style active">
+				<span style="font-size:15px;margin-top:0.2em" class="fa fa-telegram"></span>
+			</a>
+			&nbsp;
+		</div>
+
+		<div style="background-color:white">
+			<!-- navbar -->
+			<div class="topnav nav_margin" id="myTopnav">
+				<!-- backend -->
+				<com:TLiteral id="lit_header" />
+
+				<com:TDropDownList ID="txt_Search" style="font-family:BYekan;font-size:14px;width:60px;height:29.5px;">
+					<com:TListItem Value="-1" Text="همه" />
+					<com:TListItem Value="0" Text="کتاب" />
+					<com:TListItem Value="1" Text="نویسنده" />
+					<com:TListItem Value="2" Text="مترجم" />
+					<com:TListItem Value="3" Text="ناشر" />
+					<com:TListItem Value="3" Text="قیمت" />
+				</com:TDropDownList>
+
+				<com:TActiveTextBox id="SearchText"
+					style="font-size: 15px;font-family: BYekan;direction: rtl;height: 29.5px;width: 150px;padding-bottom:0.1px"
+					Attributes.placeholder="جستجو..." />
+				<com:TButton Text="🔎" style="font-family:BYekan;font-size:14px;border-radius:0px;height:28.5px;width:50px"
+					OnClick="search_product" />
+
+				<a href="javascript:void(0);" class="icon" onclick="myFunction1()">&#9776;</a>
+			</div>
+		</div>
+
+
+		<!-- <div class="hero-wrap" style="height:300px;;text-align:center;background-image: url();" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row no-gutters slider-text align-items-center justify-content-center">
+					<div style="background-color:transparent;text-align:center;margin-top:-4em"
+						class="col-md-8 ftco-animate d-flex align-items-end">
+						<div style="color:white" class="w-100 font">
+							<h1 style="font-family:DiodrumArabicBold;font-size: 3em;"><span style="text-align:center">
+								<com:TLiteral id="lit_slider1_title" /></span></h1>
+								<p>
+									<com:TLiteral id="lit_slider1_desc" />
+								</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
+		<div class="carousel js-flickity"
+			data-flickity-options='{ "imagesLoaded":"true", "autoPlay": "false", "watchCSS":"true" ,"pageDots": false}'>
+			<div style="width: 100%;" class="carousel-cell">
+				<img style="width: 100%;
+					height: 450px;" src="<com:TLiteral id="lit_slider1_img" />"/>
+			</div>
+			<div style="width: 100%;" class="carousel-cell">
+				<img style="width: 100%;
+					height: 450px;" src="<com:TLiteral id="lit_slider1_img2" />"/>
+			</div>
+			<div style="width: 100%;" class="carousel-cell">
+				<img style="width: 100%;
+					height: 450px;" src="<com:TLiteral id="lit_slider1_img3" />"/>
+			</div>
+		</div>
+
+		<section style="padding-top:1.5em;" class="ftco-no-pb">
+			<div class="container">
+				<div style="background:none" class="carousel js-flickity"
+					data-flickity-options='{ "groupCells": true, "autoPlay": true,"watchCSS": true,"prevNextButtons": false,"pageDots": true}'>
+					<div style="margin-top:1.8em;" class="carousel-cell support_responsive">
+						<div style="border-color:white" class="sort w-100 text-center ftco-animate">
+							<div class="img"
+								style="background-image: url(https://mpng.subpng.com/20200118/hwi/transparent-money-icon-cash-icon-payment-icon-5e23bfd5d1d8e3.1867426915794011738595.jpg);border-color:black">
+							</div>
+							<h6 style="font-family:DiodrumArabicBold;color:black">پرداخت در محل</h6>
+						</div>
+					</div>
+					<div style="margin-top:1.6em;" class="carousel-cell support_responsive">
+						<div class="sort w-100 text-center ftco-animate">
+							<div class="img"
+								style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRtzjD7hsoAAN119X2A4VooEUoAWNYXPtk8_g&usqp=CAU);">
+							</div>
+							<h6 style="font-family:DiodrumArabicBold;color:black">پشتیبانی</h6>
+						</div>
+					</div>
+					<div style="margin-top:1.6em;;" class="carousel-cell support_responsive">
+						<div class="sort w-100 text-center ftco-animate carousel-cell">
+							<div class="img"
+								style="background-image: url(https://library.kissclipart.com/20191222/lbw/kissclipart-delivery-truck-icon-logistic-icon-shipping-and-del-52c7375ea6d34bdb.png);">
+							</div>
+							<h6 style="font-family:DiodrumArabicBold;color:black">پیک اختصاصی</h6>
+						</div>
+					</div>
+					<div style="margin-top:1.6em;" class="carousel-cell support_responsive">
+						<div class="sort w-100 text-center ftco-animate carousel-cell">
+							<div class="img"
+								style="background-image: url(https://img.favpng.com/17/6/12/computer-icons-stock-photography-royalty-free-image-portable-network-graphics-png-favpng-90EhvVtiWMn5fTgReYRXxZrYL.jpg);">
+							</div>
+							<h6 style="font-family:DiodrumArabicBold;color:black">ضمانت بازگشت</h6>
+						</div>
+					</div>
+					<div style="margin-top:1.6em;" class=" carousel-cell support_responsive">
+						<div class="sort w-100 text-center ftco-animate carousel-cell">
+							<div class="img"
+								style="background-image: url(https://img.icons8.com/plasticine/2x/cheap-2.png);">
+							</div>
+							<h6 style="font-family:DiodrumArabicBold;color:black">کتاب های ارزان</h6>
+						</div>
+					</div>
+					<div style="margin-top:1.6em;" class="carousel-cell support_responsive">
+						<div class="sort w-100 text-center ftco-animate">
+							<div class="img"
+								style="background-image: url(https://library.kissclipart.com/20200302/tww/kissclipart-product-icon-delivery-icon-shipping-icon-77109cb224f70200.png);">
+							</div>
+							<h6 style="font-family:DiodrumArabicBold;color:black">ارسال به سراسر ایران</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- <section style="matgin-bottom:-3em">
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-md-4 d-flex">
+						<div style="text-color:black;height:150px" class="intro d-lg-flex w-100 ftco-animate">
+							<span style="color:black;text-align:center;margin-top:-0.5em"
+								class="awesome-icon fa fa-phone"></span>
+							<div class="text">
+								<br>
+								<h2 class="header_text font1"
+									id="hekl" style="color:black;direction:rtl;text-align:right;">
+									<com:TLiteral id="Shop" />
+								</h2>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 d-flex">
+						<div style="text-color:black" class="intro d-lg-flex w-100 ftco-animate">
+							<span style="color:black;text-align:center;margin-top:-0.5em"
+								class="awesome-icon fa fa-money"></span>
+							<div class="text">
+								<br>
+								<h2 id="hekl2" class="font"
+									style="color:black;direction:rtl;text-align:right;font-family:DiodrumArabicBold;">
+									<com:TLiteral id="ShopBox2" />
+								</h2>
+								<hr>
+								<p class="font" style="color:black;direction:rtl;text-align:right;">
+									<com:TLiteral id="ShopBox2_desc" />
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 d-flex">
+						<div style="text-color:black" class="intro d-lg-flex w-100 ftco-animate">
+							<span style="color:black;text-align:center;margin-top:-0.5em"
+								class="awesome-icon fa fa-truck"></span>
+							<div class="text">
+								<br>
+								<h2 class="font"
+									style="color:black;direction:rtl;text-align:right;font-family:DiodrumArabicBold;font-size:14px">
+									<com:TLiteral id="ShopBox3" />
+								</h2>
+								<hr>
+								<p class="font" style="color:black;direction:rtl;text-align:right;">
+									<com:TLiteral id="ShopBox3_desc" />
+								</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>  -->
+
+
+		<section style="margin-bottom:3em;margin-top:3.5em">
+			<div class="container">
+				<h5 style="text-align:right;font-family:DiodrumArabicBold">
+					کتاب های عمومی
+				</h5>
+				<hr>
+				<com:TActivePanel id="TActivePanel" ActiveControl.EnableUpdate="true">
+					<com:TRepeater ID="Repeater" EnableViewState="true" AllowPaging="true" AllowCustomPaging="true"
+						pageSize="12" ItemRenderer="Application.pages.product.repeater.RowProductsHome">
+						<prop:HeaderTemplate>
+							<div style="background-color:#FFD700;height:400px" class="carousel"
+								data-flickity='{ "groupCells": true,"pageDots": false}'>
+						</prop:HeaderTemplate>
+						<prop:FooterTemplate>
+			</div>
+			</prop:FooterTemplate>
+			</com:TRepeater>
+			</com:TActivePanel>
+
+			<div style="padding-top:3em">
+				<com:TActivePanel id="TActivePanel3" ActiveControl.EnableUpdate="true">
+					<com:TRepeater ID="Repeater3" EnableViewState="true" AllowPaging="true" AllowCustomPaging="true"
+						PageSize="20" ItemRenderer="Application.pages.product.repeater.RowCatsHome">
+						<prop:HeaderTemplate>
+							<div style="background-color:#FFF;"
+								data-flickity='{ "groupCells": true,"freeScroll": true,"prevNextButtons": false }'>
+						</prop:HeaderTemplate>
+						<prop:FooterTemplate>
+			</div>
+			</prop:FooterTemplate>
+			</com:TRepeater>
+			</com:TActivePanel>
+			</div>
+
+
+			<div style="padding-top:3em">
+				<h5 style="text-align:right;font-family:DiodrumArabicBold">
+					جدیدترین ها
+				</h5>
+				<hr>
+				<com:TActivePanel id="TActivePanel2" ActiveControl.EnableUpdate="true">
+					<com:TRepeater ID="Repeater2" EnableViewState="true" AllowPaging="true" AllowCustomPaging="true"
+						PageSize="12" ItemRenderer="Application.pages.product.repeater.RowProductsHome">
+						<prop:HeaderTemplate>
+							<div style="background-color:#FFD700;;height:400px" class="carousel"
+								data-flickity='{ "groupCells": true,"pageDots": false }'>
+						</prop:HeaderTemplate>
+						<prop:FooterTemplate>
+			</div>
+			</prop:FooterTemplate>
+			</com:TRepeater>
+			</com:TActivePanel>
+			</div>
+
+			<div style="padding-top:3em">
+				<com:TActivePanel id="TActivePanel7" ActiveControl.EnableUpdate="true">
+					<com:TRepeater ID="Repeater7" EnableViewState="true" AllowPaging="true" AllowCustomPaging="true"
+						PageSize="2" ItemRenderer="Application.pages.product.repeater.RowProductsIntroduction">
+						<prop:HeaderTemplate>
+							<div class="row">
+						</prop:HeaderTemplate>
+						<prop:FooterTemplate>
+			</div>
+			</prop:FooterTemplate>
+			</com:TRepeater>
+			</com:TActivePanel>
+			</div>
+
+			<div style="padding-top:2em">
+				<h5 style="text-align:right;font-family:DiodrumArabicBold">
+					کودک و نوجوان
+				</h5>
+				<hr>
+				<com:TActivePanel id="TActivePanel6" ActiveControl.EnableUpdate="true">
+					<com:TRepeater ID="Repeater6" EnableViewState="true" AllowPaging="true" AllowCustomPaging="true"
+						PageSize="8" ItemRenderer="Application.pages.product.repeater.RowProductsHome">
+						<prop:HeaderTemplate>
+							<div style="background-color:#FFD700;height:400px" class="carousel"
+								data-flickity='{ "groupCells": true,"pageDots": false }'>
+						</prop:HeaderTemplate>
+						<prop:FooterTemplate>
+			</div>
+			</prop:FooterTemplate>
+			</com:TRepeater>
+			</com:TActivePanel>
+			</div>
+
+			<div style="margin-top:3em" class="row justify-content-center">
+				<div class="col-md-4">
+					<a href="<%=$this->Service->constructUrl("product.Products")%>"
+						style="font-family:DiodrumArabicBold;background-color:#FFD700"
+						class="btn btn-warning d-block">مشاهده تمامی محصولات <span
+							class="fa fa-long-arrow-right"></span></a>
+				</div>
+			</div>
+			</div>
+		</section>
+
+		<section class="testimony-section img"
+			style="margin-top:3em;padding-top:2em;background-image: url(<com:TLiteral id="lit_slider2_img" />);">
+		<div class="container">
+			<div class="row justify-content-center mb-5">
+				<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+					<h2 style="font-family: DiodrumArabicBold" class="mb-3">
+						<p style="color:black;background-color:white" class="idea">
+							<com:TLiteral id="lit_people_idea" />
+						</p>
+					</h2>
+				</div>
+			</div>
+			<div class="row ftco-animate">
+				<div class="col-md-12">
+					<com:TActivePanel id="TActivePanel5" ActiveControl.EnableUpdate="true">
+						<com:TRepeater ID="Repeater5" EnableViewState="true" AllowPaging="true" AllowCustomPaging="true"
+							PageSize="9" ItemRenderer="Application.pages.quote.repeater.RowQuotesHome">
+							<prop:HeaderTemplate>
+								<div class="carousel-testimony owl-carousel ftco-owl">
+							</prop:HeaderTemplate>
+							<prop:FooterTemplate>
+				</div>
+				</prop:FooterTemplate>
+				</com:TRepeater>
+				</com:TActivePanel>
+			</div>
+		</div>
+		</div>
+		</section>
+
+	</com:TForm>
+
+
+	<footer style="margin-top:-1em" class="ftco-footer">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 style="direction:rtl;text-align:right;font-family:DiodrumArabicBold;font-size:15px">
+							<a href="#">
+								<com:TLiteral id="lit_footer_about" />
+							</a>
+						</h2>
+						<p style="direction:rtl;text-align:right;font-family:BYekan">
+							<com:TLiteral id="lit_footer_desc" />
+						</p>
+						<ul class="ftco-footer-social list-unstyled mt-2">
+							<li style="text-align:right;float:right" class="ftco-animate"><a href=""><span
+										style="color:black" class="fa fa-telegram"></span></a></li>
+							<li style="text-align:right;float:right" class="ftco-animate"><a
+									href="https://www.twitter.com/bookisland6"><span style="color:black"
+										class="fa fa-twitter"></span></a></li>
+							<li style="text-align:right;float:right" class="ftco-animate"><a
+									href="https://www.instagram.com/skyfallcamp/"><span style="color:black"
+										class="fa fa-instagram"></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 style="direction:rtl;font-family:DiodrumArabicBold;text-align:right" class="ftco-heading-2">
+							حساب کاربری من</h2>
+						<ul class="list-unstyled">
+							<li style="text-align:right"><a style="direction:rtl;font-family:BYekan;text-align:right"
+									href="<%=$this->Service->constructUrl("profile")%>"><span style="text-align:right"
+										class="fa fa-chevron-left mr-2"></span>حساب
+									کاربری
+									من</a></li>
+							<li style="text-align:right"><a style="direction:rtl;font-family:BYekan;text-align:right"
+									href="<%=$this->Service->constructUrl("users.NewUser")%>"><span
+										style="text-align:right" class="fa fa-chevron-left mr-2"></span>ثبت
+									نام
+								</a>
+							</li>
+							<li style="text-align:right"><a style="direction:rtl;font-family:BYekan;text-align:right"
+									href="<%=$this->Service->constructUrl("login.login")%>"><span
+										style="text-align:right" class="fa fa-chevron-left mr-2"></span>ورود</a>
+							</li>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 style="direction:rtl;font-family:DiodrumArabicBold;text-align:right" class="ftco-heading-2">
+							اطلاعات</h2>
+						<ul class="list-unstyled">
+							<li style="text-align:right"><a style="direction:rtl;font-family:BYekan;text-align:right"
+									href="<%=$this->Service->constructUrl("home")%>"><span
+										class="fa fa-chevron-left mr-2"></span>درباره ما</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 style="direction:rtl;font-family:DiodrumArabicBold;text-align:right" class="ftco-heading-2">
+							دسترسی سریع</h2>
+						<ul class="list-unstyled">
+							<li style="text-align:right"><a style="direction:rtl;font-family:BYekan;text-align:right"
+									href="<%=$this->Service->constructUrl("product.Products")%>"><span
+										class="fa fa-chevron-left mr-2"></span>لیست کتاب ها</a></li>
+							<li style="text-align:right"><a style="direction:rtl;font-family:BYekan;text-align:right"
+									href="<%=$this->Service->constructUrl("package.Cart")%>"><span
+										class="fa fa-chevron-left mr-2"></span>سبد خرید</a></li>
+							<li style="text-align:right">
+								<com:TLiteral id="NewAddress" />
+							</li>
+							<li style="text-align:right">
+								<com:TLiteral id="AddressList" />
+							</li>
+							<li style="text-align:right">
+								<com:TLiteral id="CommentList" />
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- <div class="col-sm-12 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 style="direction:rtl;font-family:DiodrumArabicBold;text-align:right" class="ftco-heading-2">
+							خدمات ما</h2>
+						<ul class="list-unstyled">
+							<li style="text-align:right"><a style="direction:rtl;font-family:BYekan;text-align:right"
+								href="<%=$this->Service->constructUrl("tour.ToursListHome")%>"><span
+									class="fa fa-chevron-left mr-2"></span>برنامه ها</a></li>
+							<li style="text-align:right"><a style="direction:rtl;font-family:BYekan;text-align:right"
+								href="<%=$this->Service->constructUrl("Map")%>"><span
+									class="fa fa-chevron-left mr-2"></span>آب و هوا و مسیریابی</a></li>
+							<li style="text-align:right"><a style="direction:rtl;font-family:BYekan;text-align:right"
+								href="<%=$this->Service->constructUrl("vehicle.VehiclesListHome")%>"><span
+									class="fa fa-chevron-left mr-2"></span>وسایل نقلیه</a></li>
+							<li style="text-align:right"><a style="direction:rtl;font-family:BYekan;text-align:right"
+								href="<%=$this->Service->constructUrl("travel.TravelEquipmentListHome")%>"><span
+									class="fa fa-chevron-left mr-2"></span>تجهیزات</a></li>
+						</ul>
+					</div>
+				</div> -->
+			</div>
+		</div>
+		<div class="container-fluid px-0 py-5 bg-black">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<p class="mb-0" style="color: rgba(255,255,255,.5);">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							Copyright &copy;
+							<script>document.write(new Date().getFullYear());</script> All rights reserved | This
+							template is made with <i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a
+								href="https://colorlib.com" target="_blank">Colorlib.com</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" /></svg></div>
+
+	<script src="assets/shop/js/jquery.min.js"></script>
+	<script src="assets/shop/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="assets/shop/js/popper.min.js"></script>
+	<script src="assets/shop/js/bootstrap.min.js"></script>
+	<script src="assets/shop/js/jquery.easing.1.3.js"></script>
+	<script src="assets/shop/js/jquery.waypoints.min.js"></script>
+	<script src="assets/shop/js/jquery.stellar.min.js"></script>
+	<script src="assets/shop/js/owl.carousel.min.js"></script>
+	<script src="assets/shop/js/jquery.magnific-popup.min.js"></script>
+	<script src="assets/shop/js/jquery.animateNumber.min.js"></script>
+	<script src="assets/shop/js/scrollax.min.js"></script>
+	<script src="assets/shop/js/main.js"></script>
+	<script src="assets/shop/slick/slick.min.js" type="text/javascript" charset="utf-8"></script>
+	<script>jQuery.noConflict();</script>
+
+</body>
+
+</html>

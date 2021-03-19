@@ -1,0 +1,1666 @@
+<%@ MasterClass="Application.layouts.HeaderFooterLayout"محصولات کمپ" %>
+<com:TContent id="content">
+
+
+    <style>
+        .font {
+            font-family: 'BYekan';
+        }
+
+        .navbar-collapse {
+            color: black;
+        }
+
+        .navbar-nav {
+            color: black;
+        }
+
+        .nav-direction {
+            color: black;
+        }
+
+        .container1 {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .container1 input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+
+        .container1:hover input~.checkmark {
+            background-color: #ccc;
+        }
+
+        .container1 input:checked~.checkmark {
+            background-color: #FFD700;
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .container1 input:checked~.checkmark:after {
+            display: block;
+        }
+
+        .multi-steps>li.is-active:before,
+        .multi-steps>li.is-active~li:before {
+            content: counter(stepNum);
+            font-family: inherit;
+            font-weight: 700;
+        }
+
+        .multi-steps>li.is-active:after,
+        .multi-steps>li.is-active~li:after {
+            background-color: #ededed;
+        }
+
+        .multi-steps {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        .multi-steps>li {
+            counter-increment: stepNum;
+            text-align: center;
+            display: table-cell;
+            position: relative;
+            color: tomato;
+        }
+
+        .multi-steps>li:before {
+            content: '\f00c';
+            content: '\2713;';
+            content: '\10003';
+            content: '\10004';
+            content: '\2713';
+            display: block;
+            margin: 0 auto 4px;
+            background-color: #fff;
+            width: 36px;
+            height: 36px;
+            line-height: 32px;
+            text-align: center;
+            font-weight: bold;
+            border-width: 2px;
+            border-style: solid;
+            border-color: tomato;
+            border-radius: 50%;
+        }
+
+        .multi-steps>li:after {
+            content: '';
+            height: 2px;
+            width: 100%;
+            background-color: tomato;
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            z-index: -1;
+        }
+
+        .multi-steps>li:last-child:after {
+            display: none;
+        }
+
+        .multi-steps>li.is-active:before {
+            background-color: #fff;
+            border-color: tomato;
+        }
+
+        .multi-steps>li.is-active~li {
+            color: #808080;
+        }
+
+        .multi-steps>li.is-active~li:before {
+            background-color: #ededed;
+            border-color: #ededed;
+        }
+
+        .this:hover {
+            background: none;
+        }
+
+        #grad1 {
+            background-color: : #9C27B0;
+            background-image: linear-gradient(120deg, #FF4081, #81D4FA)
+        }
+
+        #msform {
+            text-align: center;
+            position: relative;
+            margin-top: 20px
+        }
+
+        #msform fieldset .form-card {
+            background: white;
+            border: 0 none;
+            border-radius: 0px;
+            box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+            padding: 20px 40px 30px 40px;
+            box-sizing: border-box;
+            width: 94%;
+            margin: 0 3% 20px 3%;
+            position: relative
+        }
+
+        #msform fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            width: 100%;
+            margin: 0;
+            padding-bottom: 20px;
+            position: relative
+        }
+
+        #msform fieldset:not(:first-of-type) {
+            display: none
+        }
+
+        #msform fieldset .form-card {
+            text-align: left;
+            color: #9E9E9E
+        }
+
+        #msform input,
+        #msform textarea {
+            padding: 0px 8px 4px 8px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0px;
+            margin-bottom: 25px;
+            margin-top: 2px;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: montserrat;
+            color: #2C3E50;
+            font-size: 16px;
+            letter-spacing: 1px
+        }
+
+        #msform input:focus,
+        #msform textarea:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: none;
+            font-weight: bold;
+            border-bottom: 2px solid skyblue;
+            outline-width: 0
+        }
+
+        #msform .action-button {
+            width: 100px;
+            background: skyblue;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 0px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px
+        }
+
+        #msform .action-button:hover,
+        #msform .action-button:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+        }
+
+        #msform .action-button-previous {
+            width: 100px;
+            background: #616161;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 0px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px
+        }
+
+        #msform .action-button-previous:hover,
+        #msform .action-button-previous:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+        }
+
+        select.list-dt {
+            border: none;
+            outline: 0;
+            border-bottom: 1px solid #ccc;
+            padding: 2px 5px 3px 5px;
+            margin: 2px
+        }
+
+        select.list-dt:focus {
+            border-bottom: 2px solid skyblue
+        }
+
+        .card {
+            z-index: 0;
+            border: none;
+            border-radius: 0.5rem;
+            position: relative
+        }
+
+        .fs-title {
+            font-size: 25px;
+            color: #2C3E50;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: left
+        }
+
+        .radio-group {
+            position: relative;
+            margin-bottom: 25px
+        }
+
+        .radio {
+            display: inline-block;
+            width: 204;
+            height: 104;
+            border-radius: 0;
+            background: #FFD700;
+            box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+            cursor: pointer;
+            margin: 8px 2px
+        }
+
+        .radio:hover {
+            box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+        }
+
+        .radio.selected {
+            box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+        }
+
+        .fit-image {
+            width: 100%;
+            object-fit: cover
+        }
+
+        .o-grid .col-12 {
+            -ms-flex: 0 0 100%;
+            -webkit-box-flex: 0;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .o-headline--profile {
+            padding-left: 0;
+            -webkit-box-align: end;
+            -ms-flex-align: end;
+            align-items: flex-end;
+            color: #858585;
+            margin: 10px 0 15px;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        .c-profile-stats {
+            background-color: #fff;
+            -webkit-box-shadow: 0 12px 12px 0 hsla(0, 0%, 71%, .1);
+            box-shadow: 0 12px 12px 0 hsla(0, 0%, 71%, .1);
+            border: 1px solid #dedede;
+            margin-bottom: 23px;
+            padding-bottom: 43px;
+            height: calc(100% - 68px);
+        }
+
+        .c-profile-stats__row {
+            display: -ms-flexbox;
+            display: -webkit-box;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: 0;
+            margin-left: 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .c-profile-stats__col:first-child {
+            border-right: none;
+        }
+
+        .c-profile-stats__col {
+            position: relative;
+            width: 100%;
+            text-align: right;
+            font-family: 'BYekan';
+            color: Black;
+            min-height: 1px;
+            -ms-flex: 0 0 50%;
+            -webkit-box-flex: 0;
+            flex: 0 0 50%;
+            max-width: 50%;
+            border-right: 1px solid #f1f1f1;
+            padding: 20px 30px;
+        }
+
+        .c-profile-stats__col p .c-profile-stats__value {
+            font-size: 19px;
+            font-size: 1.357rem;
+            line-height: 1.158;
+            direction: ltr;
+            text-align: right;
+            letter-spacing: -.5px;
+            color: gray;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .c-profile-stats__action {
+            padding: 10px 5px 17px;
+            text-align: center;
+            border-top: 1px solid #f1f1f1;
+            font-size: 12px;
+            font-size: .857rem;
+            line-height: 1.833;
+            position: absolute;
+            font-family: 'BYekan';
+            left: 0;
+            right: 0;
+            margin-top: -1px;
+        }
+
+        .o-headline {
+            margin: 26px 0 20px;
+            padding: 0 30px;
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            text-align: right;
+        }
+
+        .o-headline--profile {
+            padding-left: 0;
+            text-align: right;
+            -webkit-box-align: end;
+            -ms-flex-align: end;
+            align-items: flex-end;
+            color: #858585;
+            margin: 10px 0 15px;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        .profile {
+            margin: 20px 0;
+        }
+
+        /* Profile sidebar */
+        .profile-sidebar {
+            padding: 20px 0 10px 0;
+            background: #fff;
+        }
+
+        .profile-userpic img {
+            float: none;
+            margin: 0 auto;
+            width: 50%;
+            height: 50%;
+            -webkit-border-radius: 50% !important;
+            -moz-border-radius: 50% !important;
+            border-radius: 50% !important;
+        }
+
+        .profile-usertitle {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .profile-usertitle-name {
+            color: #5a7391;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .profile-usertitle-job {
+            text-transform: uppercase;
+            color: #5b9bd1;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .profile-userbuttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .profile-userbuttons .btn {
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 6px 15px;
+            margin-right: 5px;
+        }
+
+        .profile-userbuttons .btn:last-child {
+            margin-right: 0px;
+        }
+
+        .profile-usermenu {
+            margin-top: 30px;
+        }
+
+        .profile-usermenu ul li {
+            border-bottom: 1px solid #f0f4f7;
+        }
+
+        .profile-usermenu ul li:last-child {
+            border-bottom: none;
+        }
+
+        .profile-usermenu ul li a {
+            color: #93a3b5;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .profile-usermenu ul li a i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .profile-usermenu ul li a:hover {
+            background-color: #fafcfd;
+            color: #5b9bd1;
+        }
+
+        .profile-usermenu ul li.active {
+            border-bottom: none;
+        }
+
+        .profile-usermenu ul li.active a {
+            color: #5b9bd1;
+            background-color: #f6f9fb;
+            border-left: 2px solid #5b9bd1;
+            margin-left: -2px;
+        }
+
+        /* Profile Content */
+        .profile-content {
+            padding: 20px;
+            background: #fff;
+            min-height: 460px;
+        }
+
+        .c-adplacement-html,
+        .c-adplacement-html__item {
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .c-adplacement-html {
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            max-width: 100%;
+        }
+
+        .c-adplacement {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .c-adplacement__item:not(:last-of-type) {
+            margin-left: 20px;
+        }
+
+        .c-adplacement-html__item--light_blue {
+            background: -webkit-gradient(linear, right top, left top, from(#fff), color-stop(#fff), to(#eef7fc));
+            background: linear-gradient(270deg, #fff, #fff, #eef7fc);
+        }
+
+        .c-adplacement-html__item--a {
+            min-width: 24%;
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 24%;
+            flex: 1 1 24%;
+        }
+
+        .c-adplacement-html__item {
+            border: .8px solid rgba(0, 0, 0, .1);
+            position: relative;
+            border-radius: 5px;
+            font-size: 15px;
+            padding: 40px 10px 40px 20px;
+            -ms-flex-item-align: stretch;
+            align-self: stretch;
+            margin-left: 0 !important;
+        }
+
+        .c-adplacement-html__item-wrapper {
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .c-adplacement__item img {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+            cursor: pointer;
+        }
+
+        img,
+        img[alt] {
+            line-height: 22px;
+        }
+
+        .c-adplacement-html__item-image {
+            height: 100%;
+            max-height: 72px;
+            margin-left: 8px;
+            width: unset !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            max-width: 200px;
+            -o-object-fit: contain;
+            object-fit: contain;
+        }
+
+        img {
+            border-style: none;
+        }
+
+        .site-navbar {
+            margin-bottom: 0px;
+            z-index: 1999;
+            position: relative;
+        }
+
+        .site-navbar.transparent {
+            background: transparent;
+        }
+
+        .site-navbar.absolute {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .site-navbar .site-logo {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin-top: -20px;
+        }
+
+        .site-navbar .site-navigation.border-bottom {
+            border-bottom: 1px solid #f3f3f4 !important;
+        }
+
+        .site-navbar .site-navigation .site-menu {
+            margin-bottom: 0;
+        }
+
+        .site-navbar .site-navigation .site-menu .active>a {
+            color: #ef6c57;
+        }
+
+        .site-navbar .site-navigation .site-menu a {
+            text-decoration: none !important;
+            display: inline-block;
+        }
+
+        .site-navbar .site-navigation .site-menu>li {
+            display: inline-block;
+            padding: 10px 5px;
+        }
+
+        .site-navbar .site-navigation .site-menu>li>a {
+            padding: 10px 0px;
+            color: #000;
+            text-decoration: none !important;
+        }
+
+        .site-navbar .site-navigation .site-menu>li>a:hover {
+            color: #ef6c57;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children {
+            position: relative;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children>a {
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children>a:before {
+            position: absolute;
+            content: "\e313";
+            font-size: 16px;
+            top: 50%;
+            right: 0;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            font-family: 'icomoon';
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children .dropdown {
+            visibility: hidden;
+            opacity: 0;
+            top: 100%;
+            position: absolute;
+            text-align: left;
+            border-top: 2px solid #ef6c57;
+            -webkit-box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.1);
+            border-left: 1px solid #edf0f5;
+            border-right: 1px solid #edf0f5;
+            border-bottom: 1px solid #edf0f5;
+            padding: 0px 0;
+            margin-top: 20px;
+            margin-left: 0px;
+            background: #fff;
+            -webkit-transition: 0.2s 0s;
+            -o-transition: 0.2s 0s;
+            transition: 0.2s 0s;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children .dropdown.arrow-top {
+            position: absolute;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children .dropdown.arrow-top:before {
+            bottom: 100%;
+            left: 20%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children .dropdown.arrow-top:before {
+            border-color: rgba(136, 183, 213, 0);
+            border-bottom-color: #fff;
+            border-width: 10px;
+            margin-left: -10px;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children .dropdown a {
+            text-transform: none;
+            letter-spacing: normal;
+            -webkit-transition: 0s all;
+            -o-transition: 0s all;
+            transition: 0s all;
+            color: white;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children .dropdown .active>a {
+            color: #ef6c57 !important;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children .dropdown>li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            min-width: 200px;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children .dropdown>li>a {
+            padding: 9px 20px;
+            display: block;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children .dropdown>li>a:hover {
+            background: #f4f5f9;
+            color: #25262a;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children .dropdown>li.has-children>a:before {
+            content: "\e315";
+            right: 20px;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children .dropdown>li.has-children>.dropdown,
+        .site-navbar .site-navigation .site-menu .has-children .dropdown>li.has-children>ul {
+            left: 100%;
+            top: 0;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children .dropdown>li.has-children:hover>a,
+        .site-navbar .site-navigation .site-menu .has-children .dropdown>li.has-children:active>a,
+        .site-navbar .site-navigation .site-menu .has-children .dropdown>li.has-children:focus>a {
+            background: black;
+            color: white;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children:hover>a,
+        .site-navbar .site-navigation .site-menu .has-children:focus>a,
+        .site-navbar .site-navigation .site-menu .has-children:active>a {
+            color: #ef6c57;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children:hover,
+        .site-navbar .site-navigation .site-menu .has-children:focus,
+        .site-navbar .site-navigation .site-menu .has-children:active {
+            cursor: pointer;
+        }
+
+        .site-navbar .site-navigation .site-menu .has-children:hover>.dropdown,
+        .site-navbar .site-navigation .site-menu .has-children:focus>.dropdown,
+        .site-navbar .site-navigation .site-menu .has-children:active>.dropdown {
+            -webkit-transition-delay: 0s;
+            -o-transition-delay: 0s;
+            transition-delay: 0s;
+            margin-top: 0px;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .ftco-navbar-light {
+            background: white !important;
+            position: absolute;
+            top: 35px;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            padding: 0 0;
+        }
+
+        @media (max-width: 991.98px) {
+            .ftco-navbar-light {
+                background: #000000 !important;
+                position: relative;
+                top: 0;
+                padding: 10px 15px;
+            }
+        }
+
+        .ftco-navbar-light .navbar-brand {
+            color: black;
+        }
+
+        .ftco-navbar-light .navbar-brand span {
+            color: black;
+        }
+
+        .ftco-navbar-light .navbar-brand:hover {
+            color: gray;
+        }
+
+        @media (max-width: 991.98px) {
+            .ftco-navbar-light .navbar-brand {
+                color: gray;
+            }
+        }
+
+        .ftco-navbar-light .btn-cart {
+            display: inline-block;
+            position: relative;
+        }
+
+        .ftco-navbar-light .btn-cart span {
+            font-size: 20px;
+        }
+
+        .ftco-navbar-light .btn-cart div {
+            position: absolute;
+            top: 0;
+            right: 0px;
+            height: 18px;
+            line-height: 1;
+            border-radius: 50%;
+            padding: 0 5px;
+            background: black;
+        }
+
+        .ftco-navbar-light .btn-cart div small {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-toggle::after {
+            display: none;
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-menu {
+            border: none;
+            background: #fff;
+            -webkit-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
+            -moz-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
+            box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
+            padding: 0;
+            min-width: 20rem;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 767.98px) {
+            .ftco-navbar-light .btn-group .dropdown-menu {
+                right: -70px !important;
+            }
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-menu:after,
+        .ftco-navbar-light .btn-group .dropdown-menu:before {
+            content: ' ';
+            display: block;
+            border-style: solid;
+            border-width: 0 .5em .6em .5em;
+            border-color: transparent;
+            position: absolute;
+            right: 12px;
+            z-index: -1;
+        }
+
+        @media (max-width: 767.98px) {
+
+            .ftco-navbar-light .btn-group .dropdown-menu:after,
+            .ftco-navbar-light .btn-group .dropdown-menu:before {
+                right: 70px;
+            }
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-menu:before {
+            top: -.6em;
+            border-bottom-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-menu:after {
+            top: -.5em;
+            border-bottom-color: black;
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-menu .dropdown-item {
+            font-size: 16px;
+            color: black;
+            font-weight: 400;
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            white-space: normal;
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-menu .dropdown-item:last-child {
+            border: none;
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-menu .dropdown-item .img {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-menu .dropdown-item .text {
+            width: calc(100% - 60px);
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-menu .dropdown-item .text h4 {
+            margin-bottom: 0;
+            font-size: 18px;
+            font-weight: 500;
+            color: black;
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-menu .dropdown-item .text .quantity {
+            color: rgba(0, 0, 0, 0.4);
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-menu .dropdown-item.btn-link {
+            color: #b7472a;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .ftco-navbar-light .btn-group .dropdown-menu .dropdown-item:hover {
+            background: transparent;
+        }
+
+        @media (max-width: 991.98px) {
+            .ftco-navbar-light .navbar-nav {
+                padding-bottom: 10px;
+            }
+        }
+
+        .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
+            font-size: 14px;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: black;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 1 !important;
+        }
+
+        .ftco-navbar-light .navbar-nav>.nav-item>.nav-link:hover {
+            color: #b7472a;
+        }
+
+        @media (max-width: 991.98px) {
+            .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
+                padding-left: 0;
+                padding-right: 0;
+                padding-bottom: 0;
+                color: black;
+            }
+        }
+
+        .ftco-navbar-light .navbar-nav>.nav-item .dropdown-menu {
+            border: none;
+            background: #fff;
+            -webkit-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
+            -moz-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
+            box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
+        }
+
+        .ftco-navbar-light .navbar-nav>.nav-item.ftco-seperator {
+            position: relative;
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+
+        @media (max-width: 991.98px) {
+            .ftco-navbar-light .navbar-nav>.nav-item.ftco-seperator {
+                padding-left: 0;
+                margin-left: 0;
+            }
+        }
+
+        .ftco-navbar-light .navbar-nav>.nav-item.ftco-seperator:before {
+            position: absolute;
+            content: "";
+            top: 10px;
+            bottom: 10px;
+            left: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 991.98px) {
+            .ftco-navbar-light .navbar-nav>.nav-item.ftco-seperator:before {
+                display: none;
+            }
+        }
+
+        .ftco-navbar-light .navbar-nav>.nav-item.cta>a {
+            color: #fff;
+            border: 1px solid #b7472a;
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+            padding-left: 18px;
+            padding-right: 18px;
+            margin-top: 4px;
+            background: #b7472a;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -ms-border-radius: 2px;
+            border-radius: 2px;
+        }
+
+        .ftco-navbar-light .navbar-nav>.nav-item.cta>a span {
+            display: inline-block;
+            color: #fff;
+        }
+
+        .ftco-navbar-light .navbar-nav>.nav-item.cta>a:hover {
+            background: #b7472a;
+            border: 1px solid #b7472a;
+        }
+
+        .ftco-navbar-light .navbar-nav>.nav-item.cta.cta-colored a {
+            border: 1px solid #01d28e;
+            background: #01d28e !important;
+        }
+
+        .ftco-navbar-light .navbar-nav>.nav-item.active>a {
+            color: #fff;
+        }
+
+        @media (max-width: 991.98px) {
+            .ftco-navbar-light .navbar-nav>.nav-item.active>a {
+                color: #b7472a;
+            }
+        }
+
+        .ftco-navbar-light .navbar-toggler {
+            border: none;
+            color: rgba(255, 255, 255, 0.5) !important;
+            cursor: pointer;
+            padding-right: 0;
+            text-transform: uppercase;
+            font-size: 16px;
+            letter-spacing: .1em;
+        }
+
+        .ftco-navbar-light .navbar-toggler:hover,
+        .ftco-navbar-light .navbar-toggler:focus {
+            text-decoration: none;
+            color: #b7472a;
+            outline: none !important;
+        }
+
+        .ftco-navbar-light.scrolled {
+            position: fixed;
+            right: 0;
+            left: 0;
+            top: 0;
+            margin-top: -130px;
+            background: #fff !important;
+            -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .ftco-navbar-light.scrolled .btn-cart div {
+            position: absolute;
+            top: 0;
+            right: -5px;
+            height: 18px;
+            line-height: 1;
+            border-radius: 50%;
+            padding: 0 5px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .ftco-navbar-light.scrolled .btn-cart div small {
+            color: #b7472a;
+        }
+
+        @media (max-width: 991.98px) {
+            .ftco-navbar-light.scrolled .nav-item>.nav-link {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                padding-bottom: 0 !important;
+            }
+        }
+
+        .ftco-navbar-light.scrolled .nav-item.active>a {
+            color: #b7472a !important;
+        }
+
+        .ftco-navbar-light.scrolled .nav-item.cta>a {
+            color: #fff !important;
+            background: #b7472a;
+            border: none !important;
+            padding-top: 0.5rem !important;
+            padding-bottom: .5rem !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            margin-top: 6px !important;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        .ftco-navbar-light.scrolled .nav-item.cta>a span {
+            display: inline-block;
+            color: #fff !important;
+        }
+
+        .ftco-navbar-light.scrolled .nav-item.cta.cta-colored span {
+            border-color: #b7472a;
+        }
+
+        @media (max-width: 991.98px) {
+            .ftco-navbar-light.scrolled .navbar-nav {
+                background: none;
+                border-radius: 0px;
+                padding-left: 0rem !important;
+                padding-right: 0rem !important;
+            }
+        }
+
+        .ftco-navbar-light.scrolled .navbar-toggler {
+            border: none;
+            color: rgba(0, 0, 0, 0.5) !important;
+            border-color: rgba(0, 0, 0, 0.5) !important;
+            cursor: pointer;
+            padding-right: 0;
+            text-transform: uppercase;
+            font-size: 16px;
+            letter-spacing: .1em;
+        }
+
+        .ftco-navbar-light.scrolled .nav-link {
+            padding-top: 0.9rem !important;
+            padding-bottom: 0.9rem !important;
+            color: #000000 !important;
+        }
+
+        .ftco-navbar-light.scrolled .nav-link.active {
+            color: #b7472a !important;
+        }
+
+        .ftco-navbar-light.scrolled.awake {
+            margin-top: 0px;
+            -webkit-transition: .3s all ease-out;
+            -o-transition: .3s all ease-out;
+            transition: .3s all ease-out;
+        }
+
+        .ftco-navbar-light.scrolled.sleep {
+            -webkit-transition: .3s all ease-out;
+            -o-transition: .3s all ease-out;
+            transition: .3s all ease-out;
+        }
+
+        .ftco-navbar-light.scrolled .navbar-brand {
+            color: #000000;
+        }
+
+        .ftco-navbar-light.scrolled .navbar-brand span {
+            color: #b7472a;
+        }
+
+
+        @media screen and (min-width:350px) and (max-width:460px) {
+            .modal_font {
+                font-size: 12px;
+            }
+        }
+
+
+        @media screen and (min-width:200px) and (max-width:350px) {
+            .modal_font {
+                font-size: 10px;
+            }
+        }
+    </style>
+    <!-- <section class="ftco-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<div class="row mb-4">
+						<div class="col-md-12 d-flex justify-content-between align-items-center">
+							<h4 class="product-select">Select Types of Products</h4>
+							<select class="selectpicker" multiple>
+								<option>Brandy</option>
+								<option>Gin</option>
+								<option>Rum</option>
+								<option>Tequila</option>
+								<option>Vodka</option>
+								<option>Whiskey</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 d-flex">
+							<div class="product ftco-animate">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(images/prod-1.jpg);">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-shopping-bag"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-heart"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="sale">Sale</span>
+									<span class="category">Brandy</span>
+									<h2>Bacardi 151</h2>
+									<p class="mb-0"><span class="price price-sale">$69.00</span> <span
+											class="price">$49.00</span></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 d-flex">
+							<div class="product ftco-animate">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(images/prod-2.jpg);">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-shopping-bag"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-heart"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="seller">Best Seller</span>
+									<span class="category">Gin</span>
+									<h2>Jim Beam Kentucky Straight</h2>
+									<span class="price">$69.00</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 d-flex">
+							<div class="product ftco-animate">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(images/prod-3.jpg);">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-shopping-bag"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-heart"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="new">New Arrival</span>
+									<span class="category">Rum</span>
+									<h2>Citadelle</h2>
+									<span class="price">$69.00</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 d-flex">
+							<div class="product ftco-animate">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(images/prod-4.jpg);">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-shopping-bag"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-heart"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="category">Rum</span>
+									<h2>The Glenlivet</h2>
+									<span class="price">$69.00</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 d-flex">
+							<div class="product ftco-animate">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(images/prod-5.jpg);">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-shopping-bag"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-heart"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="category">Whiskey</span>
+									<h2>Black Label</h2>
+									<span class="price">$69.00</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 d-flex">
+							<div class="product ftco-animate">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(images/prod-6.jpg);">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-shopping-bag"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-heart"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="category">Tequila</span>
+									<h2>Macallan</h2>
+									<span class="price">$69.00</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 d-flex">
+							<div class="product ftco-animate">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(images/prod-7.jpg);">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-shopping-bag"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-heart"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="category">Vodka</span>
+									<h2>Old Monk</h2>
+									<span class="price">$69.00</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 d-flex">
+							<div class="product ftco-animate">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(images/prod-8.jpg);">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-shopping-bag"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-heart"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="category">Whiskey</span>
+									<h2>Jameson Irish Whiskey</h2>
+									<span class="price">$69.00</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 d-flex">
+							<div class="product ftco-animate">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(images/prod-9.jpg);">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-shopping-bag"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-heart"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="category">Whiskey</span>
+									<h2>Screwball</h2>
+									<span class="price">$69.00</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 d-flex">
+							<div class="product ftco-animate">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(images/prod-10.jpg);">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-shopping-bag"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-heart"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="category">Whiskey</span>
+									<h2>Screwball</h2>
+									<span class="price">$69.00</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 d-flex">
+							<div class="product ftco-animate">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(images/prod-11.jpg);">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-shopping-bag"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-heart"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="category">Whiskey</span>
+									<h2>McClelland's</h2>
+									<span class="price">$69.00</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 d-flex">
+							<div class="product ftco-animate">
+								<div class="img d-flex align-items-center justify-content-center"
+									style="background-image: url(images/prod-12.jpg);">
+									<div class="desc">
+										<p class="meta-prod d-flex">
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-shopping-bag"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-heart"></span></a>
+											<a href="#" class="d-flex align-items-center justify-content-center"><span
+													class="flaticon-visibility"></span></a>
+										</p>
+									</div>
+								</div>
+								<div class="text text-center">
+									<span class="category">Whiskey</span>
+									<h2>Plantation</h2>
+									<span class="price">$69.00</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-5">
+						<div class="col text-center">
+							<div class="block-27">
+								<ul>
+									<li><a href="#">&lt;</a></li>
+									<li class="active"><span>1</span></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">&gt;</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div style="background-color:#f5f5f5"  class="sidebar-box ftco-animate">
+						<div class="categories">
+							<h3 style="font-family:DiodrumArabicBold;text-align:right">نوع محصولات</h3>
+							<ul class="p-0">
+								<li>
+                                    <a style="float:right" href="#">
+                                        Cat
+                                    </a>
+                                    <p style="text-align:left;margin-top:0.2em" class="fa fa-chevron-left"></p>
+                                </li>
+                                <li>
+                                    <a style="float:right" href="#">
+                                        Cat
+                                    </a>
+                                    <p style="text-align:left;margin-top:0.2em" class="fa fa-chevron-left"></p>
+                                </li>
+								<li>
+                                    <a style="float:right" href="#">
+                                        Cat
+                                    </a>
+                                    <p style="text-align:left;margin-top:0.2em" class="fa fa-chevron-left"></p>
+                                </li>
+                                <li>
+                                    <a style="float:right" href="#">
+                                        Cat
+                                    </a>
+                                    <p style="text-align:left;margin-top:0.2em" class="fa fa-chevron-left"></p>
+                                </li>
+                                <li>
+                                    <a style="float:right" href="#">
+                                        Cat
+                                    </a>
+                                    <p style="text-align:left;margin-top:0.2em" class="fa fa-chevron-left"></p>
+                                </li>
+                                <li>
+                                    <a style="float:right" href="#">
+                                        Cat
+                                    </a>
+                                    <p style="text-align:left;margin-top:0.2em" class="fa fa-chevron-left"></p>
+                                </li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="sidebar-box ftco-animate">
+						<h3>Recent Blog</h3>
+						<div class="block-21 mb-4 d-flex">
+							<a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+							<div class="text">
+								<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
+										blind texts</a></h3>
+								<div class="meta">
+									<div><a href="#"><span class="fa fa-calendar"></span> Apr. 18, 2020</a></div>
+									<div><a href="#"><span class="fa fa-comment"></span> 19</a></div>
+								</div>
+							</div>
+						</div>
+						<div class="block-21 mb-4 d-flex">
+							<a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+							<div class="text">
+								<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
+										blind texts</a></h3>
+								<div class="meta">
+									<div><a href="#"><span class="fa fa-calendar"></span> Apr. 18, 2020</a></div>
+									<div><a href="#"><span class="fa fa-comment"></span> 19</a></div>
+								</div>
+							</div>
+						</div>
+						<div class="block-21 mb-4 d-flex">
+							<a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
+							<div class="text">
+								<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the
+										blind texts</a></h3>
+								<div class="meta">
+									<div><a href="#"><span class="fa fa-calendar"></span> Apr. 18, 2020</a></div>
+									<div><a href="#"><span class="fa fa-comment"></span> 19</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+
+
+    <section style="margin-top:2em;margin-bottom:3em">
+        <div class="container">
+            <com:TActivePanel id="pnlTrue" Visible="false">
+                <p class="bg-success"
+                    style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 14px;color:white;">
+                    محصول شما با موفقیت ❤️ شد
+                </p>
+            </com:TActivePanel>
+            <com:TActivePanel id="pnlFalse" Visible="false">
+                <p class="bg-danger"
+                    style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 14px;color:white;">
+                    محصول شما با موفقیت 👎 شد
+                </p>
+            </com:TActivePanel>
+
+            <com:TActivePanel id="pnl2" ActiveControl.EnableUpdate="true">
+                <h4 style="font-family:DiodrumArabicBold;text-align:right" class="product-select">:تمامی محصولات</h4>
+            </com:TActivePanel>
+
+            <com:TActivePanel id="pnl3" ActiveControl.EnableUpdate="true" Visible="false">
+                <h4 style="font-family:DiodrumArabicBold;text-align:right;" class="product-select">:نتیجه جستجو</h4>
+            </com:TActivePanel>
+            <br>
+            <com:TActivePanel id="TActivePanel" ActiveControl.EnableUpdate="true">
+                <com:TRepeater ID="Repeater" EnableViewState="true" AllowPaging="true" AllowCustomPaging="true"
+                    PageSize="8" ItemRenderer="Application.pages.product.repeater.RowProducts">
+                    <prop:HeaderTemplate>
+                        <div class="row">
+                    </prop:HeaderTemplate>
+                    <prop:FooterTemplate>
+                    </prop:FooterTemplate>
+                </com:TRepeater>
+            </com:TActivePanel>
+            <com:TPanel id="TActivePanel2">
+                <com:TRepeater ID="Repeater2" EnableViewState="true" AllowPaging="true" AllowCustomPaging="true"
+                    PageSize="8" ItemRenderer="Application.pages.product.repeater.RowProducts">
+                    <prop:HeaderTemplate>
+                        <div class="row">
+                    </prop:HeaderTemplate>
+                    <prop:FooterTemplate>
+                        </div>
+                    </prop:FooterTemplate>
+                </com:TRepeater>
+            </com:TPanel>
+            <div style="text-align:center;">
+                <com:TPager ID="Pager10" ControlToPaginate="Repeater" PageButtonCount="10" Mode="Numeric"
+                    ButtonType="PushButton" OnPageIndexChanged="pageChanged"
+                    ButtonCssClass="page-button" />
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <br>
+
+</com:TContent>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<application id="gentella" mode="Debug">
+  <paths>
+    <using namespace="Application.database.*" />
+    <using namespace="Application.library.*" />
+    <using namespace="Application.phpexcel.*" />
+    <using namespace="Application.phpexcel.PHPExcel.*" />
+    <using namespace="System.Web.UI.ActiveControls.*" />
+    <using namespace="Application.common.tree.*" />
+  </paths>
+
+  <!-- configurations for modules -->
+  <modules>
+	<module id="db" class="System.Data.TDataSourceConfig">
+		<database ConnectionString="mysql:host=localhost;dbname=jazire_ketab;charset=utf8" Username="root" Password="Parsa123456" />
+	</module>
+	<module class="System.Data.ActiveRecord.TActiveRecordConfig" ConnectionID="db" />
+	<module id="request" class="THttpRequest" EnableCookieValidation="true" />
+  	<module id="auth"
+      class="System.Security.TAuthManager"
+      UserManager="users" 
+      LoginPage="login.Userlogin" />
+    <module id="users"
+      class="System.Security.TDbUserManager"
+      UserClass="Application.DNUserManager" />
+  </modules>
+
+  <!-- configuration for available services -->
+  <services>
+    <service id="page" class="TPageService" DefaultPage="home" />
+    <service id="service" class="TPageService" DefaultPage="service.Home" /> 
+    <service id="wsat" class="System.Wsat.TWsatService" Password="12345" />
+  </services>
+
+  <!-- application parameters
+  <parameters>
+    <parameter id="param1" value="value1" />
+    <parameter id="param2" value="value2" />
+  </parameters>
+  -->
+</application>

@@ -1,0 +1,9 @@
+<%@ MasterClass="Application.layouts.MainLayout" Title="جزیره کتاب" %>
+<com:TContent id="content">
+	<div class="x_panel">
+	 	<p class="bg-success" style="text-align: center;padding: 10px; border-radius: 5px; font-family:yekan; font-size: 15px;">
+		 به سامانه مدیریت جزیره کتاب خوش آمدید  
+		</p>
+		
+	</div>
+</com:TContent>

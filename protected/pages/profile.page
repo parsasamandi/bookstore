@@ -1,0 +1,276 @@
+<%@ MasterClass="Application.layouts.HeaderFooterLayout"محصولات کمپ" %>
+<com:TContent id="content">
+
+    <style>
+        .font {
+            font-family: 'BYekan';
+        }
+
+       
+
+        .gray_color a{
+            color:gray
+        }
+    
+        #test_hover :hover {
+            color: #ffc107;
+
+        }
+    </style>
+    
+    <section class="gray_color" style="justify-content:center;margin-top:2em;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card wish-list mb-3">
+                        <div class="card-body">
+                            <h5 style="text-align:right;color:black;font-family:DiodrumArabicBold;margin-top:1em;">
+                                اطلاعات شخصی</h5>
+                            <hr>
+                            <div class="c-profile-stats">
+                                <div class="c-profile-stats__row">
+                                    <div class="c-profile-stats__col">
+                                        <span>:نام خانوادگی</span>
+                                        <h5 style="color:gray">
+                                            <com:TLiteral id="User_family" />
+                                        </h5>
+                                    </div>
+                                    <div class="c-profile-stats__col">
+                                        <span>:نام</span>
+                                        <h5 style="color:gray">
+                                            <com:TLiteral id="User_name" />
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="c-profile-stats__row">
+                                    <div class="c-profile-stats__col">
+                                        <span>:شماره تلفن همراه</span>
+                                        <h5 style="color:gray;font-family:BYekan">
+                                            <com:TLiteral id="User_phone" />
+                                        </h5>
+                                    </div>
+                                    <div class="c-profile-stats__col">
+                                        <span>:ایمیل</span>
+                                        <h5 style="color:gray;font-family:BYekan">
+                                            <com:TLiteral id="email" />
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="c-profile-stats__action">
+                                    <a href="<%=$this->Service->constructUrl("editProfile")%>"
+                                        style="color:orange;margin-bottom:-3em">
+                                        ویرایش
+                                        اطلاعات شخصی
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align:center;color:gray" class="col-lg-4">
+                    <div class="card mb-3">
+                        <div id="test_hover" class="card-body">
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p style="color:gray">
+                                        <a href="#order">
+                                            سفارش های من
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-list" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p style="color:gray">
+                                        <a href="<%=$this->Service->constructUrl("product.ProductsCommentList")%>">
+                                            نظرات
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-comment" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p style="color:gray">
+                                        <a href="<%=$this->Service->constructUrl("profile")%>">
+                                            اطلاعات حساب
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-user" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p style="color:gray">
+                                        <a href="<%=$this->Service->constructUrl("product.ProductsCommentList")%>">
+                                            نظرات درباره محصولات
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-product-hunt" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                            <hr>
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p style="color:gray">
+                                        <a href="<%=$this->Service->constructUrl("package.NewAddress")%>">
+                                            افزودن آدرس جدید
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-plus" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p style="color:gray">
+                                        <a href="<%=$this->Service->constructUrl("package.ListOfAddress")%>">
+                                            لیست آدرس ها
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-tasks" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                            <hr>
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p style="color:gray">
+                                        <a href="<%=$this->Service->constructUrl("login.logout")%>">
+                                            خروج از حساب کاربری
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-sign-out" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container" id="order">
+        <div class="card wish-list mb-3">
+            <div class="card-body">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 style="text-align:right;font-family:DiodrumArabicBold;" class="mb-3">
+                            آخرین سفارشات
+                        </h5>
+                        <com:TActiveTextBox id="txt_factor" Cssclass="form-control"
+                            style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;width:75%;float:right"
+                            Attributes.placeholder="جستجو بر اساس فاکتور" Attributes.data-validate-length-range="1"/> 
+
+                            <com:TButton Text="جستجو"
+                                style="font-family:BYekan;font-size:14px;width:20%;height:50px;border-radius:0px"
+                                OnClick="search2" />
+                        <br>
+                        <hr>
+                        <div class="table-responsive">
+                            <com:TActivePanel id="TActivePanel2" ActiveControl.EnableUpdate="true">
+                                <com:TRepeater ID="Repeater2" EnableViewState="true" AllowPaging="true"
+                                    AllowCustomPaging="true" PageSize="4"
+                                    ItemRenderer="Application.pages.order.repeater.RowOrdersProfile">
+                                    <prop:HeaderTemplate>
+                                        <table class="table table-striped jambo_table bulk_action"
+                                            style="font-size:13px;font-family:yekan;direction: rtl;">
+                                            <thead>
+                                                <tr style="background-color:gray" class="headings">
+                                                    <th class="column-title"
+                                                        style="text-align: center;font-size:17.5px">
+                                                        فاکتور ارسال
+                                                    </th>
+                                                    <th class="column-title"
+                                                        style="text-align: center;font-size:17.5px">
+                                                        نحوه
+                                                        پرداخت</th>
+                                                    <th class="column-title"
+                                                        style="text-align: center;font-size:17.5px">
+                                                        تلفن
+                                                        همراه</th>
+                                                    <th class="column-title"
+                                                        style="text-align: center;font-size:17.5px">
+                                                        آدرس
+                                                    </th>
+                                                    <th class="column-title"
+                                                        style="text-align: center;font-size:17.5px">شهر
+                                                    </th>
+                                                    <th class="column-title"
+                                                        style="text-align: center;font-size:17.5px">
+                                                        کدپستی
+                                                    </th>
+                                                    <th class="column-title"
+                                                        style="text-align: center;font-size:17.5px">
+                                                        نحوه ارسال </th>
+                                                    <th class="column-title"
+                                                        style="text-align: center;font-size:17.5px">
+                                                        هزینه
+                                                        کل </th>
+                                                    <th class="column-title"
+                                                        style="text-align: center;font-size:17.5px">
+                                                        چاپ
+                                                        
+                                                    </th>
+                                                    <th class="column-title" style="text-align: center;"><i class="fa fa-info-circle" style="font-size:20px;"></th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                    </prop:HeaderTemplate>
+                                    <prop:FooterTemplate>
+                                        </tbody>
+                                        </table>
+                                    </prop:FooterTemplate>
+                                </com:TRepeater>
+                            </com:TActivePanel>
+                            <div style="text-align:center">
+                                <com:TActivePager ID="Pager6" ControlToPaginate="Repeater2" PageButtonCount="10"
+                                    Mode="Numeric" ButtonType="PushButton" OnPageIndexChanged="pageChanged2"
+                                    OnCallBack="RenderCallback2" ButtonCssClass="page-button" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div style="background-color: white;" class="container">
+            <br>
+            <h5 style="text-align:right;font-family:DiodrumArabicBold;">
+                محصولاتی که دوست داشته اید
+            </h5>
+            <hr>
+            <com:TActivePanel id="TActivePanel" ActiveControl.EnableUpdate="true">
+                <com:TRepeater ID="Repeater" EnableViewState="true" AllowPaging="true" AllowCustomPaging="true"
+                    PageSize="30" ItemRenderer="Application.pages.product.repeater.RowProductsProfile">
+                    <prop:HeaderTemplate>
+                        <div class="carousel" data-flickity='{ "groupCells": true }'>
+                    </prop:HeaderTemplate>
+                    <prop:FooterTemplate>
+                        </div>
+                    </prop:FooterTemplate>
+                </com:TRepeater>
+            </com:TActivePanel>
+        </div>
+        <br>
+    </section>
+    <br>
+    
+</com:TContent>

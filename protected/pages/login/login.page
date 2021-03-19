@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <com:THead>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+    <!-- Bootstrap -->
+    <link href="assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/vendors/font-awesome/style-page.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="assets/build/css/custom.min.css" rel="stylesheet">
+	<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+  </com:THead>
+
+  <body style="background: white;">
+  	<div class="login_wrapper">
+        <div class="animate form login_form"> 
+			<section class="login_content" style="padding:0px;">
+				<img src="image/jazire_ketab.jpg" style="width:200px;"/>
+				
+				<com:TForm>
+			     	<com:TActivePanel id="pnlLogout" visible="false">
+	            		<h1 style="font-family:yekan;">خروج از حساب کاربر</h1> 
+	            		<div style="display: flex;align-items: center;justify-content: center;">
+							<com:TButton Cssclass="btn btn-danger submit" OnClick="logout" Text="خروج از حساب کاربری" style="font-family:yekan; margin-right: 35px;"/>
+						</div>
+					</com:TActivePanel>
+					<com:TActivePanel id="pnlLogin" visible="true">
+				     	<h1 style="font-family:yekan;">ورود به حساب </h1>
+				     	<div>
+							<com:TActiveTextBox id="txt_email" Style="font-family:BYekan;text-align:right;" Cssclass="form-control" Attributes.placeholder="ایمیل"/>
+						</div>
+						<div>
+							<com:TActiveTextBox id="txt_password" Style="font-family:BYekan;text-align:right" TextMode="Password" Cssclass="form-control" Attributes.placeholder="رمز ورود"/> 
+						</div>
+						<!-- <div class="g-recaptcha" data-sitekey="6LfPGucUAAAAAIEBh4GlhBODo5t-2Oce79_IDZgP"> -->
+						<!-- </div> -->
+						<a style="color:red;font-family:BYekan;font-size:15px" href="<%=$this->Service->constructUrl("users.NewUser")%>">
+							<b>	
+								حساب کاربری ندارید؟	لطفا ثبت نام کنید
+							</b>
+						</a>
+						<br>
+						<br>
+						<div style="display: flex;align-items: center;justify-content: center;">
+					       	<com:TButton Cssclass="btn btn-warning submit" OnClick="SignIn" Text="Login" style="margin:0px;"/>
+						 	<com:TLiteral id="lit" />
+					 	</div>
+
+				 	</com:TActivePanel>
+				</com:TForm> 
+			</section>
+		</div>
+	</div>
+	
+    <!-- jQuery -->
+   	<script src="js/jquery.min.js"></script>
+    <script src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/build/js/custom.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,239 @@
+<%@ MasterClass="Application.layouts.HeaderFooterLayout"محصولات کمپ" %>
+<com:TContent id="content">
+    <style>
+        #test_hover :hover {
+            color: #ffc107;
+
+        }
+
+        #test_hover {
+            color: gray;
+        }
+
+        a {
+            color: black;
+        }
+
+        .col-lg-4 a {
+            color: gray;
+        }
+    </style>
+
+
+    <section style="margin-top:2em;justify-content:center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card wish-list mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 style="text-align:right;font-family:  DiodrumArabicBold;">ویرایش اطلاعات
+                                        شخصی</h4>
+                                    <hr>
+                                </div>
+                            </div>
+                            <com:TActivePanel id="pnlAdd">
+                                <div class="row" style="width: 100%;">
+                                    <div class="col-md-12" style="width: 100%;">
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <com:TActiveTextBox id="email" Cssclass="form-control"
+                                                    style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+                                                    Attributes.placeholder="ایمیل"
+                                                    Attributes.data-validate-length-range="1" />
+                                            </div>
+                                            <label for="name" class="col-4 col-form-label"
+                                                style="text-align: right;font-family: yekan;font-weight:bold">ایمیل</label>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <com:TActiveTextBox id="phone" Cssclass="form-control"
+                                                    style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+                                                    Attributes.placeholder="تلفن همراه"
+                                                    Attributes.data-validate-length-range="1" />
+                                            </div>
+                                            <label for="name" class="col-4 col-form-label"
+                                                style="text-align: right;font-family: yekan;font-weight:bold">
+                                                تلفن همراه</label>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <com:TActiveTextBox id="name" Cssclass="form-control"
+                                                    style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+                                                    Attributes.placeholder="نام"
+                                                    Attributes.data-validate-length-range="1" />
+                                            </div>
+                                            <label for="name" class="col-4 col-form-label"
+                                                style="text-align: right;font-family: yekan;font-weight:bold">نام</label>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <com:TActiveTextBox id="family" Cssclass="form-control"
+                                                    style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+                                                    Attributes.placeholder="نام خانوادگی"
+                                                    Attributes.data-validate-length-range="1" />
+                                            </div>
+                                            <label for="name" class="col-4 col-form-label"
+                                                style="text-align: right;font-family: yekan;font-weight:bold">
+                                                نام خانوادگی</label>
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <com:TActiveTextBox id="password" Cssclass="form-control"
+                                                    style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+                                                    Attributes.placeholder="رمز عبور"
+                                                    Attributes.data-validate-length-range="1" />
+                                            </div>
+                                            <label for="name" class="col-4 col-form-label"
+                                                style="text-align: right;font-family: yekan;font-weight:bold">
+                                                رمز عبور</label>
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-8">
+                                                <com:TActiveTextBox id="password1" Cssclass="form-control"
+                                                    style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+                                                    Attributes.placeholder="رمز عبور"
+                                                    Attributes.data-validate-length-range="1" />
+                                            </div>
+                                            <label for="name" class="col-4 col-form-label"
+                                                style="text-align: right;font-family: yekan;font-weight:bold">
+                                                رمز عبور</label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </com:TActivePanel>
+
+                            <com:TActivePanel id="pnlButton">
+                                <com:TButton Cssclass="btn btn-round btn-default" OnClick="editUser"
+                                    style="background-color: #FFD700;font-family:BYekan;color:black;margin: 0 auto;margin-top: 1.5em; display: block;font-size:18px;"
+                                    Text="ویرایش اطلاعات شخصی" />
+                            </com:TActivePanel>
+                            <br>
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12" style="margin-top: 15px;">
+                                <com:TActivePanel id="pnlAfterAdd" Visible="false">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <p class="bg-success"
+                                            style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 14px;color:white;">
+                                            اطلاعات با موفقیت ویرایش شد
+                                        </p>
+                                    </div>
+                                </com:TActivePanel>
+                            </div>
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12" style="margin-top: 15px;">
+                                <com:TActivePanel id="pnlFalse" Visible="false">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <p class="bg-danger"
+                                            style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 14px;color:white;">
+                                            تمام آیتم ها انتخاب نشده اند
+                                        </p>
+                                    </div>
+                                </com:TActivePanel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div style="text-align:center" class="col-lg-4">
+                    <div class="card mb-3">
+                        <div id="test_hover" class="card-body">
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p>
+                                        <a href="<%=$this->Service->constructUrl("profile#order")%>">
+                                            سفارش های من
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-list" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p>
+                                        <a href="<%=$this->Service->constructUrl("product.ProductsCommentList")%>">
+                                            نظرات
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-comment" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p>
+                                        <a href="<%=$this->Service->constructUrl("profile")%>">
+                                            اطلاعات حساب
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-user" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p style="color:gray">
+                                        <a href="<%=$this->Service->constructUrl("product.ProductsCommentList")%>">
+                                            نظرات درباره محصولات
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-product-hunt" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                            <hr>
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p>
+                                        <a href="<%=$this->Service->constructUrl("package.NewAddress")%>">
+                                            افزودن آدرس جدید
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-plus" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p>
+                                        <a href="<%=$this->Service->constructUrl("package.ListOfAddress")%>">
+                                            لیست آدرس ها
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-tasks" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                            <hr>
+                            <div class="radion_btn">
+                                <label class="container1"
+                                    style="font-family: yekan;font-size:15.5px;text-align:right;color:gray">
+                                    <p style="color:gray">
+                                        <a href="<%=$this->Service->constructUrl("login.logout")%>">
+                                            خروج از حساب کاربری
+                                            &nbsp;
+                                            <i style="font-size:18px" class="fa fa-sign-out" aria-hidden="true"></i>
+                                        </a>
+                                    </p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+
+
+</com:TContent>

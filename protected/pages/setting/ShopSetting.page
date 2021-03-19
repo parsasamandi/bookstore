@@ -1,0 +1,557 @@
+<%@ MasterClass="Application.layouts.MainLayout" Title="صفحات فروشگاه" %>
+<com:TContent id="content">
+    <div class="x_panel">
+        <div class="x_title" style="border-bottom:1px solid #415567;">
+            <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <p style="font-size:17px;font-family:yekan;float:right;">: اطلاعات مربوط به تنظیمات صفحه اصلی فروشگاه
+                <span class="glyphicon glyphicon-edit" style="color: #73879c;" aria-hidden="true"></span>
+            </p>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <com:TActivePanel id="pnlAfterAddTop" Visible="false">
+                    <p class="bg-success"
+                        style="text-align: center;padding: 10px; border-radius: 5px; font-family:yekan; font-size: 15px;">
+                        .ثبت اطلاعات جدید با موفقیت انجام شد
+                    </p>
+                </com:TActivePanel>
+                <com:TActivePanel id="pnlAdd">
+                    <div class="col-md-12 col-sm-12 col-xs-12"
+                        style="border-bottom:2px solid #E6E9ED;margin-bottom:25px;">
+                        <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">
+                                تیتر اسلایدر اول :</label>
+                            <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+                                <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                                <com:TActiveTextBox id="txtSlider1Title" Cssclass="form-control"
+                                    style="font-size:15px;font-family:Yekan;direction: rtl;"
+                                    Attributes.placeholder="تیتر  " Attributes.data-validate-length-range="1" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12" style="float:right;">
+                            <label class="control-label col-md-2 col-sm-12 col-xs-12"
+                                style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">
+                                متن اسلایدر اول :</label>
+                            <div class="col-md-10 col-sm-12 col-xs-12" style="float:left;">
+                                <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                                <com:TActiveTextBox id="txtSlider1Desc" Cssclass="form-control"
+                                    style="font-size:15px;font-family:Yekan;direction: rtl;"
+                                    Attributes.placeholder="متن  " Attributes.data-validate-length-range="1" />
+                            </div>
+                        </div>
+                        <com:TActivePanel Visible="true">
+                            <com:THiddenField ID="EditMode" />
+                        </com:TActivePanel>
+                        <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                            <div class="col-md-8 col-sm-12 col-xs-12">
+                                <com:TActivePanel id="pnlSavePic" Visible="true">
+                                    <com:TFileUpload id="upload_image" />
+                                    <com:THiddenField ID="Path" />
+                                    <com:THiddenField id="PicBlob" />
+                                    <com:THiddenField id="PicName" />
+                                </com:TActivePanel>
+                                <com:TActivePanel id="pnlSavePicEdit" Visible="false">
+                                    <com:TFileUpload id="upload_image_edit" />
+                                    <com:THiddenField ID="Path_edit" />
+                                    <com:THiddenField id="PicBlob_edit" />
+                                    <com:THiddenField id="PicName_edit" />
+                                    <com:TButton Cssclass="btn btn-round btn-default"
+                                        style="background-color: #415567;font-family:yekan;color:#ecf0f1;"
+                                        Text="ثبت تصویر" />
+                                </com:TActivePanel>
+                            </div>
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> آپلود عکس
+                                :</label>
+                        </div>
+                        <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+                            <div class="col-md-8 col-sm-12 col-xs-12">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <com:TImage ID="image" style="width:105px;height:110px;" />
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <com:TLabel ID="Result" />
+                                </div>
+                            </div>
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> عکس :</label>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-md-12 col-sm-12 col-xs-12"
+                        style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                        <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">
+                                تیتر باکس اول :</label>
+                            <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+                                <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                                <com:TActiveTextBox id="ShopBox" Cssclass="form-control"
+                                    style="font-size:15px;font-family:Yekan;direction: rtl;"
+                                    Attributes.placeholder="تیتر  " Attributes.data-validate-length-range="1"
+                                    Attributes.required="required" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">
+                                توضیحات باکس اول:</label>
+                            <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+                                <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                                <com:TActiveTextBox id="ShopBox_desc" Cssclass="form-control"
+                                    style="font-size:15px;font-family:Yekan;direction: rtl;"
+                                    Attributes.placeholder="توضیحات" Attributes.data-validate-length-range="1"
+                                    Attributes.required="required" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12"
+                        style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                        <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">
+                                تیتر باکس دوم :</label>
+                            <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+                                <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                                <com:TActiveTextBox id="ShopBox2" Cssclass="form-control"
+                                    style="font-size:15px;font-family:Yekan;direction: rtl;"
+                                    Attributes.placeholder="تیتر  " Attributes.data-validate-length-range="1"
+                                    Attributes.required="required" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">
+                                توضیحات باکس دوم:</label>
+                            <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+                                <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                                <com:TActiveTextBox id="ShopBox2_desc" Cssclass="form-control"
+                                    style="font-size:15px;font-family:Yekan;direction: rtl;"
+                                    Attributes.placeholder="توضیحات" Attributes.data-validate-length-range="1"
+                                    Attributes.required="required" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12"
+                        style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                        <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">
+                                تیتر باکس سوم:</label>
+                            <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+                                <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                                <com:TActiveTextBox id="ShopBox3" Cssclass="form-control"
+                                    style="font-size:15px;font-family:Yekan;direction: rtl;"
+                                    Attributes.placeholder="تیتر  " Attributes.data-validate-length-range="1"
+                                    Attributes.required="required" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">
+                                توضیحات باکس سوم:</label>
+                            <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+                                <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                                <com:TActiveTextBox id="ShopBox3_desc" Cssclass="form-control"
+                                    style="font-size:15px;font-family:Yekan;direction: rtl;"
+                                    Attributes.placeholder="توضیحات" Attributes.data-validate-length-range="1"
+                                    Attributes.required="required" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12"
+                        style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                        <com:TActivePanel Visible="true">
+                            <com:THiddenField ID="EditMode2" />
+                        </com:TActivePanel>
+                        <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                            <div class="col-md-8 col-sm-12 col-xs-12">
+                                <com:TActivePanel id="pnlSavePic2" Visible="true">
+                                    <com:TFileUpload id="upload_image2" />
+                                    <com:THiddenField ID="Path2" />
+                                    <com:THiddenField id="PicBlob2" />
+                                    <com:THiddenField id="PicName2" />
+                                </com:TActivePanel>
+                                <com:TActivePanel id="pnlSavePicEdit2" Visible="false">
+                                    <com:TFileUpload id="upload_image_edit2" />
+                                    <com:THiddenField ID="Path_edit2" />
+                                    <com:THiddenField id="PicBlob_edit2" />
+                                    <com:THiddenField id="PicName_edit2" />
+                                    <com:TButton Cssclass="btn btn-round btn-default"
+                                        style="background-color: #415567;font-family:yekan;color:#ecf0f1;"
+                                        Text="ثبت تصویر" />
+                                </com:TActivePanel>
+                            </div>
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> آپلود عکس اسلایدر دوم
+                                :</label>
+                        </div>
+                        <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+                            <div class="col-md-8 col-sm-12 col-xs-12">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <com:TImage ID="image2" style="width:105px;height:110px;" />
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <com:TLabel ID="Result2" />
+                                </div>
+                            </div>
+                            <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> عکس :</label>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12"
+                        style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                        <com:TActivePanel Visible="true">
+                            <com:THiddenField ID="EditMode3" />
+                        </com:TActivePanel>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                                <div class="col-md-8 col-sm-12 col-xs-12">
+                                    <com:TActivePanel id="pnlSavePic3" Visible="true">
+                                        <com:TFileUpload id="upload_image3" />
+                                        <com:THiddenField ID="Path3" />
+                                        <com:THiddenField id="PicBlob3" />
+                                        <com:THiddenField id="PicName3" />
+                                    </com:TActivePanel>
+                                    <com:TActivePanel id="pnlSavePicEdit3" Visible="false">
+                                        <com:TFileUpload id="upload_image_edit3" />
+                                        <com:THiddenField ID="Path_edit3" />
+                                        <com:THiddenField id="PicBlob_edit3" />
+                                        <com:THiddenField id="PicName_edit3" />
+                                        <com:TButton Cssclass="btn btn-round btn-default"
+                                            style="background-color: #415567;font-family:yekan;color:#ecf0f1;"
+                                            Text="ثبت تصویر" />
+                                    </com:TActivePanel>
+                                </div>
+                                <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                    style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> آپلود اسلایدر سوم:</label>
+                            </div>
+                            <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+                                <div class="col-md-8 col-sm-12 col-xs-12">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <com:TImage ID="image3" style="width:105px;height:110px;" />
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <com:TLabel ID="Result3" />
+                                    </div>
+                                </div>
+                                <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                                    style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> عکس
+                                    :</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12" style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                <com:TActivePanel Visible="true">
+                    <com:THiddenField ID="EditMode4" />
+                </com:TActivePanel>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <com:TActivePanel id="pnlSavePic4" Visible="true">
+                                <com:TFileUpload id="upload_image4" />
+                                <com:THiddenField ID="Path4" />
+                                <com:THiddenField id="PicBlob4" />
+                                <com:THiddenField id="PicName4" />
+                            </com:TActivePanel>
+                            <com:TActivePanel id="pnlSavePicEdit4" Visible="false">
+                                <com:TFileUpload id="upload_image_edit4" />
+                                <com:THiddenField ID="Path_edit4" />
+                                <com:THiddenField id="PicBlob_edit4" />
+                                <com:THiddenField id="PicName_edit4" />
+                                <com:TButton Cssclass="btn btn-round btn-default"
+                                    style="background-color: #415567;font-family:yekan;color:#ecf0f1;"
+                                    Text="ثبت تصویر" />
+                            </com:TActivePanel>
+                        </div>
+                        <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                            style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">  بک گراند نظرات کاربران   :</label>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <com:TImage ID="image4" style="width:105px;height:110px;" />
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <com:TLabel ID="Result4" />
+                            </div>
+                        </div>
+                        <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                            style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> عکس
+                            :</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12" style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                <com:TActivePanel Visible="true">
+                    <com:THiddenField ID="EditMode5" />
+                </com:TActivePanel>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <com:TActivePanel id="pnlSavePic5" Visible="true">
+                                <com:TFileUpload id="upload_image5" />
+                                <com:THiddenField ID="Path5" />
+                                <com:THiddenField id="PicBlob5" />
+                                <com:THiddenField id="PicName5" />
+                            </com:TActivePanel>
+                            <com:TActivePanel id="pnlSavePicEdit5" Visible="false">
+                                <com:TFileUpload id="upload_image_edit5" />
+                                <com:THiddenField ID="Path_edit5" />
+                                <com:THiddenField id="PicBlob_edit5" />
+                                <com:THiddenField id="PicName_edit5" />
+                                <com:TButton Cssclass="btn btn-round btn-default"
+                                    style="background-color: #415567;font-family:yekan;color:#ecf0f1;"
+                                    Text="ثبت تصویر" />
+                            </com:TActivePanel>
+                        </div>
+                        <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                            style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">  عکس جزئیات محصول  :</label>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <com:TImage ID="image5" style="width:105px;height:110px;" />
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <com:TLabel ID="Result5" />
+                            </div>
+                        </div>
+                        <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                            style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> عکس
+                            :</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12" style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                <com:TActivePanel Visible="true">
+                    <com:THiddenField ID="EditMode6" />
+                </com:TActivePanel>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <com:TActivePanel id="pnlSavePic6" Visible="true">
+                                <com:TFileUpload id="upload_image6" />
+                                <com:THiddenField ID="Path6" />
+                                <com:THiddenField id="PicBlob6" />
+                                <com:THiddenField id="PicName6" />
+                            </com:TActivePanel>
+                            <com:TActivePanel id="pnlSavePicEdit6" Visible="false">
+                                <com:TFileUpload id="upload_image_edit6" />
+                                <com:THiddenField ID="Path_edit6" />
+                                <com:THiddenField id="PicBlob_edit6" />
+                                <com:THiddenField id="PicName_edit6" />
+                                <com:TButton Cssclass="btn btn-round btn-default"
+                                    style="background-color: #415567;font-family:yekan;color:#ecf0f1;"
+                                    Text="ثبت تصویر" />
+                            </com:TActivePanel>
+                        </div>
+                        <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                            style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">  عکس سبد خرید :</label>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <com:TImage ID="image6" style="width:105px;height:110px;" />
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <com:TLabel ID="Result6" />
+                            </div>
+                        </div>
+                        <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                            style="font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> عکس
+                            :</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12" style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                    <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                        style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">
+                        نام کتاب معرفی شده:
+                    </label>
+                    <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+                        <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                        <com:TActiveTextBox id="book_description" Cssclass="form-control"
+                            style="font-size:15px;font-family:Yekan;direction: rtl;"
+                            Attributes.placeholder="نام کتاب " Attributes.data-validate-length-range="1" />
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                    <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                        style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">
+                        نام کتاب معرفی شده دوم:
+                    </label>
+                    <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+                        <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                        <com:TActiveTextBox id="book_description2" Cssclass="form-control"
+                            style="font-size:15px;font-family:Yekan;direction: rtl;"
+                            Attributes.placeholder="نام کتاب" Attributes.data-validate-length-range="1" />
+                    </div>
+                </div>
+                <com:TActivePanel Visible="true">
+                    <com:THiddenField ID="EditMode7" />
+                </com:TActivePanel>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12" style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                <div class="form-group col-md-12 col-sm-12 col-xs-12" style="float:right;">
+                    <label class="control-label col-md-2 col-sm-12 col-xs-12"
+                        style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> متن
+                        توضیحات نظرات :</label>
+                    <div class="col-md-10 col-sm-12 col-xs-12" style="float:left;">
+                        <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                        <com:TActiveTextBox id="txtPeopleIdea" Cssclass="form-control"
+                            style="font-size:15px;font-family:Yekan;direction: rtl;" Attributes.placeholder="متن  "
+                            Attributes.data-validate-length-range="1" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12" style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                <div class="form-group col-md-12 col-sm-12 col-xs-12" style="float:right;">
+                    <label class="control-label col-md-2 col-sm-12 col-xs-12"
+                        style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> متن درباره
+                        ما فوتر :</label>
+                    <div class="col-md-10 col-sm-12 col-xs-12" style="float:left;">
+                        <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                        <com:TActiveTextBox id="txtFooterSubject" Cssclass="form-control"
+                            style="font-size:15px;font-family:Yekan;direction: rtl;" Attributes.placeholder="متن  "
+                            Attributes.data-validate-length-range="1" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12" style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                <div class="form-group col-md-12 col-sm-12 col-xs-12" style="float:right;">
+                    <label class="control-label col-md-2 col-sm-12 col-xs-12"
+                        style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> توضیحات
+                        فوتر:</label>
+                    <div class="col-md-10 col-sm-12 col-xs-12" style="float:left;">
+                        <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                        <com:TActiveTextBox id="txtFooterDesc" Cssclass="form-control"
+                            style="font-size:15px;font-family:Yekan;direction: rtl;" Attributes.placeholder="متن  "
+                            Attributes.data-validate-length-range="1" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12" style="border-bottom:2px solid #E6E9ED;margin-bottom:15px;">
+                <div class="form-group col-md-12 col-sm-12 col-xs-12" style="float:right;">
+                    <label class="control-label col-md-2 col-sm-12 col-xs-12"
+                        style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> لینک ثبت
+                        نهایی سفارش پایانی :</label>
+                    <div class="col-md-10 col-sm-12 col-xs-12" style="float:left;">
+                        <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                        <com:TActiveTextBox id="final_order" Cssclass="form-control"
+                            style="font-size:15px;font-family:Yekan;direction: rtl;" Attributes.placeholder="متن  "
+                            Attributes.data-validate-length-range="1" Attributes.required="required" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group col-md-12 col-sm-12 col-xs-12" style="float:right;">
+        <com:TButton Cssclass="btn btn-round btn-default" OnClick="Save"
+            style="background-color: #415567;font-family:yekan;color:#ecf0f1;margin: 0 auto; display: block;"
+            Text="  ثبت " />
+    </div>
+    </com:TActivePanel>
+
+</com:TContent>
+<com:TContent id="script">
+    <script>
+        var file = document.getElementById('ctl0_content_upload_image');
+        if (file === null) {
+            file = document.getElementById('ctl0_content_upload_image_edit');
+        }
+        var file2 = document.getElementById('ctl0_content_upload_image2');
+        if (file2 === null) {
+            file2 = document.getElementById('ctl0_content_upload_image_edit2');
+        }
+        var file3 = document.getElementById('ctl0_content_upload_image3');
+        if (file3 === null) {
+            file3 = document.getElementById('ctl0_content_upload_image_edit3');
+        }
+        var file4 = document.getElementById('ctl0_content_upload_image4');
+        if (file4 === null) {
+            file4 = document.getElementById('ctl0_content_upload_image_edit4');
+        }
+        var file5 = document.getElementById('ctl0_content_upload_image5');
+        if (file5 === null) {
+            file5 = document.getElementById('ctl0_content_upload_image_edit5');
+        }
+        var file6 = document.getElementById('ctl0_content_upload_image6');
+        if (file6 === null) {
+            file6 = document.getElementById('ctl0_content_upload_image_edit6');
+        }
+        function previewFile(number, file) {
+            document.getElementById('ctl0_content_EditMode' + number).value = '1';
+
+            var preview = document.getElementById('ctl0_content_image' + number);
+
+            let formData = document.getElementById('ctl0_content_PicBlob' + number);
+            if (formData === null) {
+                formData = document.getElementById('ctl0_content_PicBlob_edit' + number);
+            }
+            let formDataName = document.getElementById('ctl0_content_PicName' + number);
+            if (formDataName === null) {
+                formDataName = document.getElementById('ctl0_content_PicName_edit' + number);
+            }
+            var hiddenImg = new Image();
+            var reader = new FileReader();
+            var percentage = 0.8;
+            reader.addEventListener("load", function () {
+                //preview.src = reader.result;
+                hiddenImg.src = reader.result;
+                hiddenImg.onload = function () {
+                    var oc = document.createElement('canvas'), octx = oc.getContext('2d');
+                    if (hiddenImg.width > 2000 || hiddenImg.height > 2000)
+                        percentage = 0.8;
+                    else if (hiddenImg.width > 1000 || hiddenImg.height > 1000)
+                        percentage = 1;
+                    else if (hiddenImg.width > 500 || hiddenImg.height > 500)
+                        percentage = 1;
+
+                    oc.width = hiddenImg.width * percentage;
+                    oc.height = hiddenImg.height * percentage;
+                    octx.drawImage(hiddenImg, 0, 0, oc.width, oc.height);
+                    octx.drawImage(oc, 0, 0, oc.width, oc.height);
+                    preview.src = oc.toDataURL('image/jpeg');
+                    formData.value = oc.toDataURL('image/jpeg');
+                    formDataName.value = file.files[0].name;
+                    file.value = null;
+                }
+            }, false);
+
+            if (file.files[0]) {
+                reader.readAsDataURL(file.files[0]);
+            }
+        }
+        file.addEventListener('change', function () { previewFile('', file); });
+        file2.addEventListener('change', function () { previewFile(2, file2); });
+        file3.addEventListener('change', function () { previewFile(3, file3); });
+        file4.addEventListener('change', function () { previewFile(4, file4); });
+        file5.addEventListener('change', function () { previewFile(5, file5); });
+        file6.addEventListener('change', function () { previewFile(6, file6); });
+    </script>
+</com:TContent>

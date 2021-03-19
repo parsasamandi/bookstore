@@ -1,0 +1,77 @@
+<%@ MasterClass="Application.layouts.MainLayout" Title="لیست کتاب ها" %>
+<com:TContent id="content" >
+    <div class="x_panel" style="background-color: lightgrey;">
+        <div class="x_title" style="border-bottom:1px solid #415567;" >
+            <ul class="nav navbar-right panel_toolbox" >
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <h2 style="font-family:yekan;float:right;">لیست نویسندگان
+                <span class="glyphicon glyphicon-user" style="color: #73879c;" aria-hidden="true"></span>
+            </h2>  
+            <div class="x_panel col-md-12 col-sm-12 col-xs-12" style="solid #415567;"> 
+                <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <span class="fa fa-search form-control-feedback right" aria-hidden="true"></span>
+                        <com:TActiveTextBox id="txtSearchName" Cssclass="form-control" style="border-radius:8px;" Attributes.placeholder="Search for..."/>
+                    </div>
+                    <label class="control-label col-md-4 col-sm-12 col-xs-12" style="font-size:13px;font-family:Yekan;margin-top: 7px;direction: rtl;"> جستجو در نام نویسنده :</label>
+                </div> 
+                <!-- <com:THtmlArea id="txtSearchBio" Cssclass="form-group col-md-12 col-sm-12 col-xs-12"
+                    width="950px" Height="300px">
+                    <prop:Options>
+                        theme : "advanced",
+                        theme_advanced_resize_horizontal : false,
+                        theme_advanced_resizing : true
+                    </prop:Options>
+                </com:THtmlArea> -->
+                
+                <com:TButton Cssclass="btn btn-round btn-default"  OnClick="search" style="background-color: #415567;font-family:yekan;color:#ecf0f1;margin: 0 auto; display: block;" Text="جستجو" />
+                
+            </div>
+        </div>
+        <div class="x_content">
+            <div class="table-responsive">
+                <com:TActivePanel id="TActivePanel" ActiveControl.EnableUpdate="true">
+                <com:TRepeater ID="Repeater"
+                            EnableViewState="true" 
+                            AllowPaging="true" 
+                            AllowCustomPaging="true"
+                            PageSize="5" 
+                            ItemRenderer="Application.pages.author.repeater.RowAuthorsList">
+                    <prop:HeaderTemplate>
+                        <table class="table table-striped jambo_table bulk_action" style="font-size:13px;font-family:yekan;direction: rtl;">
+                            <thead>
+                                <tr class="headings">
+                                    <th class="column-title" style="text-align: center;"># </th>
+                                    <th class="column-title" style="text-align: center;">نام</th>
+                                    <th class="column-title" style="text-align: center;">بیوگرافی</th>
+                                    <th class="column-title" style="text-align: center;"><i class="fa fa-edit" style="font-size:20px;"></th>
+                                    <th class="column-title" style="text-align: center;">حذف </th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                    </prop:HeaderTemplate>
+                    <prop:FooterTemplate>
+                        </tbody>
+                        </table>
+                    </prop:FooterTemplate>
+                </com:TRepeater>
+                </com:TActivePanel>
+                <div style="text-align:center">
+                    <com:TActivePager ID="Pager4"
+                        ControlToPaginate="Repeater"
+                        PageButtonCount="10"
+                        Mode="Numeric"
+                        ButtonType="PushButton"
+                        OnPageIndexChanged="pageChanged"
+                        OnCallBack="RenderCallback"
+                        ButtonCssClass="page-button"
+                        /> 
+                </div>
+           </div>  
+        </div>
+    </div>
+</com:TContent>         

@@ -1,0 +1,211 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css" media="all">
+        @font-face {
+            font-family: "BYekan";
+		    src: url("assets/shop/fonts/byekan.ttf");
+        }
+        body {
+            font-family: 'BYekan';
+        }
+
+        .print_font{
+            font-family: 'BYekan';
+        }
+
+        @page {
+            size: A4 portrait;
+            /*
+			can use also 'landscape' for orientation */
+            margin: 1.0in;
+            border: thin solid black;
+            padding: 1em;
+
+            @bottom-center {
+                content: element(footer);
+            }
+            @top-center {
+                content: element(header);
+            }
+        }
+
+        @media print {
+            html,
+            body {
+                width: 210mm;
+                height: 297mm;
+                font-family:'BYekan';
+            }
+        }
+
+        #page-header {
+            display: block;
+            position: running(header);
+        }
+
+        #page-footer {
+            display: block;
+            position: running(footer);
+        }
+
+        .page-number:before {
+            content: counter(page);
+        }
+
+        .page-count:before {
+            content: counter(pages);
+        }
+
+        .page {
+            background-image: url('images.jpg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-color: #e9e2d2;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <p style="display: flex;align-items: center;justify-content: center;">
+            <img src="image/jazire_ketab.jpg" style="width:170px;" />
+        </p>
+        <div class="x_content">
+                <div class="table-responsive">
+                 <table class="table table-striped jambo_table bulk_action" style="font-size:13px;font-family:yekan;direction: rtl;background-color: lightgray;">
+                     <thead>
+                         <tr class="headings">
+                             <th class="column-title" style="text-align: center;font-family:BYekan">اسم کاربر</th>
+                             <th class="column-title" style="text-align: center;font-family:BYekan">نحوه ارسال</th>
+                             <th class="column-title" style="text-align: center;font-family:BYekan">نحوه پرداخت</th>
+                             <th class="column-title" style="text-align: center;font-family:BYekan">تلفن همراه</th>
+                             <th class="column-title" style="text-align: center;font-family:BYekan">قیمت کل</th> 
+                             <th class="column-title" style="text-align: center;font-family:BYekan">شهر</th>
+                             <th class="column-title" style="text-align: center;font-family:BYekan">کدپستی </th>
+                             <th class="column-title" style="text-align: center;font-family:BYekan">فاکتور ارسال </th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <tr class="even pointer" style="color:#415567;background-color: #f5f5f5;">                            
+                             <td style="border-top: 1px solid #415567;">
+                                 <p class="print_font" style="text-align: center;"> 
+                                     <com:TLiteral id="name"/> 
+                                 </p>
+                             </td>	
+                             <td style="border-top: 1px solid #415567;">
+                                 <p class="print_font" style="text-align: center;"> 
+                                     <com:TLiteral id="transportation"/> 
+                                 </p>
+                             </td>
+                         
+                             <td style="border-top: 1px solid #415567;">
+                                 <p class="print_font" style="text-align: center;"> 
+                                     <com:TLiteral id="payment"/> 
+                                 </p>
+                             </td>
+                         
+                             <td style="border-top: 1px solid #415567;">
+                                 <p class="print_font" style="text-align: center;">
+                                     <com:TLiteral id="mobile_phone"/> 
+                                 </p>
+                             </td>
+                             
+                             <td style="border-top: 1px solid #415567;">
+                                 <p class="print_font" style="text-align: center;">
+                                     <com:TLiteral id="total_price"/> 
+                                 </p>
+                             </td>
+                         
+                             <td style="border-top: 1px solid #415567;">
+                                 <p class="print_font" style="text-align: center;">
+                                     <com:TLiteral id="city"/> 
+                                 </p>
+                             </td>	
+                         
+                             <td style="border-top: 1px solid #415567;">
+                                 <p class="print_font" style="text-align: center;">
+                                     <com:TLiteral id="zip_code"/> 
+                                 </p>
+                             </td>	
+                         
+                             <td style="border-top: 1px solid #415567;">
+                                 <p class="print_font" style="text-align: center;">
+                                     <com:TLiteral id="factor"/> 
+                                 </p>
+                             </td>
+                         </tr>
+                     </tbody>
+                 </table>
+             </div>  
+         </div>
+
+        <h3 class="heading" style="text-align:right;font-family:BYekan;">لیست محصولات</h3>
+        <div class="x_content">
+            <div class="table-responsive">
+                <com:TActivePanel id="TActivePanel" ActiveControl.EnableUpdate="true">
+                    <com:TRepeater ID="Repeater" EnableViewState="true" AllowPaging="true" AllowCustomPaging="true"
+                        PageSize="5" ItemRenderer="Application.pages.order.repeater.RowCartsOrder">
+                        <prop:HeaderTemplate>
+                            <table class="table table-striped jambo_table bulk_action"
+                                style="font-size:13px;font-family:yekan;direction: rtl;background-color: lightgray;">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title" style="text-align: center;font-family:BYekan">قیمت</th>
+                                        <th class="column-title" style="text-align: center;font-family:BYekan">تعداد
+                                        </th>
+                                        <th class="column-title" style="text-align: center;font-family:BYekan">نام محصول
+                                        </th>
+                                        <th class="column-title" style="text-align: center;font-family:BYekan">نویسنده
+                                        </th>
+                                        <th class="column-title" style="text-align: center;font-family:BYekan">ناشر</th>
+                                        <th class="column-title" style="text-align: center;font-family:BYekan">
+                                            &nbsp;تصویر محصول</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        </prop:HeaderTemplate>
+                        <prop:FooterTemplate>
+                            </tbody>
+                            </table>
+                        </prop:FooterTemplate>
+                    </com:TRepeater>
+                </com:TActivePanel>
+            </div>
+        </div>
+
+        <table border="1" cellspacing="0" cellpadding="5"  class="table table-striped jambo_table bulk_action"
+            style="margin-top: 10px; width:100%; font-size:14px;text-align:center;">
+            <tbody>
+                <tr style="background-color:lightgray">
+                    <td style="background-color:lightgray;">
+                        QR Code
+                    </td>
+                    <td style="background-color:lightgray;">
+                        آدرس ارسالی
+                    </td>
+                </tr>
+                <tr class="even pointer" style="background-color:#f5f5f5">
+                    <td style="font-family:none;">
+                        <img src="<com:TLiteral id="lit_qrcode" />" style="width:200px;" />
+                    </td>
+                    <td>
+                        <com:TLiteral id="address" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+</body>
+
+</html>

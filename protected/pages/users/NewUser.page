@@ -1,0 +1,217 @@
+<%@ MasterClass="Application.layouts.HeaderFooterLayout"نظر جدید" %>
+<com:TContent id="content">
+
+
+	<style>
+		.font {
+			font-family: 'BYekan';
+		}
+
+		.font1 {
+			font-family: 'DiodrumArabicBold';
+		}
+
+		.nav-direction {
+			font-family: 'BYekan';
+			direction: rtl;
+		}
+
+		.persian {
+			font-family: 'BYekan';
+			direction: rtl;
+			/* text-align:right; */
+		}
+
+		.text:hover {
+			padding-top: 2em;
+		}
+
+		.background {
+			background: url(image/home/search-box.jpg) no-repeat;
+			width: 30px;
+			height: 30px;
+			background-size: contain;
+			margin-left: -0.4em;
+			border-bottom-right-radius: 8px;
+			border-top-right-radius: 8px;
+		}
+
+		@media screen and (min-width: 200px) and (max-width: 1250px) {
+			.awesome-icon {
+				font-size: 2em;
+			}
+		}
+
+		#hekl2 {
+			font-size: 14.5px;
+		}
+
+		a {
+			color: black;
+		}
+	</style>
+
+
+	<div class="carousel js-flickity">
+		<div style="width: 100%;" class="carousel-cell">
+			<img style="width: 100%;
+				height: 450px;" src="<com:TLiteral id="lit_slider1_img" />"/>
+		</div>
+		<div style="width: 100%;" class="carousel-cell">
+			<img style="width: 100%;
+				height: 450px;" src="<com:TLiteral id="lit_slider1_img2" />"/>
+		</div>
+		<div style="width: 100%;" class="carousel-cell">
+			<img style="width: 100%;
+				height: 450px;" src="<com:TLiteral id="lit_slider1_img3" />"/>
+		</div>
+	</div>
+
+	
+
+	<section class="ftco-intro">
+		<div class="container">
+			<div class="row no-gutters">
+				<div class="col-md-4 d-flex">
+					<div style="text-color:black" class="intro d-lg-flex w-100 ftco-animate">
+						<span style="color:black;text-align:center;margin-top:-0.5em"
+							class="awesome-icon fa fa-phone"></span>
+						<div class="text">
+							<br>
+							<h2 class="header_text" id="hekl"
+								style="color:black;direction:rtl;text-align:right;font-family:DiodrumArabicBold">
+								پشتیبانی آنلاین</h2>
+							<hr>
+							<p class="font" style="color:black;direction:rtl;text-align:right;">
+								تیم جزیره کتاب با پشتیبانی آنلاین در خدمت شما است
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-flex">
+					<div style="text-color:black" class="intro d-lg-flex w-100 ftco-animate">
+						<span style="color:black;text-align:center;margin-top:-0.5em"
+							class="awesome-icon fa fa-money"></span>
+						<div class="text">
+							<br>
+							<h2 id="hekl2" class="font"
+								style="color:black;direction:rtl;text-align:right;font-family:DiodrumArabicBold;">
+								بازگشت وجه در صورت نارضایتی</h2>
+							<hr>
+							<p class="font" style="color:black;direction:rtl;text-align:right;">
+								در صورت نارضایتی از کالا، وجه قابل بازگشت خواهد بود
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-flex">
+					<div style="text-color:black" class="intro d-lg-flex w-100 ftco-animate">
+						<span style="color:black;text-align:center;margin-top:-0.5em"
+							class="awesome-icon fa fa-truck"></span>
+						<div class="text">
+							<br>
+							<h2 class="font"
+								style="color:black;direction:rtl;text-align:right;font-family:DiodrumArabicBold;font-size:14px">
+								ارسال به سراسر کشور</h2>
+							<hr>
+							<p class="font" style="color:black;direction:rtl;text-align:right;">
+								تمامی محصولات به سراسر کشور ارسال خواهند شد
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<br>
+	<br>
+
+
+	<div class="site-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-md-7 text-center" style="font-family:yekan;">
+           <h2 class="font-weight-light text-black" style="font-family:yekan;">ثبت نام در گروه</h2>
+           <p class="color-black-opacity-5" style="font-family:yekan;"> در گروه جزیره کتاب عضو شوید  </p>
+        </div>
+	  </div>
+	  <com:TActivePanel id="pnlAfterAdd"	Visible="false" style="width: 1140px;">
+		<p class="bg-success" style="text-align: center;padding: 10px; border-radius: 5px; font-family:yekan; font-size: 15px;color:white">
+		  . ثبت نام در گروه با موفقیت انجام شد
+		</p>
+	  </com:TActivePanel>	
+      <div class="row mb-3 align-items-stretch" align="right"> 
+    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+      <label class="control-label col-md-4 col-sm-12 col-xs-12" 
+        style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> نام خانوادگی :</label>
+      <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+        <com:TActiveTextBox id="txtFamily" Cssclass="form-control"
+        style="font-size:15px;font-family:Yekan;direction: rtl;" Attributes.placeholder="نام خانوادگی  "
+            Attributes.data-validate-length-range="1" 
+          Attributes.required="required" />
+      </div>
+    </div>
+           <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+      <label class="control-label col-md-4 col-sm-12 col-xs-12" 
+        style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">  نام :</label>
+      <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+        <com:TActiveTextBox id="txtName" Cssclass="form-control"
+        style="font-size:15px;font-family:Yekan;direction: rtl;" Attributes.placeholder="نام  "
+          Attributes.data-validate-length-range="1" 
+          Attributes.required="required" />
+      </div>
+    </div>
+
+    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+      <label class="control-label col-md-4 col-sm-12 col-xs-12" 
+        style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> شماره همراه :</label>
+      <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+        <com:TActiveTextBox id="txtMobile" Cssclass="form-control"  
+        style="font-size:15px;font-family:Yekan;direction: rtl;" Attributes.placeholder="شماره همراه  "
+           Attributes.data-validate-length-range="1" 
+          Attributes.required="required" />
+      </div>
+    </div>
+
+    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+      <label class="control-label col-md-4 col-sm-12 col-xs-12" 
+        style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">  ایمیل :</label>
+      <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+        <com:TActiveTextBox id="txtEmail" Cssclass="form-control"
+        style="font-size:15px;font-family:Yekan;direction: rtl;" Attributes.placeholder=" ایمیل  "
+           Attributes.data-validate-length-range="1" 
+          Attributes.required="required" />
+      </div>
+    </div>
+    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+      <label class="control-label col-md-4 col-sm-12 col-xs-12" 
+        style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">  تکرار رمز عبور :</label>
+      <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+        <com:TActiveTextBox id="txtRePass" Cssclass="form-control"  
+        style="font-size:15px;font-family:Yekan;direction: rtl;" Attributes.placeholder=" رمز عبور  "
+            Attributes.data-validate-length-range="1" 
+          Attributes.required="required" />
+      </div>
+    </div>
+    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+      <label class="control-label col-md-4 col-sm-12 col-xs-12" 
+        style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">  رمز عبور :</label>
+      <div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+        <com:TActiveTextBox id="txtPass" Cssclass="form-control"  
+        style="font-size:15px;font-family:Yekan;direction: rtl;" Attributes.placeholder=" رمز عبور  "
+            Attributes.data-validate-length-range="1" 
+          Attributes.required="required" />
+      </div>
+    </div>
+    
+      </div>
+      <div class="row">
+        <div class="col-12 text-center"> 
+          <com:TButton Cssclass="btn btn-outline-warning border-2 py-3 px-5"  OnClick="send" 
+          style="font-family:yekan;margin-bottom: 50px;" Text=" ثبت نام  " />  
+        </div>
+      </div>
+   </div> 
+
+</com:TContent>

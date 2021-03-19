@@ -1,0 +1,495 @@
+<%@ MasterClass="Application.layouts.HeaderFooterLayout"محصولات کمپ" %>
+<com:TContent id="content">
+
+  <style>
+
+    .button {
+      display: block;
+      width: 115px;
+      height: 25px;
+      background: #4E9CAF;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      line-height: 25px;
+    }
+
+    @import url(http://fonts.googleapis.com/css?family=Maven+Pro);
+
+    .tab-wrap {
+      -webkit-transition: 0.3s box-shadow ease;
+      transition: 0.3s box-shadow ease;
+      border-radius: 6px;
+      max-width: 100%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      position: relative;
+      list-style: none;
+      background-color: #fff;
+      margin: 40px 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    .tab-wrap:hover {
+      box-shadow: 0 12px 23px rgba(0, 0, 0, 0.23), 0 10px 10px rgba(0, 0, 0, 0.19);
+    }
+
+    .tab {
+      display: contents;
+    }
+
+    .tab:checked:nth-of-type(1)~.tab__content:nth-of-type(1) {
+      opacity: 1;
+      -webkit-transition: 0.5s opacity ease-in, 0.2s transform ease;
+      transition: 0.5s opacity ease-in, 0.2s transform ease;
+      position: relative;
+      top: 0;
+      z-index: 100;
+      -webkit-transform: translateY(0px);
+      transform: translateY(0px);
+      text-shadow: 0 0 0;
+    }
+
+    .tab:checked:nth-of-type(2)~.tab__content:nth-of-type(2) {
+      opacity: 1;
+      -webkit-transition: 0.5s opacity ease-in, 0.2s transform ease;
+      transition: 0.5s opacity ease-in, 0.2s transform ease;
+      position: relative;
+      top: 0;
+      z-index: 100;
+      -webkit-transform: translateY(0px);
+      transform: translateY(0px);
+      text-shadow: 0 0 0;
+    }
+
+    .tab:checked:nth-of-type(3)~.tab__content:nth-of-type(3) {
+      opacity: 1;
+      -webkit-transition: 0.5s opacity ease-in, 0.2s transform ease;
+      transition: 0.5s opacity ease-in, 0.2s transform ease;
+      position: relative;
+      top: 0;
+      z-index: 100;
+      -webkit-transform: translateY(0px);
+      transform: translateY(0px);
+      text-shadow: 0 0 0;
+    }
+
+    .tab:checked:nth-of-type(4)~.tab__content:nth-of-type(4) {
+      opacity: 1;
+      -webkit-transition: 0.5s opacity ease-in, 0.2s transform ease;
+      transition: 0.5s opacity ease-in, 0.2s transform ease;
+      position: relative;
+      top: 0;
+      z-index: 100;
+      -webkit-transform: translateY(0px);
+      transform: translateY(0px);
+      text-shadow: 0 0 0;
+    }
+
+    .tab:first-of-type:not(:last-of-type)+label {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .tab:not(:first-of-type):not(:last-of-type)+label {
+      border-radius: 0;
+    }
+
+    .tab:last-of-type:not(:first-of-type)+label {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .tab:checked+label {
+      background-color: #fff;
+      box-shadow: 0 -1px 0 #fff inset;
+      cursor: default;
+    }
+
+    .tab:checked+label:hover {
+      box-shadow: 0 -1px 0 #fff inset;
+      background-color: #fff;
+    }
+
+    .tab+label {
+      width: 100%;
+      box-shadow: 0 -1px 0 #eee inset;
+      border-radius: 6px 6px 0 0;
+      cursor: pointer;
+      text-decoration: none;
+      color: #333;
+      -webkit-box-flex: 3;
+      -webkit-flex-grow: 3;
+      -ms-flex-positive: 3;
+      flex-grow: 3;
+      text-align: center;
+      background-color: #f2f2f2;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      text-align: center;
+      -webkit-transition: 0.3s background-color ease, 0.3s box-shadow ease;
+      transition: 0.3s background-color ease, 0.3s box-shadow ease;
+      height: 50px;
+      box-sizing: border-box;
+      padding: 15px;
+    }
+
+    @media (min-width:768px) {
+
+      .tab+label {
+        width: auto;
+      }
+    }
+
+    .tab+label:hover {
+      background-color: #f9f9f9;
+      box-shadow: 0 1px 0 #f4f4f4 inset;
+    }
+
+    .tab__content {
+      padding: 10px 25px;
+      background-color: transparent;
+      position: absolute;
+      width: 100%;
+      z-index: -1;
+      opacity: 0;
+      left: 0;
+      -webkit-transform: translateY(-3px);
+      transform: translateY(-3px);
+      border-radius: 6px;
+
+    }
+
+    @media screen and (min-width:350px) and (max-width:460px) {
+      .modal_font {
+        font-size: 12px;
+      }
+    }
+
+    @media screen and (min-width:200px) and (max-width:350px) {
+      .modal_font {
+        font-size: 10px;
+      }
+    }
+
+    .specs-table {
+      color:black;
+      font-weight: bold;
+      font-size:17px;
+    }
+
+    .specs-table-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-top: 1px solid #ccc;
+    }
+
+    .spec-table-label {
+      font-weight: 700;
+    }
+
+    .spec-table-description {
+      color: black;
+      font-size:17px;
+
+    }
+
+    .carousel-cell {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel.is-fullscreen .carousel-cell {
+      height: 100%;
+    }
+
+    .carousel-cell-image {
+      max-height: 100%;
+    }
+
+    .carousel.is-fullscreen .carousel-cell-image {
+      max-height: 100%;
+    }
+  </style>
+
+  <!-- <section class="hero-wrap hero-wrap-2" style="background-size:-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height:100%
+    background-size: cover;height:100%;background-image: url(<com:TLiteral id="lit_slider1_img" />);">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-end justify-content-center">
+        <div class="col-md-9 ftco-animate mb-5 text-center">
+          <p class="breadcrumbs mb-0"><span class="mr-2"><a style="font-family:BYekan;direction:rtl"
+                href="index.html">خانه <i class="fa fa-chevron-left"></i></a></span> <span><a
+                style="font-family:BYekan;direction:rtl" href="product.html">محصولات <i
+                  class="fa fa-chevron-left"></i></a></span> <span style="font-family:BYekan;direction:rtl">جزئیات
+              محصول</span></p>
+          <h2 style="font-family:DiodrumArabicBold;font-size:3em" class="mb-0 bread">جزئیات کتاب</h2>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <br>
+
+  <com:TActivePanel id="pnlAfterAdd" Visible="false">
+    <div class="container">
+      <p class="bg-success"
+        style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 15px;color:white">
+        .محصول به سبد خرید اضافه شد
+      </p>
+      <p
+        style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 15px;margin-top:-1em">
+        <a href="<%=$this->Service->constructUrl("package.Cart")%>" class="cart_transportation"
+          style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 15px;background-color:#ED2">
+          انتقال به صفحه سبد خرید
+        </a>
+      </p>
+    </div>
+  </com:TActivePanel>
+
+  <section style="margin-top:2em;margin-bottom:2em">
+    <div class="container">
+      <div style="background:white;border-radius:15px" class="row">
+        <div class="col-lg-6 mb-5 ftco-animate">
+          <br>
+          <div class="carousel" data-flickity='{"fullscreen": false, "lazyLoad": 1 }'>
+            <div class="carousel-cell">
+              <img class="carousel-cell-image" style="background-size:cover;height:100%;width:100%"
+                src="<com:TLiteral id="lit_image" />" />
+              <span style="font-family:BYekan">
+                <com:TLiteral id="lit_image2" /></span>
+            </div>
+            <div class="carousel-cell">
+              <img class="carousel-cell-image" style="background-size:cover;height:100%;width:100%"
+                src="<com:TLiteral id="lit_image3" />"/>
+              <span style="font-family:BYekan">
+                <com:TLiteral id="lit_image4" /></span>
+            </div>
+            <div class="carousel-cell">
+              <img class="carousel-cell-image" style="background-size:cover;height:100%;width:100%"
+                src="<com:TLiteral id="lit_image5" />" />
+              <span style="font-family:BYekan">
+                <com:TLiteral id="lit_image6" /></span>
+            </div>
+            <div class="carousel-cell">
+              <img class="carousel-cell-image" style="background-size:cover;height:100%;width:100%"
+                src="<com:TLiteral id="lit_image7" />" />
+              <span style="font-family:BYekan">
+                <com:TLiteral id="lit_image8" /></span>
+            </div>
+            <div class="carousel-cell">
+              <img class="carousel-cell-image" style="background-size:cover;height:100%;width:100%"
+                src="<com:TLiteral id="lit_image9" />" />
+              <span style="font-family:BYekan">
+                <com:TLiteral id="lit_image10" /></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+          <br>
+          <h3 style="font-family:DiodrumArabicBold;font-size:2em;text-align:right">
+            <com:TLiteral id="productName" />
+          </h3>
+          <hr>
+          <p style="font-family:BYekan;text-align:right;direction:rtl" class="price">
+            <span
+              style="font-family:BYekan;text-align:right;direction:rtl;font-size:17.5px;font-weight:bold;color:#203e4a">
+              دسته بندی:
+              <com:TLiteral id="cat" />
+            </span>
+            <br>
+            <span style="font-family:BYekan;direction:rtl;font-size:17.5px;font-weight:bold;color:#203e4a">
+              نوع جلد:
+              <com:TLiteral id="lit_cover" />
+            </span>
+            <br>
+            <span
+              style="font-family:BYekan;text-align:right;direction:rtl;font-size:17.5px;font-weight:bold;color:#203e4a">
+              امتیاز گودریدز:
+              <com:TLiteral id="goodreads_rating" />
+            </span>
+          </p>
+          <com:TLiteral id="like" /> &nbsp;<i style="float:right" class="fa fa-heart"></i>
+          <hr>
+          <div style="font-family:BYekan;text-align:right;color:black;weight:bold">
+            <p style="word-wrap: break-word;">
+              <com:TLiteral id="lit_desc" />
+            </p>
+          </div>
+          <hr>
+          <br>
+          <span style="font-family:BYekan;float:right;direction:rtl;font-size:21.5px;font-weight:bold;color:#203e4a">
+            <com:TLiteral id="lit_price" /> تومان
+          </span>
+          <br>
+          <br>
+          <p style="text-align:right;">
+            <a class="btn btn-warning py-3 px-5"
+              style="font-family:DiodrumArabicBold;text-align:right;background-color:#FFD700;color:black;direction:rtl;float:right"
+              data-toggle="modal" data-target="#ModalAdd<%#$this->Data->book_id%>">
+              اضافه کردن به سبد خرید
+            </a>
+          </p>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
+      </div>
+
+
+
+      <div class="modal fade" id="ModalAdd<%#$this->Data->book_id%>" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h6 style="font-family:DiodrumArabicBold;color:black" class="modal-title">افزودن به سبد خرید</h6>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div style="font-family:BYekan;text-align:right;direction:rtl;" class="modal-body modal_font">
+              از محصول
+              <com:TLiteral id="productName3" /> به تعداد
+              <com:TActiveTextBox id="txtCount" style="text-align:right" Attributes.placeholder="تعداد" /> سفارش میدهم
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal"
+                style=" float:left;font-size:13px;font-family:BYekan">
+                <span class="glyphicon glyphicon-remove"></span>
+                بازگشت
+              </button>
+              <com:TButton Text="تایید" cssclass="btn btn-warning" OnClick="addCart"
+                style="float:left;background-color:#FFD700;font-family:BYekan" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-wrap">
+        <input type="radio" id="tab1" name="tabGroup1" class="tab">
+        <label style="font-family:DiodrumArabicBold;" for="tab1">نظرات کاربران</label>
+        <input type="radio" id="tab2" name="tabGroup1" class="tab" checked>
+        <label style="font-family:DiodrumArabicBold;" for="tab2">مشخصات</label>
+        <div style="text-align:right" class="tab__content">
+          <div class="row p-4">
+            <div class="col-md-12">
+              <h4 style="font-family:DiodrumArabicBold;text-align:right" class="test">
+                نظرات کاربران
+                &nbsp;
+                <i class="fa fa-comment"></i>
+              </h4>
+              <hr>
+              <!-- <div class="review">
+                <div class="desc">
+                  <h4>
+                    <span style="font-family:BYekan" class="text-right">
+                      نام نظر دهنده
+                      &nbsp;
+                      <i style="color:black;font-size:1.5em" class="fa fa-user"></i>
+                    </span>
+                    <br>
+                    <span style="font-family:BYekan" class="text-right">در تاریخ ۲۵ خرداد ۱۳۹۹</span>
+                  </h4>
+                  <p style="font-family:BYekan;color:#3B3C36">به نام خداوند بخشاینده مهربان الهی همه ما مورد مغفرت و
+                    رحمت خویش قرار بگیریم</p>
+                  <hr style="background-color:lightgray;">
+                </div>
+              </div> -->
+              <com:TActivePanel id="TActivePanel" ActiveControl.EnableUpdate="true">
+                <com:TRepeater ID="Repeater" EnableViewState="true" AllowPaging="true" AllowCustomPaging="true"
+                  PageSize="8" ItemRenderer="Application.pages.product.repeater.RowProductsComment">
+                  <prop:HeaderTemplate>
+                    <div class="row">
+                  </prop:HeaderTemplate>
+                  <prop:FooterTemplate>
+            </div>
+            </prop:FooterTemplate>
+            </com:TRepeater>
+            </com:TActivePanel>
+          </div>
+        </div>
+        <div style="padding-bottom:2em" class="row justify-content-center">
+          <div class="col-md-4">
+            <com:TLiteral id="NewComment" />
+          </div>
+        </div>
+      </div>
+      <div class="tab__content">
+        <div class="table-responsive" style="direction: rtl;font-family: yekan;background-color:transparent;">
+          <div class="specs-table">
+            <div class="specs-table-row">
+              <div class="spec-table-label">نام</div>
+              <div class="spec-table-description">
+                <com:TLiteral id="productName2" />
+              </div>
+            </div>
+            <div class="specs-table-row">
+              <div class="spec-table-label">دسته بندی</div>
+              <div class="spec-table-description">
+                <com:TLiteral id="lit_cat" />
+              </div>
+            </div>
+            <div class="specs-table-row">
+              <div class="spec-table-label">قیمت</div>
+              <div class="spec-table-description">
+                <com:TLiteral id="lit_price2" />
+              </div>
+            </div>
+            <div class="specs-table-row">
+              <div class="spec-table-label">نویسنده</div>
+              <div class="spec-table-description">
+                <com:TLiteral id="lit_author" />
+              </div>
+            </div>
+            <div class="specs-table-row">
+              <div class="spec-table-label">ناشر</div>
+              <div class="spec-table-description">
+                <com:TLiteral id="lit_publisher" />
+              </div>
+            </div>
+            <div class="specs-table-row">
+              <div class="spec-table-label">شابک</div>
+              <div class="spec-table-description">
+                <com:TLiteral id="shabak" />
+              </div>
+            </div>
+            <div class="specs-table-row">
+              <div class="spec-table-label">صفحات</div>
+              <div class="spec-table-description">
+                <com:TLiteral id="page" />
+              </div>
+            </div>
+            <div class="specs-table-row">
+              <div class="spec-table-label">جنس جلد</div>
+              <div class="spec-table-description">
+                <com:TLiteral id="cover" />
+              </div>
+            </div>
+            <div class="specs-table-row">
+              <div class="spec-table-label">زبان</div>
+              <div class="spec-table-description">
+                <com:TLiteral id="language" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</com:TContent>

@@ -1,0 +1,979 @@
+<%@ MasterClass="Application.layouts.HeaderFooterLayout"محصولات کمپ" %>
+<com:TContent id="content">
+
+    <style>
+        .font {
+            font-family: 'BYekan';
+        }
+
+        .navbar-collapse {
+            color: black;
+        }
+
+        .navbar-nav {
+            color: black;
+        }
+
+        .nav-direction {
+            color: black;
+        }
+
+        .container1 {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .container1 input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+
+        .container1:hover input~.checkmark {
+            background-color: #ccc;
+        }
+
+        .container1 input:checked~.checkmark {
+            background-color: #FFD700;
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .container1 input:checked~.checkmark:after {
+            display: block;
+        }
+
+        .multi-steps>li.is-active:before,
+        .multi-steps>li.is-active~li:before {
+            content: counter(stepNum);
+            font-family: inherit;
+            font-weight: 700;
+        }
+
+        .multi-steps>li.is-active:after,
+        .multi-steps>li.is-active~li:after {
+            background-color: #ededed;
+        }
+
+        .multi-steps {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        .multi-steps>li {
+            counter-increment: stepNum;
+            text-align: center;
+            display: table-cell;
+            position: relative;
+            color: tomato;
+        }
+
+        .multi-steps>li:before {
+            content: '\f00c';
+            content: '\2713;';
+            content: '\10003';
+            content: '\10004';
+            content: '\2713';
+            display: block;
+            margin: 0 auto 4px;
+            background-color: #fff;
+            width: 36px;
+            height: 36px;
+            line-height: 32px;
+            text-align: center;
+            font-weight: bold;
+            border-width: 2px;
+            border-style: solid;
+            border-color: tomato;
+            border-radius: 50%;
+        }
+
+        .multi-steps>li:after {
+            content: '';
+            height: 2px;
+            width: 100%;
+            background-color: tomato;
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            z-index: -1;
+        }
+
+        .multi-steps>li:last-child:after {
+            display: none;
+        }
+
+        .multi-steps>li.is-active:before {
+            background-color: #fff;
+            border-color: tomato;
+        }
+
+        .multi-steps>li.is-active~li {
+            color: #808080;
+        }
+
+        .multi-steps>li.is-active~li:before {
+            background-color: #ededed;
+            border-color: #ededed;
+        }
+
+        .this:hover {
+            background: none;
+        }
+
+        #grad1 {
+            background-color: : #9C27B0;
+            background-image: linear-gradient(120deg, #FF4081, #81D4FA)
+        }
+
+        #msform {
+            text-align: center;
+            position: relative;
+            margin-top: 20px
+        }
+
+        #msform fieldset .form-card {
+            background: white;
+            border: 0 none;
+            border-radius: 0px;
+            box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+            padding: 20px 40px 30px 40px;
+            box-sizing: border-box;
+            width: 94%;
+            margin: 0 3% 20px 3%;
+            position: relative
+        }
+
+        #msform fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 0.5rem;
+            box-sizing: border-box;
+            width: 100%;
+            margin: 0;
+            padding-bottom: 20px;
+            position: relative
+        }
+
+        #msform fieldset:not(:first-of-type) {
+            display: none
+        }
+
+        #msform fieldset .form-card {
+            text-align: left;
+            color: #9E9E9E
+        }
+
+        #msform input,
+        #msform textarea {
+            padding: 0px 8px 4px 8px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0px;
+            margin-bottom: 25px;
+            margin-top: 2px;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: montserrat;
+            color: #2C3E50;
+            font-size: 16px;
+            letter-spacing: 1px
+        }
+
+        #msform input:focus,
+        #msform textarea:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: none;
+            font-weight: bold;
+            border-bottom: 2px solid skyblue;
+            outline-width: 0
+        }
+
+        #msform .action-button {
+            width: 100px;
+            background: skyblue;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 0px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px
+        }
+
+        #msform .action-button:hover,
+        #msform .action-button:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+        }
+
+        #msform .action-button-previous {
+            width: 100px;
+            background: #616161;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 0px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px
+        }
+
+        #msform .action-button-previous:hover,
+        #msform .action-button-previous:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+        }
+
+        select.list-dt {
+            border: none;
+            outline: 0;
+            border-bottom: 1px solid #ccc;
+            padding: 2px 5px 3px 5px;
+            margin: 2px
+        }
+
+        select.list-dt:focus {
+            border-bottom: 2px solid skyblue
+        }
+
+        .card {
+            z-index: 0;
+            border: none;
+            border-radius: 0.5rem;
+            position: relative
+        }
+
+        .fs-title {
+            font-size: 25px;
+            color: #2C3E50;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: left
+        }
+
+        .radio-group {
+            position: relative;
+            margin-bottom: 25px
+        }
+
+        .radio {
+            display: inline-block;
+            width: 204;
+            height: 104;
+            border-radius: 0;
+            background: #FFD700;
+            box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+            cursor: pointer;
+            margin: 8px 2px
+        }
+
+        .radio:hover {
+            box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+        }
+
+        .radio.selected {
+            box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+        }
+
+        .fit-image {
+            width: 100%;
+            object-fit: cover
+        }
+
+        .o-grid .col-12 {
+            -ms-flex: 0 0 100%;
+            -webkit-box-flex: 0;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .o-headline--profile {
+            padding-left: 0;
+            -webkit-box-align: end;
+            -ms-flex-align: end;
+            align-items: flex-end;
+            color: #858585;
+            margin: 10px 0 15px;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        .c-profile-stats {
+            background-color: #fff;
+            -webkit-box-shadow: 0 12px 12px 0 hsla(0, 0%, 71%, .1);
+            box-shadow: 0 12px 12px 0 hsla(0, 0%, 71%, .1);
+            border: 1px solid #dedede;
+            margin-bottom: 23px;
+            padding-bottom: 43px;
+            height: calc(100% - 68px);
+        }
+
+        .c-profile-stats__row {
+            display: -ms-flexbox;
+            display: -webkit-box;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: 0;
+            margin-left: 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .c-profile-stats__col:first-child {
+            border-right: none;
+        }
+
+        .c-profile-stats__col {
+            position: relative;
+            width: 100%;
+            text-align: right;
+            font-family: 'BYekan';
+            color: Black;
+            min-height: 1px;
+            -ms-flex: 0 0 50%;
+            -webkit-box-flex: 0;
+            flex: 0 0 50%;
+            max-width: 50%;
+            border-right: 1px solid #f1f1f1;
+            padding: 20px 30px;
+        }
+
+        .c-profile-stats__col p .c-profile-stats__value {
+            font-size: 19px;
+            font-size: 1.357rem;
+            line-height: 1.158;
+            direction: ltr;
+            text-align: right;
+            letter-spacing: -.5px;
+            color: gray;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .c-profile-stats__action {
+            padding: 10px 5px 17px;
+            text-align: center;
+            border-top: 1px solid #f1f1f1;
+            font-size: 12px;
+            font-size: .857rem;
+            line-height: 1.833;
+            position: absolute;
+            font-family: 'BYekan';
+            left: 0;
+            right: 0;
+            margin-top: -1px;
+        }
+
+        .o-headline {
+            margin: 26px 0 20px;
+            padding: 0 30px;
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            text-align: right;
+        }
+
+        .o-headline--profile {
+            padding-left: 0;
+            text-align: right;
+            -webkit-box-align: end;
+            -ms-flex-align: end;
+            align-items: flex-end;
+            color: #858585;
+            margin: 10px 0 15px;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        .profile {
+            margin: 20px 0;
+        }
+
+        /* Profile sidebar */
+        .profile-sidebar {
+            padding: 20px 0 10px 0;
+            background: #fff;
+        }
+
+        .profile-userpic img {
+            float: none;
+            margin: 0 auto;
+            width: 50%;
+            height: 50%;
+            -webkit-border-radius: 50% !important;
+            -moz-border-radius: 50% !important;
+            border-radius: 50% !important;
+        }
+
+        .profile-usertitle {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .profile-usertitle-name {
+            color: #5a7391;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .profile-usertitle-job {
+            text-transform: uppercase;
+            color: #5b9bd1;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .profile-userbuttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .profile-userbuttons .btn {
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 6px 15px;
+            margin-right: 5px;
+        }
+
+        .profile-userbuttons .btn:last-child {
+            margin-right: 0px;
+        }
+
+        .profile-usermenu {
+            margin-top: 30px;
+        }
+
+        .profile-usermenu ul li {
+            border-bottom: 1px solid #f0f4f7;
+        }
+
+        .profile-usermenu ul li:last-child {
+            border-bottom: none;
+        }
+
+        .profile-usermenu ul li a {
+            color: #93a3b5;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .profile-usermenu ul li a i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .profile-usermenu ul li a:hover {
+            background-color: #fafcfd;
+            color: #5b9bd1;
+        }
+
+        .profile-usermenu ul li.active {
+            border-bottom: none;
+        }
+
+        .profile-usermenu ul li.active a {
+            color: #5b9bd1;
+            background-color: #f6f9fb;
+            border-left: 2px solid #5b9bd1;
+            margin-left: -2px;
+        }
+
+        /* Profile Content */
+        .profile-content {
+            padding: 20px;
+            background: #fff;
+            min-height: 460px;
+        }
+
+        .c-adplacement-html,
+        .c-adplacement-html__item {
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .c-adplacement-html {
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            max-width: 100%;
+        }
+
+        .c-adplacement {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .c-adplacement__item:not(:last-of-type) {
+            margin-left: 20px;
+        }
+
+        .c-adplacement-html__item--light_blue {
+            background: -webkit-gradient(linear, right top, left top, from(#fff), color-stop(#fff), to(#eef7fc));
+            background: linear-gradient(270deg, #fff, #fff, #eef7fc);
+        }
+
+        .c-adplacement-html__item--a {
+            min-width: 24%;
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 24%;
+            flex: 1 1 24%;
+        }
+
+        .c-adplacement-html__item {
+            border: .8px solid rgba(0, 0, 0, .1);
+            position: relative;
+            border-radius: 5px;
+            font-size: 15px;
+            padding: 40px 10px 40px 20px;
+            -ms-flex-item-align: stretch;
+            align-self: stretch;
+            margin-left: 0 !important;
+        }
+
+        .c-adplacement-html__item-wrapper {
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .c-adplacement__item img {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+            cursor: pointer;
+        }
+
+        img,
+        img[alt] {
+            line-height: 22px;
+        }
+
+        .c-adplacement-html__item-image {
+            height: 100%;
+            max-height: 72px;
+            margin-left: 8px;
+            width: unset !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            max-width: 200px;
+            -o-object-fit: contain;
+            object-fit: contain;
+        }
+
+        img {
+            border-style: none;
+        }
+
+        .gray_color a {
+            color: gray
+        }
+
+        #test_hover :hover {
+            color: #ffc107;
+
+        }
+
+        .md-stepper-horizontal {
+            display: table;
+            width: 100%;
+            margin: 0 auto;
+            background-color: transparent;
+            box-shadow: 0 3px 8px -6px rgba(0, 0, 0, .50);
+        }
+
+        .md-stepper-horizontal .md-step {
+            display: table-cell;
+            position: relative;
+            padding: 24px;
+        }
+
+        .md-stepper-horizontal .md-step:hover,
+        .md-stepper-horizontal .md-step:active {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        .md-stepper-horizontal .md-step:active {
+            border-radius: 15% / 75%;
+        }
+
+        .md-stepper-horizontal .md-step:first-child:active {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .md-stepper-horizontal .md-step:last-child:active {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .md-stepper-horizontal .md-step:hover .md-step-circle {
+            background-color: #757575;
+        }
+
+        .md-stepper-horizontal .md-step:first-child .md-step-bar-left,
+        .md-stepper-horizontal .md-step:last-child .md-step-bar-right {
+            display: none;
+        }
+
+        .md-stepper-horizontal .md-step .md-step-circle {
+            width: 30px;
+            height: 30px;
+            margin: 0 auto;
+            background-color: #999999;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .md-stepper-horizontal.green .md-step.active .md-step-circle {
+            background-color: #00AE4D;
+        }
+
+        .md-stepper-horizontal.orange .md-step.active .md-step-circle {
+            background-color: #F96302;
+        }
+
+        .md-stepper-horizontal .md-step.active .md-step-circle {
+            background-color: rgb(33, 150, 243);
+        }
+
+        .md-stepper-horizontal .md-step.done .md-step-circle:before {
+            font-family: 'FontAwesome';
+            font-weight: 100;
+            content: "\f00c";
+        }
+
+        .md-stepper-horizontal .md-step.done .md-step-circle *,
+        .md-stepper-horizontal .md-step.editable .md-step-circle * {
+            display: none;
+        }
+
+        .md-stepper-horizontal .md-step.editable .md-step-circle {
+            -moz-transform: scaleX(-1);
+            -o-transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+
+        .md-stepper-horizontal .md-step.editable .md-step-circle:before {
+            font-family: 'FontAwesome';
+            font-weight: 100;
+            content: "\f040";
+        }
+
+        .md-stepper-horizontal .md-step .md-step-title {
+            margin-top: 16px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .md-stepper-horizontal .md-step .md-step-title,
+        .md-stepper-horizontal .md-step .md-step-optional {
+            text-align: center;
+            color: rgba(0, 0, 0, .26);
+        }
+
+        .md-stepper-horizontal .md-step.active .md-step-title {
+            font-weight: 600;
+            color: rgba(0, 0, 0, .87);
+        }
+
+        .md-stepper-horizontal .md-step.active.done .md-step-title,
+        .md-stepper-horizontal .md-step.active.editable .md-step-title {
+            font-weight: 600;
+        }
+
+        .md-stepper-horizontal .md-step .md-step-optional {
+            font-size: 12px;
+        }
+
+        .md-stepper-horizontal .md-step.active .md-step-optional {
+            color: rgba(0, 0, 0, .54);
+        }
+
+        .md-stepper-horizontal .md-step .md-step-bar-left,
+        .md-stepper-horizontal .md-step .md-step-bar-right {
+            position: absolute;
+            top: 36px;
+            height: 1px;
+            border-top: 1px solid #DDDDDD;
+        }
+
+        .md-stepper-horizontal .md-step .md-step-bar-right {
+            right: 0;
+            left: 50%;
+            margin-left: 20px;
+        }
+
+        .md-stepper-horizontal .md-step .md-step-bar-left {
+            left: 0;
+            right: 50%;
+            margin-right: 20px;
+        }
+    </style>
+
+    
+    <section class="gray_color" style="justify-content:center;margin-top:2em;">
+        <div class="container">
+            <div class="card wish-list mb-3">
+                <div class="card-body">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 style="text-align:right;font-family:DiodrumArabicBold;" class="mb-3">
+                                وضعیت سفارش
+                            </h5>
+                            <hr>
+                            <div class="table-responsive">
+                                <table class="table table-striped jambo_table bulk_action"
+                                    style="font-size:13px;font-family:yekan;direction: rtl;">
+                                    <tbody>
+                                        <tr class="even pointer" style="color:#415567;">
+                                            <td style="border-top: 1px solid #415567;">
+                                                <p style="text-align: center;font-family:BYekan">
+                                                    <com:TButton id="t1" Text="در صف بررسی" Enabled="false"/>
+                                                </p>
+                                            </td>
+                                            <td style="border-top: 1px solid #415567;">
+                                                <p style="text-align: center;font-family:BYekan">
+                                                    <com:TButton id="t2" Text="تایید سفارش" Enabled="false"/>
+                                                </p>
+                                            </td>
+
+                                            <td style="border-top: 1px solid #415567;">
+                                                <p style="text-align: center;">
+                                                    <com:TButton id="t3" Text="آماده سازی سفارش" Enabled="false"/>
+                                                </p>
+                                            </td>
+
+                                            <td style="border-top: 1px solid #415567;" >
+                                                <p style="text-align: center;">
+                                                    <com:TButton id="t4" Text="خروج از مراکز پردازش" Enabled="false" />
+                                                </p>
+                                            </td>
+
+                                            <td style="border-top: 1px solid #415567;">
+                                                <p style="text-align: center;">
+                                                    <com:TButton id="t5" Text="دریافت از مراکز توضیع" Enabled="false"/>
+                                                </p>
+                                            </td>
+
+                                            <td style="border-top: 1px solid #415567;" Enabled="false">
+                                                <p style="text-align: center;">
+                                                    <com:TButton id="t6" Text="تحویل به مامور ارسال" Enabled="false"/>
+                                                </p>
+                                            </td>
+
+                                            <td style="border-top: 1px solid #415567;">
+                                                <p style="text-align: center;">
+                                                    <com:TButton id="t7" Text="تحویل شده به مشتری" Enabled="false" />
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container" id="order">
+        <div class="card wish-list mb-3">
+            <div class="card-body">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 style="text-align:right;font-family:DiodrumArabicBold;" class="mb-3">
+                            جزئیات سفارش
+                        </h5>
+                        <hr>
+                        <div class="table-responsive">
+                            <table class="table table-striped jambo_table bulk_action"
+                                style="font-size:13px;font-family:yekan;direction: rtl;">
+                                <thead>
+                                    <tr style="background-color:gray" class="headings">
+                                        <th class="column-title" style="text-align: center;font-size:17.5px">
+                                            نام
+                                        </th>
+                                        <th class="column-title" style="text-align: center;font-size:17.5px">
+                                            نحوه ارسال
+                                        </th>
+                                        <th class="column-title" style="text-align: center;font-size:17.5px">
+                                            نحوه
+                                            پرداخت</th>
+                                        <th class="column-title" style="text-align: center;font-size:17.5px">
+                                            تلفن
+                                            همراه</th>
+                                        <th class="column-title" style="text-align: center;font-size:17.5px">
+                                            آدرس
+                                        </th>
+                                        <th class="column-title" style="text-align: center;font-size:17.5px">شهر
+                                        </th>
+                                        <th class="column-title" style="text-align: center;font-size:17.5px">
+                                            کدپستی
+                                        </th>
+                                        <th class="column-title" style="text-align: center;font-size:17.5px">
+                                            فاکتور
+                                            ارسال </th>
+                                        <th class="column-title" style="text-align: center;font-size:17.5px">
+                                            هزینه
+                                            کل </th>
+                                        <th class="column-title" style="text-align: center;font-size:17.5px">
+                                           Qr Code
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="even pointer" style="color:#415567;">
+                                        <td style="border-top: 1px solid #415567;">
+                                            <p style="text-align: center;">
+                                                <com:TLiteral id="name" />
+                                            </p>
+                                        </td>
+                                        <td style="border-top: 1px solid #415567;">
+                                            <p style="text-align: center;">
+                                                <com:TLiteral id="transportation" />
+                                            </p>
+                                        </td>
+                                        <td style="border-top: 1px solid #415567;">
+                                            <p style="text-align: center;">
+                                                <com:TLiteral id="payment" />
+                                            </p>
+                                        </td>
+                                        <td style="border-top: 1px solid #415567;">
+                                            <p style="text-align: center;">
+                                                <com:TLiteral id="mobile_phone" />
+                                            </p>
+                                        </td>
+                                        <td style="border-top: 1px solid #415567;">
+                                            <p style="text-align: center; font-family: none ;">
+                                                <com:TLiteral id="address" />
+                                            </p>
+                                        </td>
+                                        <td style="border-top: 1px solid #415567;">
+                                            <p style="text-align: center; font-family:none;">
+                                                <com:TLiteral id="city" />
+                                            </p>
+                                        </td>
+                                        <td style="border-top: 1px solid #415567;">
+                                            <p style="text-align: center; font-family:none;">
+                                                <com:TLiteral id="zip_code" />
+                                            </p>
+                                        </td>
+                                        <td style="border-top: 1px solid #415567;">
+                                            <p style="text-align: center;">
+                                                <com:TLiteral id="factor" />
+                                            </p>
+                                        </td>
+                                        <td style="border-top: 1px solid #415567;">
+                                            <p style="text-align: center; font-family: none ;">
+                                                <com:TLiteral id="total_price" />
+                                            </p>
+                                        </td>
+                                         <td style="border-top: 1px solid #415567;">
+                                            <p style="text-align: center; font-family: none ;">
+                                                <img src="<com:TLiteral id="lit_qrcode" />" style="width:200px;" />
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <h5 style="text-align:right;font-family:DiodrumArabicBold;" class="mb-3">
+            لیست محصولات
+        </h5>
+        <div class="x_content">
+            <div class="table-responsive">
+                <com:TActivePanel id="TActivePanel" ActiveControl.EnableUpdate="true">
+                <com:TRepeater ID="Repeater"
+                    EnableViewState="true" 
+                    AllowPaging="true" 
+                    AllowCustomPaging="true"
+                    PageSize="5" 
+                    ItemRenderer="Application.pages.order.repeater.RowCartsOrder">
+                    <prop:HeaderTemplate>
+                        <table class="table table-striped jambo_table bulk_action" style="font-size:13px;font-family:yekan;direction: rtl;">
+                            <thead> 
+                                <tr style="background-color: gray;"class="headings">
+                                    <th class="column-title" style="text-align: center;">قیمت</th>
+                                    <th class="column-title" style="text-align: center;">تعداد</th>
+                                    <th class="column-title" style="text-align: center;">نام کتاب</th>
+                                    <th class="column-title" style="text-align: center;">نویسنده</th>
+                                    <th class="column-title" style="text-align: center;">ناشر</th>
+                                    <th class="column-title" style="text-align: center;">دسته بندی ۱</th>
+                                    <th class="column-title" style="text-align: center;">&nbsp;تصویر محصول</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                    </prop:HeaderTemplate>
+                    <prop:FooterTemplate>
+                        </tbody>
+                        </table>
+                    </prop:FooterTemplate>
+                </com:TRepeater>
+                </com:TActivePanel>
+            </div>  
+        </div>
+    </section>
+    <br>
+
+</com:TContent>

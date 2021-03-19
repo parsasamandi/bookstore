@@ -1,0 +1,94 @@
+<%@ MasterClass="Application.layouts.MainLayout" Title="سامانه اسکال فال" %>
+<com:TContent id="content">
+	<div class="x_panel" >
+    	<div class="x_title" style="border-bottom:1px solid #415567;">
+       		<ul class="nav navbar-right panel_toolbox" >
+            	<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+           	</ul>
+            <p style="font-size:17px;font-family:yekan;float:right;">: اطلاعات مربوط به ایجاد دسته بندی-1 جدید       
+              	<span class="glyphicon glyphicon-edit" style="color: #73879c;" aria-hidden="true"></span>
+          	</p>  
+          	
+        <div class="clearfix"></div>
+		</div>
+        <div class="x_content">
+   			<div class="  col-md-12 col-sm-12 col-xs-12" > 
+   				<com:TActivePanel id="pnlAfterAddTop"	Visible="false">
+					<p class="bg-success" style="text-align: center;padding: 10px; border-radius: 5px; font-family:yekan; font-size: 15px;">
+						ثبت دسته بندی جدید با موفقیت انجام شد.
+					</p>
+				</com:TActivePanel>	
+				<com:TActivePanel id="pnlAdd" >		
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12" 
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> نام :</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+							<com:TActiveTextBox id="txtName" Cssclass="form-control"
+							style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;" Attributes.placeholder="نام  "
+							Attributes.data-validate-length-range="1" 
+							Attributes.required="required" />
+						</div>
+					</div> 
+					<com:TActivePanel id="pnl_cat">
+						<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+							<label class="control-label col-md-4 col-sm-12 col-xs-12" 
+								style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> دسته بندی-1:</label>
+							<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+								<span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+								<com:TActiveTextBox id="txt_Cat" Cssclass="form-control"
+								style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;" Attributes.placeholder=" دسته بندی-1"
+								Attributes.data-validate-length-range="1" 
+								Attributes.required="required"
+								enabled="false"  />
+							</div>
+						</div> 
+					</com:TActivePanel>
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<com:TDropDownList 
+								Cssclass="form-control" id="dropCat" style="font-family:yekan;"/>
+								<com:TLiteral id="txt" />
+						</div>
+						<label class="control-label col-md-4 col-sm-12 col-xs-12" 
+						style="font-size:13px;font-family:Yekan;margin-top: 7px;direction: rtl;">  در دسته بندی-1  :</label>
+					</div>  
+					<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12" 
+						style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">  وضعیت  :</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<com:TDropDownList 
+								Cssclass="form-control" id="dropStatus" style="font-family:yekan;">
+								<com:TListItem Value="0" Text="تعيين نشده" />
+								<com:TListItem Value="1" Text="فعال" />
+								<com:TListItem Value="2" Text="غیرفعال" />
+							</com:TDropDownList>
+						</div>
+					</div>
+					<div class="form-group col-md-12 col-sm-12 col-xs-12" style="float:right;">
+						<com:TButton Cssclass="btn btn-round btn-default"  OnClick="AddSubCat" 
+							style="background-color: #415567;font-family:yekan;color:#ecf0f1;margin: 0 auto; display: block;"
+							Text=" ثبت دسته بندی" />  
+					</div>
+				</com:TActivePanel>
+				<div class="form-group col-md-12 col-sm-12 col-xs-12" style="margin-top: 15px;"> 
+					<com:TActivePanel id="pnlAfterAdd"	Visible="false">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<p class="bg-success" style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 15px;">
+								ثبت دسته بندی جدید سطح دوم با موفقیت انجام شد.
+							</p>
+							<div style="display: flex;align-items: center;justify-content: center;">
+								<com:TButton Cssclass="btn btn-round btn-default"  OnClick="ShowList" 
+									style="background-color: #415567;font-family:yekan;color:#ecf0f1;margin: 0 auto; display: block;"
+									Text="مشاهده لیست دسته بندی ها" />  
+							</div>
+						</div>
+					</com:TActivePanel>
+				</div>
+		    </div> 
+         </div>
+       </div><!-- /div class="x_panel" -->
+</com:TContent>         

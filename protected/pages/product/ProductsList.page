@@ -1,0 +1,127 @@
+<%@ MasterClass="Application.layouts.MainLayout" Title="لیست کتاب ها" %>
+<com:TContent id="content" >
+    <div class="x_panel" style="background-color: lightgrey;">
+        <div class="x_title" style="border-bottom:1px solid #415567;" >
+            <ul class="nav navbar-right panel_toolbox" >
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <h2 style="font-family:yekan;float:right;">لیست محصولات
+                <span class="glyphicon glyphicon-user" style="color: #73879c;" aria-hidden="true"></span>
+            </h2>  
+            <div class="x_panel col-md-12 col-sm-12 col-xs-12" style="solid #415567;"> 
+                <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <span class="fa fa-search form-control-feedback right" aria-hidden="true"></span>
+                        <com:TActiveTextBox id="txtSearchName" Cssclass="form-control" style="border-radius:8px;" Attributes.placeholder="Search for..."/>
+                    </div>
+                    <label class="control-label col-md-4 col-sm-12 col-xs-12" style="font-size:13px;font-family:Yekan;margin-top: 7px;direction: rtl;"> جستجو در نام محصول :</label>
+                </div> 
+                <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <span class="fa fa-search form-control-feedback right" aria-hidden="true"></span>
+                        <com:TActiveTextBox id="txtSearchPrice" Cssclass="form-control" style="border-radius:8px;" Attributes.placeholder="Search for..."/>
+                    </div>
+                    <label class="control-label col-md-4 col-sm-12 col-xs-12" style="font-size:13px;font-family:Yekan;margin-top: 7px;direction: rtl;">جستجو در هزینه محصول:</label>
+                </div> 
+                <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <span class="fa fa-search form-control-feedback right" aria-hidden="true"></span>
+                        <com:TActiveTextBox id="txtSearchAuthor" Cssclass="form-control" style="border-radius:8px;" Attributes.placeholder="Search for..."/>
+                    </div>
+                    <label class="control-label col-md-4 col-sm-12 col-xs-12" style="font-size:13px;font-family:Yekan;margin-top: 7px;direction: rtl;">جستجو در نویسنده:</label>
+                </div>
+                 <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <span class="fa fa-search form-control-feedback right" aria-hidden="true"></span>
+                        <com:TActiveTextBox id="txtSearchPublisher" Cssclass="form-control" style="border-radius:8px;" Attributes.placeholder="Search for..."/>
+                    </div>
+                    <label class="control-label col-md-4 col-sm-12 col-xs-12" style="font-size:13px;font-family:Yekan;margin-top: 7px;direction: rtl;">جستجو در انتشارات:</label>
+                </div>
+                <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <com:TDropDownList 
+                            Cssclass="form-control" id="dropStatus" style="font-family:yekan;">
+                            <com:TListItem Value="0" Text="تعيين نشده" />
+                            <com:TListItem Value="1" Text="فعال" />
+                            <com:TListItem Value="2" Text="غیر فعال" />
+                        </com:TDropDownList>
+                    </div>
+                    <label class="control-label col-md-4 col-sm-12 col-xs-12" z
+                    style="font-size:13px;font-family:Yekan;margin-top: 7px;direction: rtl;">  جستجو در وضعیت  :</label>
+                </div>
+                <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <com:TDropDownList 
+                            Cssclass="form-control" id="dropCat" style="font-family:yekan;" />
+                    </div>
+                    <label class="control-label col-md-4 col-sm-12 col-xs-12" 
+                    style="font-size:13px;font-family:Yekan;margin-top: 7px;direction: rtl;border-radius:8px;"> جستجو در دسته بندی-1  :</label>
+                </div>
+                <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;border-radius:8px;">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <com:TDropDownList 
+                            Cssclass="form-control" id="dropSubCat" style="font-family:yekan;border-radius:8px;" />
+                    </div>
+                    <label class="control-label col-md-4 col-sm-12 col-xs-12" 
+                    style="font-size:13px;font-family:Yekan;margin-top: 7px;direction: rtl;border-radius:8px;">  جستجو در دسته بندی-2  :</label>
+                </div>
+                <com:TButton Cssclass="btn btn-round btn-default"  OnClick="search" style="background-color: #415567;font-family:yekan;color:#ecf0f1;margin: 0 auto; display: block;" Text="جستجو" />
+                
+            </div>
+        </div>
+        <div class="x_content">
+            <div class="table-responsive">
+                <com:TActivePanel id="TActivePanel" ActiveControl.EnableUpdate="true">
+                <com:TRepeater ID="Repeater"
+                            EnableViewState="true" 
+                            AllowPaging="true" 
+                            AllowCustomPaging="true"
+                            PageSize="8" 
+                            ItemRenderer="Application.pages.product.repeater.RowProductsList1">
+                    <prop:HeaderTemplate>
+                        <table class="table table-striped jambo_table bulk_action" style="font-size:13px;font-family:yekan;direction: rtl;">
+                            <thead>
+                                <tr class="headings">
+                                    <th class="column-title" style="text-align: center;"># </th>
+                                    <th class="column-title" style="text-align: center;">عکس</th>
+                                    <th class="column-title" style="text-align: center;">عکس ۲</th>
+                                    <th class="column-title" style="text-align: center;">عکس ۳</th>
+                                    <th class="column-title" style="text-align: center;">نام  </th> 
+                                    <th class="column-title" style="text-align: center;">توضیحات</th>
+                                    <th class="column-title" style="text-align: center;">نمره goodreads </th>
+                                    <th class="column-title" style="text-align: center;"> ناشر </th> 
+                                    <th class="column-title" style="text-align: center;">هزینه </th>
+                                    <th class="column-title" style="text-align: center;">نویسنده</th>
+                                    <th class="column-title" style="text-align: center;">دسته بندی-1 </th>
+                                    <th class="column-title" style="text-align: center;">دسته بندی-2 </th>
+                                    <th class="column-title" style="text-align: center;"><i class="fa fa-info-circle" style="font-size:20px;"></th>
+                                    <th class="column-title" style="text-align: center;"><i class="fa fa-edit" style="font-size:20px;"></th>
+                                    <th class="column-title" style="text-align: center;">حذف </th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                    </prop:HeaderTemplate>
+                    <prop:FooterTemplate>
+                        </tbody>
+                        </table>
+                    </prop:FooterTemplate>
+                </com:TRepeater>
+                </com:TActivePanel>
+                <div style="text-align:center">
+                    <com:TActivePager ID="Pager4"
+                        ControlToPaginate="Repeater"
+                        PageButtonCount="10"
+                        Mode="Numeric"
+                        ButtonType="PushButton"
+                        OnPageIndexChanged="pageChanged"
+                        OnCallBack="RenderCallback"
+                        ButtonCssClass="page-button"
+                        /> 
+                </div>
+           </div>  
+        </div>
+    </div>
+</com:TContent>         

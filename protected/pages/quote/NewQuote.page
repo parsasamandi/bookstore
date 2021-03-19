@@ -1,0 +1,68 @@
+<%@ MasterClass="Application.layouts.MainLayout" Title="نقل قول جدید" %>
+<com:TContent id="content">
+    <div class="x_panel">
+        <div class="x_title" style="border-bottom:1px solid #415567;">
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <p style="font-size:17px;font-family:yekan;float:right;">: اطلاعات مربوط به ایجاد نقل قول
+                <span class="glyphicon glyphicon-edit" style="color: #73879c;" aria-hidden="true"></span>
+            </p>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <com:TActivePanel id="pnlAfterAddTop" Visible="false">
+                    <p class="bg-success"
+                        style="text-align: center;padding: 10px; border-radius: 5px; font-family:yekan; font-size: 15px;">
+                        ثبت  نقل قول جدید با موفقیت انجام شد
+                    </p>
+                </com:TActivePanel>
+                <com:TActivePanel id="pnlAdd">
+
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+                        <label class="control-label col-md-4 col-sm-12 col-xs-12"
+                            style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">
+                            نقل قول
+                            :</label>
+                        <div class="col-md-8 col-sm-12 col-xs-12" style="float:right;">
+                            <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
+                            <com:TActiveTextBox id="quote" Cssclass="form-control"
+                                style="font-size:15px;font-family:Yekan;direction: rtl;border-radius:8px;"
+                                Attributes.placeholder="نقل قول" Attributes.data-validate-length-range="1"
+                                Attributes.required="required" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+						<label class="control-label col-md-4 col-sm-12 col-xs-12"
+							style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> نویسنده :</label>
+						<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+							<com:TDropDownList id="dataAuthor" Cssclass="form-control" />
+						</div>
+					</div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12" style="float:right;">
+                        <com:TButton Cssclass="btn btn-round btn-default" OnClick="AddQuote"
+                            style="background-color: #415567;font-family:yekan;color:#ecf0f1;margin: 0 auto; display: block;"
+                            Text="ثبت نقل قول" />
+                    </div>
+
+                </com:TActivePanel>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12" style="margin-top: 15px;">
+                    <com:TActivePanel id="pnlAfterAdd" Visible="false">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <p class="bg-success"
+                                style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 15px;">
+                                ثبت نقل قول جدید با موفقیت انجام شد
+                            </p>
+                        </div>
+                    </com:TActivePanel>
+                </div>
+            </div>
+        </div>
+    </div>
+</com:TContent>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <script src='js/mapbox/mapbox-gl.js'></script>
+    <link href='js/mapbox/mapbox-gl.css' rel='stylesheet'/>
+    <link href="js/mapbox/mapbox-gl-directions.css" rel="stylesheet"/>
+    <script src='js/mapbox/mapbox-gl-traffic.js'></script>
+    <link href='js/mapbox/mapbox-gl-traffic.css' rel='stylesheet'/>
+    <link href="js/mapbox/map.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div id='map'></div>
+<div id="menu">
+    <input
+            id="streets-v11"
+            type="radio"
+            name="rtoggle"
+            value="streets"
+            checked="checked"
+    />
+    <label for="streets">streets</label>
+    <!--        <input id="light-v10" type="radio" name="rtoggle" value="light" />-->
+    <!--        <label for="light">light</label>-->
+    <!--        <input id="dark-v10" type="radio" name="rtoggle" value="dark" />-->
+    <!--        <label for="dark">dark</label>-->
+    <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors"/>
+    <label for="outdoors">outdoors</label>
+    <input id="satellite-v9" type="radio" name="rtoggle" value="satellite"/>
+    <label for="satellite">satellite</label>
+</div>
+<script src="js/mapbox/mapbox-gl-directions.js"></script>
+<script src="js/mapbox/map.js"></script>
+</body>
+</html>

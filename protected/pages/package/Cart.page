@@ -1,0 +1,647 @@
+<%@ MasterClass="Application.layouts.HeaderFooterLayout"سبد خرید" %>
+<com:TContent id="content">
+  <style>
+
+
+    .container1 input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      background-color: #eee;
+      border-radius: 50%;
+    }
+
+    .container1:hover input~.checkmark {
+      background-color: #ccc;
+    }
+
+    .container1 input:checked~.checkmark {
+      background-color: #FFD700;
+    }
+
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    .container1 input:checked~.checkmark:after {
+      display: block;
+    }
+
+    .multi-steps>li.is-active:before,
+    .multi-steps>li.is-active~li:before {
+      content: counter(stepNum);
+      font-family: inherit;
+      font-weight: 700;
+    }
+
+    .multi-steps>li.is-active:after,
+    .multi-steps>li.is-active~li:after {
+      background-color: #ededed;
+    }
+
+    .multi-steps {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    .multi-steps>li {
+      counter-increment: stepNum;
+      text-align: center;
+      display: table-cell;
+      position: relative;
+      color: tomato;
+    }
+
+    .multi-steps>li:before {
+      content: '\f00c';
+      content: '\2713;';
+      content: '\10003';
+      content: '\10004';
+      content: '\2713';
+      display: block;
+      margin: 0 auto 4px;
+      background-color: #fff;
+      width: 36px;
+      height: 36px;
+      line-height: 32px;
+      text-align: center;
+      font-weight: bold;
+      border-width: 2px;
+      border-style: solid;
+      border-color: tomato;
+      border-radius: 50%;
+    }
+
+    .multi-steps>li:after {
+      content: '';
+      height: 2px;
+      width: 100%;
+      background-color: tomato;
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      z-index: -1;
+    }
+
+    .multi-steps>li:last-child:after {
+      display: none;
+    }
+
+    .multi-steps>li.is-active:before {
+      background-color: #fff;
+      border-color: tomato;
+    }
+
+    .multi-steps>li.is-active~li {
+      color: #808080;
+    }
+
+    .multi-steps>li.is-active~li:before {
+      background-color: #ededed;
+      border-color: #ededed;
+    }
+
+    .this:hover {
+      background: none;
+    }
+
+    #grad1 {
+      background-color: : #9C27B0;
+      background-image: linear-gradient(120deg, #FF4081, #81D4FA)
+    }
+
+    #msform {
+      text-align: center;
+      position: relative;
+      margin-top: 20px
+    }
+
+    #msform fieldset .form-card {
+      background: white;
+      border: 0 none;
+      border-radius: 0px;
+      box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+      padding: 20px 40px 30px 40px;
+      box-sizing: border-box;
+      width: 94%;
+      margin: 0 3% 20px 3%;
+      position: relative
+    }
+
+    #msform fieldset {
+      background: white;
+      border: 0 none;
+      border-radius: 0.5rem;
+      box-sizing: border-box;
+      width: 100%;
+      margin: 0;
+      padding-bottom: 20px;
+      position: relative
+    }
+
+    #msform fieldset:not(:first-of-type) {
+      display: none
+    }
+
+    #msform fieldset .form-card {
+      text-align: left;
+      color: #9E9E9E
+    }
+
+    #msform input,
+    #msform textarea {
+      padding: 0px 8px 4px 8px;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      border-radius: 0px;
+      margin-bottom: 25px;
+      margin-top: 2px;
+      width: 100%;
+      box-sizing: border-box;
+      font-family: montserrat;
+      color: #2C3E50;
+      font-size: 16px;
+      letter-spacing: 1px
+    }
+
+    #msform input:focus,
+    #msform textarea:focus {
+      -moz-box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+      border: none;
+      font-weight: bold;
+      border-bottom: 2px solid skyblue;
+      outline-width: 0
+    }
+
+    #msform .action-button {
+      width: 100px;
+      background: skyblue;
+      font-weight: bold;
+      color: white;
+      border: 0 none;
+      border-radius: 0px;
+      cursor: pointer;
+      padding: 10px 5px;
+      margin: 10px 5px
+    }
+
+    #msform .action-button:hover,
+    #msform .action-button:focus {
+      box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+    }
+
+    #msform .action-button-previous {
+      width: 100px;
+      background: #616161;
+      font-weight: bold;
+      color: white;
+      border: 0 none;
+      border-radius: 0px;
+      cursor: pointer;
+      padding: 10px 5px;
+      margin: 10px 5px
+    }
+
+    #msform .action-button-previous:hover,
+    #msform .action-button-previous:focus {
+      box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+    }
+
+    select.list-dt {
+      border: none;
+      outline: 0;
+      border-bottom: 1px solid #ccc;
+      padding: 2px 5px 3px 5px;
+      margin: 2px
+    }
+
+    select.list-dt:focus {
+      border-bottom: 2px solid skyblue
+    }
+
+    .card {
+      z-index: 0;
+      border: none;
+      border-radius: 0.5rem;
+      position: relative
+    }
+
+    .fs-title {
+      font-size: 25px;
+      color: #2C3E50;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-align: left
+    }
+
+    .radio-group {
+      position: relative;
+      margin-bottom: 25px
+    }
+
+    .radio {
+      display: inline-block;
+      width: 204;
+      height: 104;
+      border-radius: 0;
+      background: #FFD700;
+      box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
+      cursor: pointer;
+      margin: 8px 2px
+    }
+
+    .radio:hover {
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+    }
+
+    .radio.selected {
+      box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+    }
+
+    .fit-image {
+      width: 100%;
+      object-fit: cover
+    }
+
+    .md-stepper-horizontal {
+      display: table;
+      width: 100%;
+      margin: 0 auto;
+      background-color: transparent;
+      box-shadow: 0 3px 8px -6px rgba(0, 0, 0, .50);
+    }
+
+    .md-stepper-horizontal .md-step {
+      display: table-cell;
+      position: relative;
+      padding: 24px;
+    }
+
+    .md-stepper-horizontal .md-step:hover,
+    .md-stepper-horizontal .md-step:active {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+
+    .md-stepper-horizontal .md-step:active {
+      border-radius: 15% / 75%;
+    }
+
+    .md-stepper-horizontal .md-step:first-child:active {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .md-stepper-horizontal .md-step:last-child:active {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .md-stepper-horizontal .md-step:hover .md-step-circle {
+      background-color: #757575;
+    }
+
+    .md-stepper-horizontal .md-step:first-child .md-step-bar-left,
+    .md-stepper-horizontal .md-step:last-child .md-step-bar-right {
+      display: none;
+    }
+
+    .md-stepper-horizontal .md-step .md-step-circle {
+      width: 30px;
+      height: 30px;
+      margin: 0 auto;
+      background-color: #999999;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .md-stepper-horizontal.green .md-step.active .md-step-circle {
+      background-color: #00AE4D;
+    }
+
+    .md-stepper-horizontal.orange .md-step.active .md-step-circle {
+      background-color: #F96302;
+    }
+
+    .md-stepper-horizontal .md-step.active .md-step-circle {
+      background-color: rgb(33, 150, 243);
+    }
+
+    .md-stepper-horizontal .md-step.done .md-step-circle:before {
+      font-family: 'FontAwesome';
+      font-weight: 100;
+      content: "\f00c";
+    }
+
+    .md-stepper-horizontal .md-step.done .md-step-circle *,
+    .md-stepper-horizontal .md-step.editable .md-step-circle * {
+      display: none;
+    }
+
+    .md-stepper-horizontal .md-step.editable .md-step-circle {
+      -moz-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+    }
+
+    .md-stepper-horizontal .md-step.editable .md-step-circle:before {
+      font-family: 'FontAwesome';
+      font-weight: 100;
+      content: "\f040";
+    }
+
+    .md-stepper-horizontal .md-step .md-step-title {
+      margin-top: 16px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .md-stepper-horizontal .md-step .md-step-title,
+    .md-stepper-horizontal .md-step .md-step-optional {
+      text-align: center;
+      color: rgba(0, 0, 0, .26);
+    }
+
+    .md-stepper-horizontal .md-step.active .md-step-title {
+      font-weight: 600;
+      color: rgba(0, 0, 0, .87);
+    }
+
+    .md-stepper-horizontal .md-step.active.done .md-step-title,
+    .md-stepper-horizontal .md-step.active.editable .md-step-title {
+      font-weight: 600;
+    }
+
+    .md-stepper-horizontal .md-step .md-step-optional {
+      font-size: 12px;
+    }
+
+    .md-stepper-horizontal .md-step.active .md-step-optional {
+      color: rgba(0, 0, 0, .54);
+    }
+
+    .md-stepper-horizontal .md-step .md-step-bar-left,
+    .md-stepper-horizontal .md-step .md-step-bar-right {
+      position: absolute;
+      top: 36px;
+      height: 1px;
+      border-top: 1px solid #DDDDDD;
+    }
+
+    .md-stepper-horizontal .md-step .md-step-bar-right {
+      right: 0;
+      left: 50%;
+      margin-left: 20px;
+    }
+
+    .md-stepper-horizontal .md-step .md-step-bar-left {
+      left: 0;
+      right: 50%;
+      margin-right: 20px;
+    }
+    @media screen and (min-width:300px) and (max-width:700px)
+    {
+
+    }
+  </style>
+
+  <!-- <section class="hero-wrap hero-wrap-2" style="background-size:cover;background-image: url(<com:TLiteral id="lit_slider1_img" />);" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate mb-5 text-center">
+        <p class="breadcrumbs mb-0"><span class="mr-2"><a style="font-family:BYekan" href="index.html">خانه <i
+                class="fa fa-chevron-left"></i></a></span> <span style="font-family:BYekan">سبد خرید</span></p>
+        <h2 style="font-family:DiodrumArabicBold;" class="mb-0 bread">سبد خرید</h2>
+      </div>
+    </div>
+  </div>
+  </section> -->
+  <br>
+
+  <com:TActivePanel id="pnlFalse" Visible="false">
+    <div class="container">
+      <p class="bg-danger"
+        style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 14px;color:white;">
+        تمام آیتم ها انتخاب نشده اند
+      </p>
+    </div>
+  </com:TActivePanel>
+
+  <com:TActivePanel id="pnlFalseCart" Visible="false">
+    <div class="container">
+      <p class="bg-danger"
+        style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 14px;color:white;">
+        محصولی در سبد خرید شما وجود ندارد
+      </p>
+    </div>
+  </com:TActivePanel>
+
+  <com:TActivePanel id="pnlAfterAdd" Visible="false">
+    <div class="container">
+      <p class="bg-success"
+        style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 14px;color:white;">
+        محصولات به سبد خرید اضافه شد
+      </p>
+    </div>
+  </com:TActivePanel>
+  <div class="form-group col-md-12 col-sm-12 col-xs-12" style="margin-top: 15px;">
+    <com:TActivePanel id="pnlFalseAddress" Visible="false">
+      <div class="container">
+        <p class="bg-danger"
+          style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 14px;color:white;">
+          لطفا آدرس خود را انتخاب کنید
+        </p>
+        <p style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 15px;margin-top:-1em">
+          <a href="<%=$this->Service->constructUrl("package.NewAddress")%>"  class="cart_transportation" style="text-align: center; padding: 10px; border-radius: 5px;font-family:yekan; font-size: 15px;background-color:#ED2">
+            افزودن آدرس جدید
+          </a>
+        </p>
+      </div>
+    </com:TActivePanel>
+  </div>
+  <br>
+  <section>
+
+    <div class="container">
+      <div class="md-stepper-horizontal orange">
+        <div class="md-step done">
+          <div class="md-step-circle"><span>4</span></div>
+          <div style="font-family:BYekan" class="md-step-title">پرداخت</div>
+          <div class="md-step-bar-left"></div>
+          <div class="md-step-bar-right"></div>
+        </div>
+        <div class="md-step editable">
+          <div class="md-step-circle"><span>3</span></div>
+          <div style="font-family:BYekan" class="md-step-title">تایید نهایی</div>
+          <div class="md-step-bar-left"></div>
+          <div class="md-step-bar-right"></div>
+        </div>
+
+        <div class="md-step active">
+          <div class="md-step-circle active"><span>2</span></div>
+          <div style="font-family:BYekan" class="md-step-title">انتخاب آدرس</div>
+          <div class="md-step-bar-left"></div>
+          <div class="md-step-bar-right"></div>
+        </div>
+
+        <div class="md-step active">
+          <div class="md-step-circle"><span>1</span></div>
+          <div style="font-family:BYekan" class="md-step-title">
+            تایید سبد خرید</div>
+          <div class="md-step-bar-left"></div>
+          <div class="md-step-bar-right"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section style="margin-top:-6em" class="ftco-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div style="background-color:white" class="card-body">
+            <h3 style="font-family:DiodrumArabicBold;text-align:right;margin-right:0.5em;margin-top:0.5em" class="mb-4">
+              سبد خرید</h3>
+              <hr>
+            <div class="card-body">
+              <com:TActivePanel id="TActivePanel" ActiveControl.EnableUpdate="true">
+                <com:TRepeater ID="Repeater" EnableViewState="true" AllowCustomPaging="true" AllowPaging="true"
+                  PageSize="4" ItemRenderer="Application.pages.package.repeater.RowCarts">
+                </com:TRepeater>
+              </com:TActivePanel>
+
+              <div style="text-align:center">
+                <com:TActivePager ID="Pager4" ControlToPaginate="Repeater" PageButtonCount="10" Mode="Numeric"
+                  ButtonType="PushButton" OnPageIndexChanged="pageChanged" OnCallBack="RenderCallback"
+                  ButtonCssClass="page-button" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="payment_item">
+                <h5 style="font-family:DiodrumArabicBold;text-align:right">نحوه ارسال</h5>
+                <hr>
+                <div class="radion_btn">
+                  <label class="container1" style="font-family: yekan;font-size:17px;text-align:right;"> ارسال با
+                    پیک-مخصوص شهر تهران
+                    <com:TRadioButton ID="Radio1" GroupName="RadioGroup1" Style="font-family: yekan;float:right"  Attributes.required="required"/>
+                    <span class="checkmark" style="text-align:right"></span>
+                  </label>
+                </div>
+                <div class="radion_btn">
+                  <label class="container1" style="font-family: yekan;font-size:17px;text-align:right;"> ارسال پستی
+                    <com:TRadioButton ID="Radio2" GroupName="RadioGroup1" Style="font-family: yekan;float:right" />
+                    <span class="checkmark" style="text-align:right"></span>
+                  </label>
+                </div>
+                <hr>
+              </div>
+              <div class="payment_item">
+                <h5 style="font-family:DiodrumArabicBold;text-align:right">نحوه پرداخت</h5>
+                <hr>
+                <div class="radion_btn">
+                  <label class="container1" style="font-family: BYekan;font-size:17px;text-align:right;"> نقدی
+                    <com:TRadioButton ID="Radio_cash" GroupName="RadioGroup" Style="font-family: yekan;float:right" Attributes.required="required"/>
+                    <span class="checkmark" style="text-align:right"></span>
+                  </label>
+                </div>
+                <div class="radion_btn">
+                  <label class="container1" style="font-family: BYekan;font-size:17px;text-align:right;"> پرداخت در
+                    محل
+                    <com:TRadioButton ID="Radio_home" GroupName="RadioGroup" Style="font-family: yekan;float:right" />
+                    <span class="checkmark" style="text-align:right"></span>
+                  </label>
+                </div>
+                <div class="radion_btn">
+                  <label class="container1" style="font-family: BYekan;font-size:17px;text-align:right;"> کارت به کارت
+                    <com:TRadioButton ID="Radio_transport" GroupName="RadioGroup"
+                      Style="font-family: yekan;float:right" />
+                    <span class="checkmark" style="text-align:right"></span>
+                  </label>
+                </div>
+                <div class="radion_btn">
+                  <label class="container1" style="font-family: BYekan;font-size:17px;text-align:right;"> پرداخت
+                    آنلاین
+                    <com:TRadioButton ID="Radio_online" GroupName="RadioGroup" Style="font-family: yekan;float:right" />
+                    <span class="checkmark" style="text-align:right"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-body">
+              <a style="font-family:BYekan;float:right" class="dark-grey-text d-flex justify-content-between"
+                data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+                کد تخفیفی دارید؟
+              </a>
+              <div class="collapse" id="collapseExample1">
+                <div class="mt-3">
+                  <div class="md-form md-outline mb-0">
+                    <input style="font-family:BYekan;text-align:right" type="text" id="discount-code1"
+                      class="form-control font-weight-light" placeholder="کد تخفیف را وارد کنید">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="card-body">
+            <div class="card mb-3">
+              <div style="text-align:right" class="card-body">
+                <h5 style="text-align:right;font-family:DiodrumArabicBold;" class="mb-3">انتخاب آدرس</h5>
+                <hr>
+                <com:TActivePanel id="TActivePanelCart" ActiveControl.EnableUpdate="true">
+                  <com:TRepeater ID="RepeaterCart" EnableViewState="true" AllowPaging="true" AllowCustomPaging="true"
+                    PageSize="2" ItemRenderer="Application.pages.package.repeater.RowAddressCart">
+                  </com:TRepeater>
+                  <div style="text-align: center;">
+                    <com:TActivePager ID="Pager5" ControlToPaginate="RepeaterCart" PageButtonCount="2" Mode="Numeric"
+                      ButtonType="PushButton" OnPageIndexChanged="pageChangedCart" OnCallBack="RenderCallbackCart"
+                      ButtonCssClass="page-button" />
+                  </div>
+                </com:TActivePanel>
+                <com:TActivePanel id="TActivePanelAddress" ActiveControl.EnableUpdate="true">
+                  <com:TLiteral id="user_address" />
+                </com:TActivePanel>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <com:TActivePanel id="pnlFalseButton" Visible="true">
+      <com:TButton Cssclass="btn btn-warning" OnClick="Submittion"
+        style="font-family:BYekan;color:#ecf0f1;margin: 0 auto; display: block;font-size:18px;margin-top:2.3em"
+        Text="ادامه فرآیند خرید" />
+    </com:TActivePanel>
+  </section>
+
+
+
+</com:TContent>

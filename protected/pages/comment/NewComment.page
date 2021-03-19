@@ -1,0 +1,191 @@
+<%@ MasterClass="Application.layouts.HeaderFooterLayout"نظر جدید" %>
+<com:TContent id="content">
+
+
+	<style>
+		.font {
+			font-family: 'BYekan';
+		}
+
+		.font1 {
+			font-family: 'DiodrumArabicBold';
+		}
+
+		.nav-direction {
+			font-family: 'BYekan';
+			direction: rtl;
+		}
+
+		.persian {
+			font-family: 'BYekan';
+			direction: rtl;
+			/* text-align:right; */
+		}
+
+		.text:hover {
+			padding-top: 2em;
+		}
+
+		.background {
+			background: url(image/home/search-box.jpg) no-repeat;
+			width: 30px;
+			height: 30px;
+			background-size: contain;
+			margin-left: -0.4em;
+			border-bottom-right-radius: 8px;
+			border-top-right-radius: 8px;
+		}
+
+		@media screen and (min-width: 200px) and (max-width: 1250px) {
+			.awesome-icon {
+				font-size: 2em;
+			}
+		}
+
+		#hekl2 {
+			font-size: 14.5px;
+		}
+
+		a {
+			color: black;
+		}
+	</style>
+
+
+	<div class="hero-wrap" style="height:576px;;text-align:center;background-image: url(<com:TLiteral id="lit_slider1_img" />);" data-stellar-background-ratio="0.5">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row no-gutters slider-text align-items-center justify-content-center">
+			<div style="background-color:transparent;text-align:center;margin-top:-4em"
+				class="col-md-8 ftco-animate d-flex align-items-end">
+				<div style="color:black" class="w-100 font">
+					<h1 style="font-family:DiodrumArabicBold;font-size: 4em;"><span style="text-align:center">
+							<com:TLiteral id="lit_slider1_title" /></span></h1>
+					<p>
+						<com:TLiteral id="lit_slider1_desc" />
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+
+	<section class="ftco-intro">
+		<div class="container">
+			<div class="row no-gutters">
+				<div class="col-md-4 d-flex">
+					<div style="text-color:black" class="intro d-lg-flex w-100 ftco-animate">
+						<span style="color:black;text-align:center;margin-top:-0.5em"
+							class="awesome-icon fa fa-phone"></span>
+						<div class="text">
+							<br>
+							<h2 class="header_text" id="hekl"
+								style="color:black;direction:rtl;text-align:right;font-family:DiodrumArabicBold">
+								پشتیبانی آنلاین</h2>
+							<hr>
+							<p class="font" style="color:black;direction:rtl;text-align:right;">
+								تیم جزیره کتاب با پشتیبانی آنلاین در خدمت شما است
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-flex">
+					<div style="text-color:black" class="intro d-lg-flex w-100 ftco-animate">
+						<span style="color:black;text-align:center;margin-top:-0.5em"
+							class="awesome-icon fa fa-money"></span>
+						<div class="text">
+							<br>
+							<h2 id="hekl2" class="font"
+								style="color:black;direction:rtl;text-align:right;font-family:DiodrumArabicBold;">
+								بازگشت وجه در صورت نارضایتی</h2>
+							<hr>
+							<p class="font" style="color:black;direction:rtl;text-align:right;">
+								در صورت نارضایتی از کالا، وجه قابل بازگشت خواهد بود
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-flex">
+					<div style="text-color:black" class="intro d-lg-flex w-100 ftco-animate">
+						<span style="color:black;text-align:center;margin-top:-0.5em"
+							class="awesome-icon fa fa-truck"></span>
+						<div class="text">
+							<br>
+							<h2 class="font"
+								style="color:black;direction:rtl;text-align:right;font-family:DiodrumArabicBold;font-size:14px">
+								ارسال به سراسر کشور</h2>
+							<hr>
+							<p class="font" style="color:black;direction:rtl;text-align:right;">
+								تمامی محصولات به سراسر کشور ارسال خواهند شد
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<br>
+	<br>
+
+
+	<div class="container">
+		<com:TActivePanel id="pnlAfterAdd" Visible="false" style="width: 1140px;">
+			<p class="bg-success"
+				style="text-align: center;padding: 10px; border-radius: 5px; font-family:yekan; font-size: 15px;color:white">
+				.ارسال نظر جدید با موفقیت انجام شد
+			</p>
+		</com:TActivePanel>
+		<div class="row justify-content-center mb-5">
+			<div class="col-md-7 text-center" style="font-family:yekan;">
+				<h2 class="font-weight-light text-black" style="font-family:DiodrumArabicBold;">نظرات کاربران</h2>
+				<p class="color-black-opacity-5" style="font-family:yekan;">نظرتان را با ما در میان بگذارید</p>
+			</div>
+		</div>
+		<div class="row mb-3 align-items-stretch" align="right">
+			<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:right;">
+				<label class="control-label col-md-4 col-sm-12 col-xs-12"
+					style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;"> موضوع
+					پیام:</label>
+				<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+					<com:TActiveTextBox id="title" Cssclass="form-control"
+						style="font-size:15px;font-family:Yekan;direction: rtl;" Attributes.placeholder="موضوع  " />
+				</div>
+			</div>
+			<div class="form-group col-md-6 col-sm-12 col-xs-12" style="float:left;">
+				<label class="control-label col-md-4 col-sm-12 col-xs-12"
+					style="float:right;font-size:15px;font-family:Yekan;margin-top: 7px;direction: rtl;">نام
+					فرستنده:</label>
+				<div class="col-md-8 col-sm-12 col-xs-12" style="float:left;">
+					<com:TActiveTextBox id="txtSender" Cssclass="form-control"
+						style="font-size:15px;font-family:Yekan;direction: rtl;" Attributes.placeholder="فرستنده  " />
+				</div>
+			</div>
+
+			<div class="form-group col-md-12 col-sm-12 col-xs-12" style="float:right;" align="right">
+				<p style="direction: rtl;font-family:yekan; font-size:15px; margin-right: 12px; "><span
+						class="glyphicon glyphicon-edit"></span> متن پیام :
+					<div class="table-responsive">
+						<com:THtmlArea id="htmlAreaDesc" Cssclass="form-group col-md-12 col-sm-12 col-xs-12"
+							width="1100px" Height="300px">
+							<prop:Options>
+								theme : "advanced",
+								theme_advanced_resize_horizontal : false,
+								theme_advanced_resizing : true
+							</prop:Options>
+						</com:THtmlArea>
+					</div>
+			</div>
+			<br>
+		</div>
+		<div class="row">
+			<div class="col-12 text-center">
+				<com:TButton Cssclass="btn btn-warning border-2 py-3 px-5" OnClick="send"
+					style="font-family:DiodrumArabicBold;margin-bottom: 50px;" Text="ارسال نظر" />
+			</div>
+		</div>
+	</div>
+
+</com:TContent>

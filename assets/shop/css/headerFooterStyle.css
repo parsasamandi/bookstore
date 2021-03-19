@@ -1,0 +1,452 @@
+
+@font-face {
+    font-family: "DiodrumArabicBold";
+    src: url("assets/shop/fonts/dambeldor.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "BYekan";
+    src: url("assets/shop/fonts/byekan.ttf");
+}
+
+
+.background {
+    background: url(image/home/search-box.jpg) no-repeat;
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    margin-left: -0.4em;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.font {
+    font-family: 'BYekan';
+}
+
+.font1 {
+    font-family: 'DiodrumArabicBold';
+}
+
+.nav-direction {
+    font-family: 'BYekan';
+    direction: rtl;
+}
+
+.persian {
+    font-family: 'BYekan';
+    direction: rtl;
+    /* text-align:right; */
+}
+
+.text:hover {
+    padding-top: 2em;
+}
+
+.background {
+    background: url(image/home/search-box.jpg) no-repeat;
+    width: 30px;
+    height: 40px;
+    background-size: contain;
+    /* margin-left:-0.4em; */
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+
+.topnav {
+    overflow: hidden;
+    background-color: white;
+}
+
+.topnav a {
+    float: right;
+    display: block;
+    color: black;
+    font-family: 'BYekan';
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15.5px;
+}
+
+.active1 {
+    color: white;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.dropdown1 {
+    float: right;
+    overflow: hidden;
+}
+
+.dropdown1 .dropbtn1 {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: right;
+}
+
+.topnav a:hover,
+.dropdown1:hover .dropbtn1 {
+    background-color: lightgray;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background-color: lightgray;
+    color: black;
+}
+
+.dropdown1:hover .dropdown-content {
+    display: flow-root;
+}
+
+.awesome-icon {
+    font-size: 3em;
+}
+
+.idea {
+    font-size: 0.7em;
+}
+
+@media screen and (max-width: 1250px) {
+
+    .topnav a,
+    .dropdown1 .dropbtn1 {
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .topnav.responsive {
+        position: relative;
+    }
+
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .topnav.responsive .dropdown1 {
+        float: none;
+    }
+
+    .topnav.responsive .dropdown-content {
+        position: relative;
+    }
+
+    .topnav.responsive .dropdown1 .dropbtn1 {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    .txt_search{
+        margin-top:1em;
+        margin-left:5em;
+        font-size:15px;
+        font-family:'BYekan';
+        direction: rtl;
+        height:30px;
+        width:150px;
+        padding-bottom:-3em;
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 1250px) {
+    .awesome-icon {
+        font-size: 2em;
+    }
+
+    .idea {
+        font-size: 20px;
+    }
+
+    
+    .txt_search{
+        margin-top:1em;
+        margin-left:1em;
+        font-size:15px;
+        font-family:'BYekan';
+        direction: rtl;
+        height:30px;
+        width:150px;
+        padding-bottom:-3em;
+    }
+
+    /* top navigation bar responsive */
+    .nav_style {
+        margin-right: 0.3em;
+        padding-left: 0.3em;
+        float: right;
+        font-family: 'BYekan';
+        font-size: 13px;
+        margin-top: 0.5em;
+    }
+
+    #nav_style {
+        margin-right: 0.9em;
+        padding-left: 0.3em;
+        float: right;
+        font-family: 'BYekan';
+        font-size: 13px;
+        margin-top: 0.5em;
+    }
+
+    .icon_style {
+        font-size: 13px;
+        margin-top: 0.5em;
+        margin-right: 0.3em;
+        padding-left: 1em;
+        float: left;
+        font-family: 'BYekan'
+    }
+
+    #icon_style {
+        font-size: 13px;
+        margin-top: 0.5em;
+        margin-right: 0.3em;
+        padding-left: 1em;
+        float: left;
+        font-family: 'BYekan';
+    }
+}
+
+@media screen and (min-width: 1259px) {
+
+    /* top navigation bar */
+    .nav_style {
+        padding-left: 1em;
+        float: right;
+        font-family: 'BYekan';
+        font-size: 13px;
+        margin-top: 0.5em;
+    }
+
+    #nav_style {
+        padding-left: 1em;
+        float: right;
+        font-family: 'BYekan';
+        font-size: 13px;
+        margin-top: 0.5em;
+        margin-right: 11em;
+    }
+
+    .icon_style {
+        font-size: 13px;
+        margin-top: 0.5em;
+        margin-right: 0.3em;
+        padding-left: 1em;
+        float: left;
+        font-family: 'BYekan'
+    }
+
+    #icon_style {
+        font-size: 13px;
+        margin-top: 0.5em;
+        margin-right: 0.3em;
+        padding-left: 1em;
+        float: left;
+        font-family: 'BYekan';
+        margin-left: 11em;
+    }
+
+    
+    .txt_search{
+        margin-top:1em;
+        margin-left:10em;
+        font-size:15px;
+        font-family:'BYekan';
+        direction: rtl;
+        height:30px;
+        width:150px;
+        padding-bottom:-3em;
+    }
+    .nav_margin{
+        margin-right:8em;
+        background-color: white;
+    }
+}
+
+a {
+    color: black;
+}
+
+.carousel-cell {
+    width: 23%;
+    height: 450px;
+    margin-right: 10px;
+    border-radius: 5px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.carousel-cell.is-selected {
+    background-color: #f5f5f5;;
+}
+
+.carousel-cell:before {
+    display: block;
+    text-align: center;
+    line-height: 200px;
+    font-size: 80px;
+    color: #f5f5f5;
+}
+
+.m-padding a {
+    margin: 5px;
+    background: #ccc;
+    display: block;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card-content,
+.card-content .title,
+.card-content .subtitle {
+    background-color: #3f3f3f;
+    color: #ccc;
+}
+
+.slider-navigation-previous {
+    left: 10px;
+}
+
+.slider-navigation-next {
+    right: 10px;
+}
+
+.container1 {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 18px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+
+    select.list-dt:focus {
+        border-bottom: 2px solid skyblue
+    }
+
+    .card {
+        z-index: 0;
+        border: none;
+        border-radius: 0.5rem;
+        position: relative
+    }
+
+
+
+    .c-profile-stats {
+        background-color: #fff;
+        -webkit-box-shadow: 0 12px 12px 0 hsla(0, 0%, 71%, .1);
+        box-shadow: 0 12px 12px 0 hsla(0, 0%, 71%, .1);
+        border: 1px solid #dedede;
+        margin-bottom: 23px;
+        padding-bottom: 43px;
+        height: calc(100% - 68px);
+    }
+
+    .c-profile-stats__row {
+        display: -ms-flexbox;
+        display: -webkit-box;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: 0;
+        margin-left: 0;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    .c-profile-stats__col:first-child {
+        border-right: none;
+    }
+
+    .c-profile-stats__col {
+        position: relative;
+        width: 100%;
+        text-align: right;
+        font-family: 'BYekan';
+        color: Black;
+        min-height: 1px;
+        -ms-flex: 0 0 50%;
+        -webkit-box-flex: 0;
+        flex: 0 0 50%;
+        max-width: 50%;
+        border-right: 1px solid #f1f1f1;
+        padding: 20px 30px;
+    }
+
+    
+    .c-profile-stats__action {
+        padding: 10px 5px 17px;
+        text-align: center;
+        border-top: 1px solid #f1f1f1;
+        font-size: 12px;
+        font-size: .857rem;
+        line-height: 1.833;
+        position: absolute;
+        font-family: 'BYekan';
+        left: 0;
+        right: 0;
+        margin-top: -1px;
+    }
+
+    
+
+    .o-headline--profile {
+        padding-left: 0;
+        text-align: right;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+        color: #858585;
+        margin: 10px 0 15px;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
